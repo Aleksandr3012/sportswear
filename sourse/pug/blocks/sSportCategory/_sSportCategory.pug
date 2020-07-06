@@ -1,0 +1,25 @@
+mixin sSportCategoryItem(img,t)
+	+b.sSportCategoryItem(href="#")&attributes(attributes)
+		img.lazy(src="#" data-src=`img/@2x/${img}.jpg`, alt="")
+		+e.text.h1= t
+
+mixin sSportCategory()
+	// start sSportCategory
+	+b.SECTION.sSportCategory.section#sSportCategory&attributes(attributes)
+		.container
+			+section-title-vertical('Sports')
+			.row.mb-4
+				.col-md-6.col-xl-4
+					+sSportCategoryItem('sportCategory-1','Trail run')
+				.col-md-6.col-xl-4
+					+sSportCategoryItem('sportCategory-2','Tourism')
+				.col-md-6.col-xl-4
+					+sSportCategoryItem('sportCategory-3','Skee')
+				.col-md-6.col-xl-4
+					+sSportCategoryItem('sportCategory-4','Crossfit')(class="d-none d-sm-block")
+				.col-md-6.col-xl-4
+					+sSportCategoryItem('sportCategory-5','Climbing')(class="d-none d-sm-block")
+				.col-md-6.col-xl-4
+					+sSportCategoryItem('sportCategory-6','Run')(class="d-none d-sm-block")
+			+e.showAll.btn.btn-outline-primary(href="#") show all
+	// end sSportCategory

@@ -1,0 +1,65 @@
+// start .sSportCategory
+.sSportCategory {
+	padding-top: rem(20);
+	padding-bottom: rem(60);
+	.container {
+		position: relative;
+	}
+
+	.row{
+		@include roww(23px);
+	}
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-up(xs) {}
+	
+	//
+	@include media-breakpoint-between(md, xl) { }
+	
+	
+	//
+	@include media-breakpoint-only(xs) {}
+	@include media-breakpoint-only(sm) {}
+	@include media-breakpoint-only(md) {}
+	@include media-breakpoint-only(lg) {}
+	@include media-breakpoint-only(xl) {}
+	
+	//
+	@include media-breakpoint-down(xl) {}
+	@include media-breakpoint-down(lg) {}
+	@include media-breakpoint-down(md) {}
+	@include media-breakpoint-down(sm) {}
+	@include media-breakpoint-down(xs) {} 
+
+} // end.sSportCategory
+
+.sSportCategoryItem {
+	position: relative;
+	overflow: hidden;
+	display: block;
+	margin-bottom: rem(24);
+	border-radius: $em-base;
+	box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+	min-height: rem(168px);
+
+	&:hover img {
+		transform: scale(1.1) translate(-45.5%,-45.5%);
+	}
+
+	img {
+		@include a-cent;
+		@include mt();
+		width: 101%;
+		min-height: 100%;
+	}
+
+	&__text {
+		@include a-cent;
+		color: $white;
+		font-weight: 700;
+		font-style: italic;
+
+	}
+}
