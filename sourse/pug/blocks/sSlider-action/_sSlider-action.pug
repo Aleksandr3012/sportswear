@@ -1,9 +1,20 @@
 mixin sSlider-action()
 	// start sSlider-action
-	+b.SECTION.sSlider-action.section#sSlider-action&attributes(attributes)
+	+b.sSlider-action#sSlider-action&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 sSlider-action
-				
-			.row
+			+section-title-vertical('Action')
+			.sSlider-action--js.swiper-container
+				.swiper-wrapper
+					mixin sliderSlide(img)
+						.swiper-slide
+							+e.sliderSlide
+								+e.body
+									img.swiper-lazy.res-i(src="#" data-src=`img/@2x/slider-action-${img}.png`, alt="")
+									+e.title 20% off #[span on clothes]
+					+sliderSlide('1')
+					+sliderSlide('2')
+					+sliderSlide('3')
+
+
+
 	// end sSlider-action

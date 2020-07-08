@@ -5,11 +5,13 @@ include ../blocks/sContent/_sContent.pug
 include ../blocks/sContact/_sContact.pug 
 include ../blocks/sSportCategory/_sSportCategory.pug 
 include ../blocks/sSlider-action/_sSlider-action.pug 
+include ../blocks/sBlog/_sBlog.pug 
+include ../blocks/sWeAreDifferent/_sWeAreDifferent.pug 
 
 block variables
 	- let  mainPage= null
 block title
-	- let  title= 'title'
+	- let  title= 'Sportswear'
 	title= title
 block pagecontent 
 	//- +mob-mnu()
@@ -22,5 +24,7 @@ block pagecontent
 	//- +sContact()
 	+sSportCategory()
 	+sSlider-action()
+	+sBlog()
+	+sWeAreDifferent()
 	+footer()
 	

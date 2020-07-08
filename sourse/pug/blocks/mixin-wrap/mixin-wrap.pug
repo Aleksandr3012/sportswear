@@ -12,6 +12,14 @@ mixin section-title-vertical(t)
 	+b.section-title-vertical
 		h2= t
 
+mixin tools()
+	+b.tools&attributes(attributes)
+		+e.share
+			img(src="img/svg/views.svg", alt="")
+			span 18
+		+e.share
+			img(src="img/svg/share.svg", alt="")
+			span 16
 
 mixin arrow()
 	.swiper-button-hand.swiper-button-hand-prev.swiper-button-prev

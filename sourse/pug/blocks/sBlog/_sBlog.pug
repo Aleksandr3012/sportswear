@@ -1,0 +1,59 @@
+mixin blogItem(lg,img,title,text)
+	+b.blogItem&attributes(attributes)
+		if lg
+			.row
+				.col-sm-6
+					+e.imgWrap
+						img.lazy.res-i(src="#" data-src=`img/@2x/blogItem-${img}.jpg` alt="")
+				.col-sm-6
+					+e.textBlock
+						+e.catagory(href="#") wear
+						+e.date 18.05.20
+						+e.title.h6= title
+						if text
+							+e.descr= text
+						+tools()
+		else
+			+e.textBlock
+				if img
+					+e.imgBg.picture-bg
+						img.lazy.res-i(src="#" data-src=`img/@2x/blogItem-${img}.jpg` alt="")
+				+e.catagory(href="#") wear
+				+e.date 18.05.20
+				+e.title.h6= title
+				+e.descr= text
+				+tools()
+
+
+mixin sBlog()
+	// start sBlog
+	+b.SECTION.sBlog.section#sBlog&attributes(attributes)
+		+e.imgWrap.picture-bg
+			img.lazy(data-src="img/@2x/blog-bg.jpg", alt="")
+		.container
+			+b.section-title
+				h2 Blog
+			.row
+				.col-xl-6
+					+blogItem('lg','1','Mountaineering video tutorial','"Video mountaineering tutorial" in Russian from the Sport-Marathon team and Vladimir Molodozhen. A clear demonstration of the basic techniques of mountaineering ...')(class="bg-gray")
+				.col-xl-6
+					.row
+						.col-sm-6
+							+blogItem('','2','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue Mountaineering video tutorial')(class="imgBg")
+						.col-sm-6
+							+blogItem('','3','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue Mountaineering video tutorial')(class="imgBg")
+				.col-xl-6
+					.row
+						.col-sm-6
+							.row
+								.col-12
+									+blogItem('','','Mountaineering video tutorial')
+								.col-12
+									+blogItem('','','Mountaineering video tutorial')
+						.col-sm-6
+							+blogItem('','4','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue Mountaineering video tutorial')(class="imgBg")
+				.col-xl-6
+					+blogItem('lg','5','Mountaineering video tutorial','"Video mountaineering tutorial" in Russian from the Sport-Marathon team and Vladimir Molodozhen. A clear demonstration of the basic techniques of mountaineering ...')
+			+e.see-more.btn.btn-outline-primary(href="#") see more
+
+	// end sBlog

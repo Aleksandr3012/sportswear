@@ -1,7 +1,27 @@
 .footer {
-		
+	padding-top: rem(48);
+	padding-bottom: rem(30);
+	background-color: $primary;
+	color: #fff;
+	font-size: $small;
 
+	a {
+		color: #fff;
+	}
 
+	li {
+		list-style: none;
+	}
+
+	&__title {
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+
+	&__menu {
+		margin-right: rem(80);
+		line-height: 2;
+	}
 // 
 @include media-breakpoint-up(xl) {}
 

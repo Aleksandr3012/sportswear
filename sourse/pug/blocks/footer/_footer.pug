@@ -1,4 +1,28 @@
 mixin footer()
 	+b.FOOTER.footer.block-with-lazy
 		.container
-			h2 footer
+			.row
+				.col.order-xl-last
+					.h4 Be the first to know
+					p Sign up&nbsp;to&nbsp;our newsletter and keep up&nbsp;to&nbsp;date about Osprey products and promotions
+					+input('Email adress','email')
+				.col-auto.d-flex
+					+e.menu
+						+e.title catalog
+						ul
+							li: a(href="#") New items
+							li: a(href="#") Sports
+							li: a(href="#") Brands
+							li: a(href="#") Stocks
+					+e.menu
+						+e.title information
+						ul
+							li: a(href="#") Shipping and payment
+							li: a(href="#") Exchange and Return
+							li: a(href="#") Discount system
+							li: a(href="#") Offer
+				.col
+					+e.title contacts
+					+e.tel(href="tel:+441202946444") + 44 1202 946444
+					+e.soc Our social networks
+					+soc()

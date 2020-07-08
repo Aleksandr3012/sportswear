@@ -126,8 +126,8 @@ function eventHandler() {
 	JSCCommon.mobileMenu();
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-
-	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>'); // /добавляет подложку для pixel perfect
+	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
+	// /добавляет подложку для pixel perfect
 	// const url = document.location.href;
 	// $.each($(".top-nav__nav a "), function() {
 	// 	if (this.href == url) {
@@ -183,7 +183,16 @@ function eventHandler() {
 	}, _defineProperty(_objectSpread2, "watchOverflow", true), _defineProperty(_objectSpread2, "slidesPerGroup", 3), _defineProperty(_objectSpread2, "loop", true), _defineProperty(_objectSpread2, "loopFillGroupWithBlank", true), _defineProperty(_objectSpread2, "touchRatio", 0.2), _defineProperty(_objectSpread2, "slideToClickedSlide", true), _defineProperty(_objectSpread2, "freeModeMomentum", true), _defineProperty(_objectSpread2, "navigation", {
 		nextEl: '.swiper-button-next',
 		prevEl: '.swiper-button-prev'
-	}), _objectSpread2))); // modal window
+	}), _objectSpread2)));
+	var swiper1 = new Swiper('.sSlider-action--js', {
+		slidesPerView: 1,
+		spaceBetween: 100,
+		slidesPerGroup: 1,
+		loop: true,
+		lazy: {
+			loadPrevNext: true
+		}
+	}); // modal window
 
 	var gets = function () {
 		var a = window.location.search;

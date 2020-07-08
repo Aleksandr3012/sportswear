@@ -37,15 +37,38 @@
 .section-title-vertical {
 	
 	h2 {
-		position: absolute;
-		top: rem(54);
 		letter-spacing: 0.1em;
-		left: rem(-33);
-		text-transform: uppercase;
-		font-size: $small;
-		color: $primary;
 		font-weight: 700;
-		transform: rotate(-90deg);
+		font-size: $small;
+		text-transform: uppercase;
+		@include media-breakpoint-only(xl) {
+			z-index: 2;
+			position: absolute;
+			top: rem(54);
+				left: rem(-33);
+			color: $primary;
+			transform: rotate(-90deg);
+		}
+	}
+}
+
+.tools {
+	display: flex;
+	margin-top: rem(17);
+
+	&__share {
+		cursor: pointer;
+		margin-right: rem(16);
+		display: block;
+	}
+
+	img {
+		margin-right: rem(5);
+	}
+
+	span {
+		color: $secondary;
+		font-size: $xsmall;
 	}
 }
 

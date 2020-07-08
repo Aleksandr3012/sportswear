@@ -1,7 +1,47 @@
+// start .sSlider-action
+.sSlider-action {
+	padding-top: rem(20);
+	padding-bottom: rem(40);
+	.container {
+		position: relative;
+	}
 
-	// start .sSlider-action
-	.sSlider-action {
-		 
+	.section-title-vertical {
+		@include media-breakpoint-down(xl) {
+			display: none;
+		}
+	}
+
+	&__sliderSlide {
+		position: relative;
+	}
+	
+	img {
+		transform: skewX(-10deg);
+		border-radius: $em-base;
+
+	}
+
+	
+	&__title {
+		position: absolute;
+		@include a-cent;
+		font-size: rem(64);
+		color: #fff;
+		font-style: italic;
+		font-weight: bold;
+		text-transform: uppercase;
+		width: 100%;
+		text-align: center;
+		span {
+			font-weight: normal;
+
+		}
+	}
+
+	.swiper-container {
+		overflow: visible;
+	}
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
 	@include media-breakpoint-up(md) {}
