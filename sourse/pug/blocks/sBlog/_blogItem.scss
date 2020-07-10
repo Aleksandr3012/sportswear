@@ -38,7 +38,9 @@
 	}
 
 	&__col {
-		max-width: rem(350) !important;
+		@include media-breakpoint-up(md) {
+			max-width: rem(350) !important;
+		}
 		@include media-breakpoint-up(lg) {
 			max-width: rem(303) !important;
 		}
@@ -55,6 +57,8 @@
 	&__imgWrap {
 		margin-right: rem(-10);
 		position: relative;
+		display: flex;
+		justify-content: center;
 
 	}
 	
