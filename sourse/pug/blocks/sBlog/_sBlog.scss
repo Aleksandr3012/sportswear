@@ -1,16 +1,48 @@
 // start .sBlog
 .sBlog {
-	padding-top: rem(20);
+	padding-top: rem(50);
+	@include media-breakpoint-up(md) {
+		padding-top: rem(60);
+	}
 	padding-bottom: rem(72);
 	position: relative;
 
+	// background-image: url('../img/@2x/blog-bg.jpg');
+	// background-position: top center;
+
 	h2 {
 		color: $primary;
+		padding-left: rem(34);
+		@include media-breakpoint-up(lg) {
+			padding-left: rem(22);
+		}
+		// letter-spacing: 0.11em;
+		font-size: rem(36px);
 		font-weight: bold;
+	}
+
+	.row {
+		@include roww(24px);
+		height: 100%;
+	}
+
+	&__see-more {
+		margin-top: rem(36);
+		@include media-breakpoint-up(xl) {
+			margin-top: rem(22);
+		}
+	}
+
+	.section-title {
+		padding-bottom: rem(27);
+		@include media-breakpoint-up(lg) {
+			padding-bottom: rem(10);
+		}
 	}
 
 	&__imgWrap {
 		z-index: -5 !important;
+		object-position: top center;
 		// left: rem();
 		&::before {
 			content: '';
@@ -23,7 +55,11 @@
 		}
 
 		img {
-			width: 100%;
+			width: auto;
+			height: 100%;
+			@include media-breakpoint-up(xl) {
+				width: 100%;
+			}
 		}
 	}
 

@@ -3,7 +3,10 @@
 	padding-bottom: rem(30);
 	background-color: $primary;
 	color: #fff;
-	font-size: $small;
+	font-size: rem(15);
+	@include media-breakpoint-up(xl) {
+		font-size: $small;
+	}
 
 	a {
 		color: #fff;
@@ -19,8 +22,97 @@
 	}
 
 	&__menu {
-		margin-right: rem(80);
-		line-height: 2;
+		&:nth-child(1) {
+			margin-right: rem(77);
+			@include media-breakpoint-up(xl) {
+				margin-right: rem(82);
+			}
+		}
+		&:nth-child(2n) {
+			margin-right: rem(19);
+			@include media-breakpoint-up(xl) {
+				margin-right: rem(30);
+			}
+		}
+		line-height: 2.15;
+		@include media-breakpoint-up(xl) {
+			line-height: 2.25;
+		}
+	}
+
+	&__soc {
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	.soc {
+		margin-bottom: rem(20);
+	}
+
+	&__contacts {
+		line-height: 2.15;
+		@include media-breakpoint-up(xl) {
+			line-height: 2.25;
+		}
+	}
+
+	&__signUp {
+		max-width: rem(408);
+		@include media-breakpoint-up(xl) {
+			max-width: rem(438);
+		}
+		padding-bottom: rem(29);
+	}
+
+	&__footMenu {
+		ul {
+			@include media-breakpoint-up(sm) {
+				display: flex;
+				justify-content: space-between;
+				min-width: rem(430px);
+			}
+		}
+
+		li {
+			line-height: 2.15;
+			font-size: $xsmall;
+		}
+	}
+
+	&__copyright {
+		font-size: $xsmall;
+	}
+
+	&__row {
+		@include media-breakpoint-up(sm) {
+			padding-bottom: rem(78);
+		}
+		@include media-breakpoint-up(xl) {
+			padding-bottom: rem(62);
+		}
+	}
+
+	.form-wrap {
+		position: relative;
+
+		&__enter {
+			@include a-cent(y);
+			right: 0;
+			border: none;
+			background-color: transparent;
+		}
+	}
+
+	.h4 {
+		letter-spacing: rem(0.4);
+		padding-bottom: rem(10);
+	}
+
+	p {
+		line-height: 1.7;
+	}
+
+	&__input {
+		font-size: $small;
 	}
 // 
 @include media-breakpoint-up(xl) {}

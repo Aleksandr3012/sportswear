@@ -13,8 +13,7 @@ html {
 	width: 100%;
 	height: 100%;
 	background-position: center 0;
-	background-position: 	center -3399px;
-
+	background-position: center -4086px;
 	opacity: 0;
 	opacity: 0.7;
 }
@@ -25,9 +24,6 @@ html {
 	// @include font-size(1rem);
 }
 
-h2, .h2 {
-	@extend .h1;
-}
 
 
 .section {
@@ -397,7 +393,15 @@ iframe {
 
 .btn-outline-primary {
 	letter-spacing: rem(1.6px);
-	max-width: rem(240px);
+	max-width: rem(233px);
+	padding: rem(8);
+	@include media-breakpoint-up(sm) {
+		padding: rem(11) rem(10);
+	}
+
+	@include media-breakpoint-up(xl) {
+		max-width: rem(240px);
+	}
 	box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
 	display: flex;
 	align-items: center;
@@ -408,8 +412,6 @@ iframe {
 	border-radius: $border-radius;
 	text-transform: uppercase;
 	font-weight: 500;
-	letter-spacing: 0.1em;
-	padding: rem(11) rem(10);
 	box-shadow: none !important;
 
 	&:hover {
@@ -431,7 +433,10 @@ iframe {
 	text-transform: uppercase;
 	display: block;
 	max-width: rem(240);
-	padding: rem(12);
+	padding: rem(7);
+	@include media-breakpoint-up(sm) {
+		padding: rem(12);
+	}
 	font-weight: 500;
 	letter-spacing: rem(1.6px);
 }

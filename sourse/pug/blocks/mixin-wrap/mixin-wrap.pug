@@ -9,7 +9,7 @@ include components/pic.pug
 include components/btn.pug
 
 mixin section-title-vertical(t)
-	+b.section-title-vertical
+	+b.section-title-vertical&attributes(attributes)
 		h2= t
 
 mixin tools()

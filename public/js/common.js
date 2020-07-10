@@ -126,7 +126,7 @@ function eventHandler() {
 	JSCCommon.mobileMenu();
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
+	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/360.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
 	// const url = document.location.href;
 	// $.each($(".top-nav__nav a "), function() {
@@ -186,11 +186,15 @@ function eventHandler() {
 	}), _objectSpread2)));
 	var swiper1 = new Swiper('.sSlider-action--js', {
 		slidesPerView: 1,
-		spaceBetween: 100,
 		slidesPerGroup: 1,
 		loop: true,
 		lazy: {
 			loadPrevNext: true
+		},
+		breakpoints: {
+			768: {
+				spaceBetween: 93
+			}
 		}
 	}); // modal window
 

@@ -2,7 +2,8 @@ mixin sSlider-action()
 	// start sSlider-action
 	+b.sSlider-action#sSlider-action&attributes(attributes)
 		.container
-			+section-title-vertical('Action')
+			+section-title-vertical('Action')(class='d-none d-xl-block')
+			+section-title-vertical('Seasons')(class='d-sm-none')
 			.sSlider-action--js.swiper-container
 				.swiper-wrapper
 					mixin sliderSlide(img)

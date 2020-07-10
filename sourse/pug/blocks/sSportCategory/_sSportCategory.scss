@@ -1,13 +1,27 @@
 // start .sSportCategory
 .sSportCategory {
 	padding-top: rem(20);
-	padding-bottom: rem(60);
+	padding-bottom: rem(45);
+	@include media-breakpoint-up(sm) {
+		padding-bottom: rem(60);
+	}
+
 	.container {
 		position: relative;
 	}
 
 	.row{
 		@include roww(23px);
+		margin-bottom: 0.7rem;
+		@include media-breakpoint-up(sm) {
+			margin-bottom: 1.45rem;
+		}
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 1.86rem;
+		}
+		@include media-breakpoint-up(xl) {
+			margin-bottom: 1.5rem;
+		}
 	}
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
@@ -42,7 +56,10 @@
 	margin-bottom: rem(24);
 	border-radius: $em-base;
 	box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
-	min-height: rem(168px);
+	min-height: rem(150px);
+	@include media-breakpoint-up(sm) {
+		min-height: rem(168px);
+	}
 
 	&:hover img {
 		transform: scale(1.1) translate(-45.5%,-45.5%);
