@@ -7,6 +7,11 @@ include ../blocks/sSportCategory/_sSportCategory.pug
 include ../blocks/sSlider-action/_sSlider-action.pug 
 include ../blocks/sBlog/_sBlog.pug 
 include ../blocks/sWeAreDifferent/_sWeAreDifferent.pug 
+include ../blocks/sLogos/_sLogos.pug 
+include ../blocks/sCategories/_sCategories.pug 
+include ../blocks/sSeasons/_sSeasons.pug 
+include ../blocks/sCatalog/_sCatalog.pug 
+
 
 block variables
 	- let  mainPage= null
@@ -15,11 +20,15 @@ block title
 	title= title
 block pagecontent 
 	//- +mob-mnu()
-	+header()
+	header.header
 
-		+top-nav()
 		+topLine()  
-	+headerBlock()
+		+top-nav()
+		+headerBlock()
+		+sLogos
+	+sCategories
+	+sSeasons
+	+sCatalog
 	//- +sForm()
 	//- +sContact()
 	+sSportCategory()

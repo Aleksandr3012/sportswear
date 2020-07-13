@@ -192,7 +192,9 @@ function eventHandler() {
 	});
 
 	let defaultSl = {
-
+		lazy: {
+			loadPrevNext: true,
+		},
 	}
 	const swiper4 = new Swiper('.color-slider', {
 		// slidesPerView: 5,
@@ -218,12 +220,11 @@ function eventHandler() {
 	});
 
 	const swiper1 = new Swiper('.sSlider-action--js', {
+		...defaultSl,
 		slidesPerView: 1,
-		slidesPerGroup: 1,
+		// slidesPerGroup: 1,
 		loop: true,
-		lazy: {
-			loadPrevNext: true,
-		},
+		
 		breakpoints: {
 			768: {
 				spaceBetween: 93,
