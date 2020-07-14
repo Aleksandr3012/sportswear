@@ -54,12 +54,12 @@
 	}
 
 	&__imgWrap {
-		// @include block(252,272);
+		@include block(252,272);
 		img {
-			// @include a-cent;
-			// width: 100%;
-			// height: 100%;
-			// object-fit: contain;
+			@include a-cent;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
 		}
 	}
 
