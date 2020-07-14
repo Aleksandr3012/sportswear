@@ -21,6 +21,15 @@ mixin tools()
 			img(src="img/svg/share.svg", alt="")
 			span 16
 
+mixin controls()
+	+b.controls
+		+e.item
+			+icon('heart')
+		+e.item
+			+icon('stat')
+		+e.item
+			+icon('share')
+
 mixin arrow()
 	.swiper-button-hand.swiper-button-hand-prev.swiper-button-prev
 		+icon('chevron-left')

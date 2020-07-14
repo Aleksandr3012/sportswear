@@ -1,9 +1,43 @@
+mixin catalogItem(img,newPrice,oldPrice,category,text)
+	+b.catalogItem&attributes(attributes)
+		.row.justify-content-between
+			.col-auto
+				+e.hit hit
+			.col-auto
+				+controls()
+		+e.imgWrap(href="#")
+			img.res-i.lazy(src="" data-src=`img/@2x/category-${img}.jpg`, alt="")
+		+e.sale -20%
+		+e.newPrice= newPrice
+		+e.oldPrice= oldPrice
+		+e.category(href="#")= category
+		+e.names(href="#")= text
+
+
 mixin sCatalog()
 	// start sCatalog
 	+b.SECTION.sCatalog.section#sCatalog&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 sCatalog
-				
+			+section-title-vertical('Best offers')
 			.row
+				.col-xl-6
+					+catalogItem('1','89 €','189 €','Asics','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue')
+				.col-xl-3
+					+catalogItem('2','89 €','189 €','Grunge John Orchestra','Man`s bomber Grunge John Orchestra Toxic Olive')
+				.col-xl-3
+					+catalogItem('3','89 €','189 €','Grunge John Orchestra','Man`s bomber Grunge John Orchestra Toxic Olive')
+				.col-xl-3
+					+catalogItem('4','89 €','189 €','Garmont','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue')
+				.col-xl-3
+					+catalogItem('5','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive')
+				.col-xl-6
+					+catalogItem('6','89 €','189 €','Asics','Woman`s  jacket BRIGANDINE FUTURELIGHT PAPAYA ORANGE FUSE')(class="catalogItem--imgBg")
+				.col-xl-3
+					+catalogItem('7','89 €','189 €','Osprey','Man`s bomber Grunge John Orchestra Toxic Olive')
+				.col-xl-3
+					+catalogItem('8','89 €','189 €','Garmont','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue')
+				.col-xl-3
+					+catalogItem('9','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive')
+				.col-xl-3
+					+catalogItem('10','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive')
 	// end sCatalog

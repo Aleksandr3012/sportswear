@@ -86,3 +86,24 @@
 	}
 }
 
+
+.controls {
+	
+	.icon {
+		@include mt;
+		fill: transparent;
+		stroke: $secondary;
+		font-size: rem(20);
+	}
+
+	&__item {
+		cursor: pointer;
+		display: inline;
+
+		&:hover .icon{
+			stroke: $primary;
+		}
+	}
+
+}
+
