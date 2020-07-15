@@ -20,8 +20,32 @@ mixin mob-mnu()
 	//  мобильное меню
 mixin top-nav() 
 	// start top-nav
-	+b.top-nav.block-with-lazy
-		.container
-			+mnu()
-					
+	.container
+		+b.top-nav.block-with-lazy
+			.row
+				.col-auto
+					+b.toggle-main-menu--js
+						span
+				.col-lg-auto.col
+					+e.logo(href="/")
+						img.res-i(src="img/svg/logoText.svg", alt="")
+				.col.d-none.d-lg-block
+					ul
+						li: +e.link(href="#") New
+						li: +e.link(href="#") Clothes
+						li: +e.link(href="#") footwear
+						li: +e.link(href="#") ACTION
+						li: +e.link(href="#").text-danger Sale
+				+e.col.col-auto.d-none.d-xl-block
+					+e.link(href="#") sports
+				.col-auto 
+					+e.btn(href="#"): +icon("search")
+				.col-auto.d-none.d-sm-block 
+					+e.btn(href="#"): +icon("heart")
+				.col-auto.d-none.d-sm-block 
+					+e.btn(href="#"): +icon("stat")
+				.col-auto 
+					+e.btn(href="#"): +icon("user")
+				.col-auto 
+					+e.btn(href="#"): +icon("basket") 
 	// end top-nav

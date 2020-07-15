@@ -1,9 +1,13 @@
 mixin sLogos()
 	// start sLogos
-	+b.SECTION.sLogos.section#sLogos&attributes(attributes)
+	+b.sLogos#sLogos&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 sLogos
-				
-			.row
+			+e.slider--js.swiper-container
+				.swiper-wrapper
+					- for (var x = 1; x < 6; x++)
+						+e.slide.swiper-slide: +e.img-wrap
+							img.swiper-lazy(src="#" data-src=`img/@2x/logo-${x}.png`, alt="")
+					- for (var x = 1; x < 6; x++)
+						+e.slide.swiper-slide: +e.img-wrap
+							img.swiper-lazy(src="#" data-src=`img/@2x/logo-${x}.png`, alt="")
 	// end sLogos

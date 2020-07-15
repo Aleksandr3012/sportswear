@@ -1,31 +1,61 @@
 .top-nav {
-	padding-top: 15px;
-	// position: absolute;
-	top: 100%;
-	// @include clearfix;ss
-	z-index: 20;
-	padding-top: 3px;
-	@include mt;
-	padding-bottom: 10px;
-	top: 0;
-	left: 0;
-	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: rem(1272);
+	background-color: #ffffff;
+background: #FFFFFF;
+@include media-breakpoint-up(sm){
 
-	&.fixed {
-		width: 100vw;
-		bottom: auto;
-		margin-top: 0;
-		background-color: #fff;
+	padding: rem(4) rem(24);
+}
+padding: rem(4) rem(16);
+margin-bottom: rem(24);
+/* Preview shadow */
+
+box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+border-radius: 16px;
+a{
+	text-decoration: none !important;
+}
+.row{
+	align-items: center;
+}
+ul{
+	display: flex;
+	@include roww(rem(24));
+	margin-bottom: 0;
+	list-style: none;
+}
+&__link{
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	font-size: rem(14);
+	font-weight: bold;
+}
+&__btns-group{
+	display: flex;
+	align-items: center;
+}
+&__btn{
+	display: block;
+	padding: rem(8) 0;
+	.icon{
+		fill: transparent;
+		stroke: currentColor;
+		font-size: rem(24);
 	}
-
-	&__nav {
-		text-align: center;
-		list-style-type: none;
+}
+&__col{
+	text-align: center;
+	@include media-breakpoint-up(xl) { 
+	width: rem(300);
 	}
-
-	&__item {
-		display: inline-block;
-		list-style-type: none;
+}
+.row{
+	@include media-breakpoint-up(sm) { 
+		@include roww(rem(24));
+	}
+	@include roww(rem(15));
 	}
 
 	// 

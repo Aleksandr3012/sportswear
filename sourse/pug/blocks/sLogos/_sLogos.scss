@@ -1,7 +1,28 @@
 
 	// start .sLogos
 	.sLogos {
-		 
+		padding-top: rem(64);
+		padding-bottom: rem(64);
+		&__slider{
+			overflow: inherit;
+		}
+		&__slide{
+
+		} 
+		&__img-wrap{
+			// width: rem(192);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			/* Preview shadow */
+			
+			box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+			border-radius: 16px;
+			padding: rem(20);
+			background: #FFFFFF;
+			height: rem(128);
+			
+		 }
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
 	@include media-breakpoint-up(md) {}

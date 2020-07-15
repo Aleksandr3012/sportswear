@@ -1,6 +1,33 @@
 
 	// start .topLine
 	.topLine {
+		color: #ffffff;
+		// padding-top: rem(16);
+		padding-bottom: rem(16);
+		.row{
+			align-items: center;
+		}
+		.soc{
+			&__item{
+				color: #ffffff !important;
+			}
+		}
+		&__link{
+			color: #ffffff;
+			font-weight: bold;
+			.icon{
+				color: $danger;
+				font-size: rem(20);
+				margin-right: rem(9);
+			}
+		}
+		font-size: $small;
+		ul{
+			display: flex;
+			@include roww(rem(40));
+			list-style: none;
+			margin-bottom: 0;
+		}
 		 
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}

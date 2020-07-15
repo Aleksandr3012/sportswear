@@ -192,9 +192,13 @@ function eventHandler() {
 	});
 
 	let defaultSl = {
+		loop: true,
+		loopedSlides: 5, //looped slides should be the same
 		lazy: {
 			loadPrevNext: true,
 		},
+
+
 	}
 	const swiper4 = new Swiper('.color-slider', {
 		// slidesPerView: 5,
@@ -233,63 +237,110 @@ function eventHandler() {
 
 	});
 	// modal window
+ 
 
-	var gets = (function () {
-		var a = window.location.search;
-		var b = new Object();
-		var c;
-		a = a.substring(1).split("&");
-		for (var i = 0; i < a.length; i++) {
-			c = a[i].split("=");
-			b[c[0]] = c[1];
+	//timer
+	function tikTak(parentQselector) {
+		//html elements
+		let parent = document.querySelector(parentQselector);
+		if (!parent) return
+
+		let days = parent.querySelector('.days');
+		let hours = parent.querySelector('.hours');
+		let minutes = parent.querySelector('.minutes');
+		let seconds = parent.querySelector('.seconds');
+
+		//date elements
+		let now = new Date();
+
+		// d === days.innerHtml + now.getDate... others the same way
+		let d = getTime(days, now.getDate());
+		let h = getTime(hours, now.getHours());
+		let m = getTime(minutes, now.getMinutes());
+		let s = getTime(seconds, now.getSeconds());
+
+		let targetDate = new Date(now.getFullYear(), now.getMonth(), d, h, m, s);
+
+		//interval
+		tikTakReadOut(parent, targetDate, ThisReadOutID, days, hours, minutes, seconds);
+		let ThisReadOutID = window.setInterval(tikTakReadOut.bind(null, parent, targetDate, ThisReadOutID, days, hours, minutes, seconds), 1000);
+	}
+	tikTak('.timer-box-js');
+	//additional funcs to tikTak
+
+	function tikTakReadOut(parent, targetDate, ReadOutID, days, hours, minutes, seconds) {
+		let now = new Date();
+		let timeLeft = (targetDate - now) / 1000;
+
+		if (timeLeft < 1) {
+			window.clearInterval(ReadOutID);
+			//to do something after timer ends
+			$(parent).fadeOut();
 		}
-		return b;
-	})();
-	// form
 
+		days.innerHTML = Math.floor(timeLeft / 60 / 60 / 24);
+		timeLeft = ((timeLeft / 60 / 60 / 24) - Math.floor(timeLeft / 60 / 60 / 24)) * 60 * 60 * 24;
 
-	var gets = (function () {
-		var a = window.location.search;
-		var b = new Object();
-		var c;
-		a = a.substring(1).split("&");
-		for (var i = 0; i < a.length; i++) {
-			c = a[i].split("=");
-			b[c[0]] = c[1];
+		hours.innerHTML = Math.floor(timeLeft / 60 / 60);
+		timeLeft = ((timeLeft / 60 / 60) - Math.floor(timeLeft / 60 / 60)) * 60 * 60;
+
+		minutes.innerHTML = Math.floor((timeLeft / 60));
+		timeLeft = ((timeLeft / 60) - Math.floor((timeLeft / 60))) * 60;
+
+		seconds.innerHTML = Math.floor(timeLeft);
+	}
+
+	function getTime(htmlEl, currentTimeItem) {
+		let timeItem = Number(htmlEl.innerHTML);
+		if (timeItem) {
+			timeItem += currentTimeItem;
 		}
-		return b;
-	})();
-	// form
-	$("form").submit(function (e) {
-		e.preventDefault();
-		const th = $(this);
-		var data = th.serialize();
-		th.find('.utm_source').val(decodeURIComponent(gets['utm_source'] || ''));
-		th.find('.utm_term').val(decodeURIComponent(gets['utm_term'] || ''));
-		th.find('.utm_medium').val(decodeURIComponent(gets['utm_medium'] || ''));
-		th.find('.utm_campaign').val(decodeURIComponent(gets['utm_campaign'] || ''));
-		$.ajax({
-			url: 'action.php',
-			type: 'POST',
-			data: data,
-		}).done(function (data) {
+		else {
+			timeItem = currentTimeItem;
+		}
+		return timeItem
+	}
 
-			$.fancybox.close();
-			$.fancybox.open({
-				src: '#modal-thanks',
-				type: 'inline'
-			});
-			// window.location.replace("/thanks.html");
-			setTimeout(function () {
-				// Done Functions
-				th.trigger("reset");
-				// $.magnificPopup.close();
-				// ym(53383120, 'reachGoal', 'zakaz');
-				// yaCounter55828534.reachGoal('zakaz');
-			}, 4000);
-		}).fail(function () { });
 
+	var galleryThumbs = new Swiper('.gallery-thumbs', {
+		spaceBetween: 0,
+		slidesPerView: 'auto',
+		loop: true,
+		freeMode: true,
+		loopedSlides: 5, //looped slides should be the same
+		watchSlidesVisibility: true,
+		watchSlidesProgress: true,
 	});
+
+	var galleryTop = new Swiper('.gallery-top', {
+		...defaultSl,
+		spaceBetween: 20,
+		thumbs: {
+			swiper: galleryThumbs,
+		},
+	});
+	
+	var galleryTop2 = new Swiper('.sLogos__slider--js', {
+		...defaultSl,
+		spaceBetween: 24,
+		// freeMode: true,
+		// watchSlidesVisibility: true,
+		// watchSlidesProgress: true,
+		breakpoints: {
+			
+			1200: {
+				freeMode: false,
+				slidesOffsetBefore: -80,
+				slidesOffsetAfter: -80,
+				spaceBetween: 24,
+				watchSlidesVisibility: false,
+				watchSlidesProgress: false,
+				slidesPerView: 6,
+			}
+		}
+		 
+	});
+
 
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 	if (isIE11) {

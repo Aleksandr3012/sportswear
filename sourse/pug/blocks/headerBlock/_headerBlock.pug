@@ -1,10 +1,53 @@
 mixin headerBlock()
 	// start headerBlock
-	+b.headerBlock.section#headerBlock&attributes(attributes)
+	+b.headerBlock#headerBlock&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 headerBlock ds dfsdfdsfsd
+			+e.slider-lg--js.swiper-container.gallery-top
+				.swiper-wrapper
+					- for (var x = 1; x < 5; x++)
+						+e.slide-lg.swiper-slide
+							.row
+								.col-4
+									+e.caption
+										+e.label  New &mdash; actions
+										+e.title Nike Sportswear  Icon Clash
+										+e.stock-wrap
+											+e.stock 
+												span - 20%
+										+e.price
+											+e.price-new 89 €
+											+e.price-old 189 €
+										+b.timer-box.timer-box-js
+											+e.item
+												.days 2
+												+e.small day
+											+e.item
+												.hours  17
+												+e.small hr
+											+e.item
+												.minutes 35
+												+e.small min
+											+e.item
+												.seconds 17
+												+e.small sec
 
-			.row
-						
-	// end headerBlock
+										+e.btn(href="#") Get it now!
+
+								.col-8
+									+e.img-wrap.bg-wrap
+										img.img-bg.object-fit-js(src=`img/@2x/head-slide-${x}.jpg`, alt="")
+										+e.icons-group
+											+e.btn-icon: +icon("heart")
+											+e.btn-icon: +icon("stat")
+											+e.btn-icon: +icon("share")
+										+e.play(href="https://www.youtube.com/watch?v=2pOafFHlvPE" data-fancybox="video-slide")
+			+e.slider-sm-wrap
+				+e.slider-sm--js.swiper-container.gallery-thumbs
+					.swiper-wrapper
+						- for (var x = 1; x < 5; x++)
+							+e.slide-sm.swiper-slide
+								+e.img-wrap-sm.bg-wrap
+									img.img-bg.object-fit-js(src=`img/@1x/head-slide-${x}.jpg`, alt="")
+								+e.title-sm Nike Sportswear Icon Clash
+
+	// end headerBlock 

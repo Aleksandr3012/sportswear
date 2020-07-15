@@ -1,6 +1,12 @@
 
 	// start .header
 	.header {
+		padding-top: rem(16);
+	.picture-bg{
+		img{
+			object-position: top;
+		}
+	}
 		 
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
