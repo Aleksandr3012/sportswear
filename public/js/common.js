@@ -155,10 +155,10 @@ function eventHandler() {
 				$('.top-nav  ').removeClass('fixed');
 			}
 		}); // конец добавил
+	}
 
-		if (window.matchMedia("(min-width: 992px)").matches) {
-			JSCCommon.closeMenu();
-		}
+	if (window.matchMedia("(min-width: 992px)").matches) {
+		$(".main-categories-wrap:first-child, .main-nav__nav ul:first-child li:first-child").addClass('active');
 	}
 
 	$(window).resize(function () {
@@ -311,15 +311,24 @@ function eventHandler() {
 			}
 		}
 	}));
-	$(".main-nav [data-tab]").hover(function () {
+	$(".main-nav [data-tab] a").hover(function () {
+		var dataTab = $(this).parent().data('tab');
+		$('[data-tab]').removeClass('active');
+		$(this).parent().addClass('active').siblings().removeClass('active');
+		$(dataTab).addClass('active').siblings().removeClass('active');
+		return false;
+	});
+	$(".main-nav [data-tab]").click(function () {
 		var dataTab = $(this).data('tab');
 		$('[data-tab]').removeClass('active');
 		$(this).addClass('active').siblings().removeClass('active');
 		$(dataTab).addClass('active').siblings().removeClass('active');
+		return false;
 	});
 	$(".toggle-main-menu--js").click(function () {
 		$(this).toggleClass('on');
 		$(".main-nav").toggle();
+		$("body").toggleClass('fixed');
 	}); //luckyone JS
 	//02 prod card
 	//breadcrumbs
