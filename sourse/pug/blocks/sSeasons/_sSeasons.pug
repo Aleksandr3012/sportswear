@@ -2,8 +2,17 @@ mixin sSeasons()
 	// start sSeasons
 	+b.SECTION.sSeasons.section#sSeasons&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 sSeasons
-				
-			.row
+			+section-title-vertical('seasons')
+			.seasonsSlider-js.swiper-container
+				.swiper-wrapper
+					mixin slide(i,t)
+						.swiper-slide
+							+e.sliderSlide(href="#")
+								+e.DIV.body
+									img.swiper-lazy.res-i(src="#" data-src=`img/@2x/seasons-${i}.jpg`, alt="")
+									+e.text.h4= t
+					+slide('1','Summer')
+					+slide('2','off season')
+					+slide('3','winter')
+
 	// end sSeasons

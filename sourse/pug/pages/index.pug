@@ -9,6 +9,7 @@ include ../blocks/sBlog/_sBlog.pug
 include ../blocks/sWeAreDifferent/_sWeAreDifferent.pug 
 include ../blocks/sLogos/_sLogos.pug 
 include ../blocks/sCategories/_sCategories.pug 
+include ../blocks/sCategory/_sCategory.pug 
 include ../blocks/sSeasons/_sSeasons.pug 
 include ../blocks/sCatalog/_sCatalog.pug 
 
@@ -28,11 +29,10 @@ block pagecontent
 		+top-nav()
 		+headerBlock()
 		+sLogos
-	+sCategories
+	//- +sCategories
+	+sCategory
 	+sSeasons
 	+sCatalog
-	//- +sForm()
-	//- +sContact()
 	+sSportCategory()
 	+sSlider-action()
 	+sBlog()

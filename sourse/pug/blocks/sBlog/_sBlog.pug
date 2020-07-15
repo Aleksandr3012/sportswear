@@ -5,10 +5,10 @@ mixin blogItem(lg,img,title,text)
 				.col-md
 					+e.textBlock
 						+e.category(href="#") wear
-						+e.date 18.05.20
-						+e.title.h6= title
+						+e.date(href="#") 18.05.20
+						+e.title.h6(href="#")= title
 						if text
-							+e.descr= text
+							+e.descr(href="#")= text
 						+tools()
 				+e.col.col-md-auto.order-md-first
 					+e.imgWrap
@@ -19,7 +19,7 @@ mixin blogItem(lg,img,title,text)
 					+e.imgBg.picture-bg
 						img.lazy.res-i(src="#" data-src=`img/@2x/blogItem-${img}.jpg` alt="")
 				+e.category(href="#") wear
-				+e.date 18.05.20
+				+e.date(href="#") 18.05.20
 				+e.title.h6(href="#")= title
 				if text
 					+e.descr(href="#")= text

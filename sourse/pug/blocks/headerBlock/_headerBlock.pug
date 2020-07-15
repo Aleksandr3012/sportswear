@@ -2,14 +2,24 @@ mixin headerBlock()
 	// start headerBlock
 	+b.headerBlock#headerBlock&attributes(attributes)
 		.container
+			.section-title-vertical.d-none.d-xl-block
+				h2  Special offer
 			+e.slider-lg--js.swiper-container.gallery-top
 				.swiper-wrapper
 					- for (var x = 1; x < 5; x++)
 						+e.slide-lg.swiper-slide
 							.row
-								.col-4
+								.col-md
+									+e.img-wrap.bg-wrap
+										img.img-bg.object-fit-js(src=`img/@2x/head-slide-${x}.jpg`, alt="")
+										+e.icons-group
+											+e.btn-icon: +icon("heart")
+											+e.btn-icon: +icon("stat")
+											+e.btn-icon: +icon("share")
+										+e.play(href="https://www.youtube.com/watch?v=2pOafFHlvPE" data-fancybox="video-slide")
+								.col-md-4.order-md-first
 									+e.caption
-										+e.label  New &mdash; actions
+										+e.label  #[a(href="#").text-white New] &mdash;  #[a(href="#").text-white actions]
 										+e.title Nike Sportswear  Icon Clash
 										+e.stock-wrap
 											+e.stock 
@@ -33,15 +43,7 @@ mixin headerBlock()
 
 										+e.btn(href="#") Get it now!
 
-								.col-8
-									+e.img-wrap.bg-wrap
-										img.img-bg.object-fit-js(src=`img/@2x/head-slide-${x}.jpg`, alt="")
-										+e.icons-group
-											+e.btn-icon: +icon("heart")
-											+e.btn-icon: +icon("stat")
-											+e.btn-icon: +icon("share")
-										+e.play(href="https://www.youtube.com/watch?v=2pOafFHlvPE" data-fancybox="video-slide")
-			+e.slider-sm-wrap
+			+e.slider-sm-wrap.d-none.d-md-block
 				+e.slider-sm--js.swiper-container.gallery-thumbs
 					.swiper-wrapper
 						- for (var x = 1; x < 5; x++)

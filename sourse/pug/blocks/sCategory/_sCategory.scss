@@ -1,7 +1,9 @@
+// start .sCategory
+.sCategory {
 
-	// start .sCategory
-	.sCategory {
-		 
+	.container {
+		position: relative;
+	}
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
 	@include media-breakpoint-up(md) {}
@@ -27,3 +29,37 @@
 	@include media-breakpoint-down(xs) {} 
 
 } // end.sCategory
+
+.categoryItem {
+	box-shadow: 0px 8px 24px rgba(40, 126, 255, 0.1);
+	border-radius: $em-base;
+	padding: rem(24) rem(23);
+	margin-bottom: rem(24);
+
+	li {
+		list-style: none;
+	}
+	&__subcategories {
+
+	}
+
+	&__more {
+		text-transform: uppercase;
+		color: $red;
+	}
+
+	img {
+		max-height: rem(224);
+	}
+
+}
+
+.subcategories-hidden {
+
+	.categoryItem__subcategories {
+		display: none;
+	}
+	// @include media-breakpoint-only(lg) {
+	// 	display: block;
+	// }
+}

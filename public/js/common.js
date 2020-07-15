@@ -126,7 +126,7 @@ function eventHandler() {
 	JSCCommon.mobileMenu();
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/360.jpg);"></div>')
+	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
 	// const url = document.location.href;
 	// $.each($(".top-nav__nav a "), function() {
@@ -198,6 +198,16 @@ function eventHandler() {
 		breakpoints: {
 			768: {
 				spaceBetween: 93
+			}
+		}
+	}));
+	var swiper5 = new Swiper('.seasonsSlider-js', _objectSpread(_objectSpread({}, defaultSl), {}, {
+		slidesPerView: 3,
+		// slidesPerGroup: 1,
+		loop: false,
+		breakpoints: {
+			768: {
+				spaceBetween: 24
 			}
 		}
 	})); // modal window
@@ -274,22 +284,34 @@ function eventHandler() {
 		}
 	}));
 	var galleryTop2 = new Swiper('.sLogos__slider--js', _objectSpread(_objectSpread({}, defaultSl), {}, {
+		loop: true,
+		slidesPerView: 'auto',
 		spaceBetween: 24,
-		// freeMode: true,
-		// watchSlidesVisibility: true,
-		// watchSlidesProgress: true,
+		freeMode: true,
+		watchSlidesVisibility: true,
+		watchSlidesProgress: true,
 		breakpoints: {
 			1200: {
 				freeMode: false,
-				slidesOffsetBefore: -80,
-				slidesOffsetAfter: -80,
-				spaceBetween: 24,
+				spaceBetween: 34,
 				watchSlidesVisibility: false,
 				watchSlidesProgress: false,
-				slidesPerView: 6
+				slidesPerView: 6 // slidesOffsetBefore: -80,
+				// slidesOffsetAfter: -80,
+
 			}
 		}
 	}));
+	$(".main-nav [data-tab]").hover(function () {
+		var dataTab = $(this).data('tab');
+		$('[data-tab]').removeClass('active');
+		$(this).addClass('active').siblings().removeClass('active');
+		$(dataTab).addClass('active').siblings().removeClass('active');
+	});
+	$(".toggle-main-menu--js").click(function () {
+		$(this).toggleClass('on');
+		$(".main-nav").toggle();
+	});
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
 	if (isIE11) {
