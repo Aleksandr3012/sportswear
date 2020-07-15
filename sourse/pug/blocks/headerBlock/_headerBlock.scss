@@ -174,7 +174,12 @@
 			}
 			.timer-box{
 
-				padding-left: rem(36);
+				// padding-left: rem(36);
+				.icon{
+					font-size: rem(46);
+					position: relative;
+					top: em(-1);
+				}
 			}
 
 			&__slider-sm-wrap{

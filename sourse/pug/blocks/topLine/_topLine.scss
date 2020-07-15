@@ -1,19 +1,24 @@
 
 	// start .topLine
-	.topLine {
+	.header--main .topLine{
 		color: #ffffff;
-		// padding-top: rem(16);
-		padding-bottom: rem(16);
-		.row{
-			align-items: center;
-		}
 		.soc{
 			&__item{
 				color: #ffffff !important;
 			}
 		}
+&__link {
+	color: #ffffff !important;
+}
+	}
+	.topLine {
+		// padding-top: rem(16);
+		padding-bottom: rem(16);
+		.row{
+			align-items: center;
+		}
 		&__link{
-			color: #ffffff !important;
+		 
 			text-decoration: none !important;	
 			font-weight: bold;
 			.icon{
