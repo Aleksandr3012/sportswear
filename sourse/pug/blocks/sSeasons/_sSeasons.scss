@@ -1,7 +1,82 @@
+// start .sSeasons
+.sSeasons {
+	padding-top: rem(30);
+	padding-bottom: rem(30);
+	.container {
+		position: relative;
+	}
 
-	// start .sSeasons
-	.sSeasons {
-		 
+	.swiper-container {
+		overflow: visible;
+		margin-left: 20px;
+	}
+
+	&__body {
+		position: absolute;
+		display: block;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		transform: skewX(8deg);
+		@include media-breakpoint-up(sm) {
+			transform: skewX(12deg);
+		}
+	}
+
+	&__sliderSlide {
+		position: relative;
+		overflow: hidden;
+		display: block;
+		border-radius: $em-base;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+		transform: skewX(-8deg);
+		max-height: rem(160);
+		@include media-breakpoint-up(sm) {
+			transform: skewX(-12deg);
+		}
+
+		&::before {
+			content: '';
+			width: 110%;
+			height: 110%;
+			z-index: 1;
+			@include a-cent;
+			background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+		}
+
+		&:hover img{
+			transform: scale(1.1);
+		}
+		min-height: rem(150px);
+		@include media-breakpoint-up(sm) {
+			min-height: rem(168px);
+		}
+	}
+
+	img {
+		// @include a-cent();
+		@include mt();
+		display: block;
+		position: absolute;
+		z-index: -2;
+		left: -3%;
+		top: -50%;
+		width: 107%;
+		max-width: 107%;
+		object-fit: cover;
+		// min-height: 100%;
+	}
+
+	&__text {
+		@include a-cent;
+		z-index: 5;
+		color: $white;
+		font-weight: bold;
+		font-style: italic;
+		text-transform: uppercase;
+	}
+
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
 	@include media-breakpoint-up(md) {}

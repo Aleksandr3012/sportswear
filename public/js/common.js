@@ -126,7 +126,7 @@ function eventHandler() {
 	JSCCommon.mobileMenu();
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/360.jpg);"></div>')
+	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
 	// const url = document.location.href;
 	// $.each($(".top-nav__nav a "), function() {
@@ -195,6 +195,16 @@ function eventHandler() {
 		breakpoints: {
 			768: {
 				spaceBetween: 93
+			}
+		}
+	}));
+	var swiper5 = new Swiper('.seasonsSlider-js', _objectSpread(_objectSpread({}, defaultSl), {}, {
+		slidesPerView: 3,
+		// slidesPerGroup: 1,
+		loop: false,
+		breakpoints: {
+			768: {
+				spaceBetween: 24
 			}
 		}
 	})); // modal window

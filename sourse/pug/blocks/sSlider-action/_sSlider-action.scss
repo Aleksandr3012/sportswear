@@ -52,11 +52,14 @@
 		}
 	}
 
-	h2 {
+	.section-title-vertical {
 		@include media-breakpoint-up(xl) {
-			left: rem(-62);
-			top: rem(62);
+			right: 103%;
+			top: rem(39);
 		}
+	}
+	h2 {
+
 		@include media-breakpoint-down(md) {
 			padding-bottom: rem(5);
 		}
