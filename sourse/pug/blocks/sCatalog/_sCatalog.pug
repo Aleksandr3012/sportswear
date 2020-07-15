@@ -23,34 +23,73 @@ mixin catalogItem(img,newPrice,oldPrice,category,text,wide)
 			if wide
 				.row
 					.col-auto
-						+e.get.btn.btn-outline-info(href="#") Get it now!
+						+e.get(href="#") Get it now!
 					.col
 						+e.lastItem 
-							+e.triangle !
+							img(src="img/@2x/danger.png", alt="")
 							| Last item in stock
-						+e.options Product available with different options
+						+e.options 
+							img(src="img/@2x/warning.png", alt="")
+							| Product available with different options
 			else
-				+e.get.btn.btn-outline-info(href="#") Get it now!
+				+e.get(href="#") Get it now!
 				+e.lastItem 
-					+e.triangle !
-					| !Last item in stock
-				+e.options Product available with different options
+					img(src="img/@2x/danger.png", alt="")
+					| Last item in stock
+				+e.options 
+					img(src="img/@2x/warning.png", alt="")
+					| Product available with different options
 
 mixin catalogItem-blue(img,newPrice,oldPrice,category,text,wide)
 	+b.catalogItem--blue&attributes(attributes)
-		+e.imgWrap.picture-bg(href="#")
-			img.res-i.lazy(src="" data-src=`img/@2x/catalog-${img}.jpg`, alt="")
-		.row.justify-content-between
-			.col-auto
-				+e.hit hit
-			.col-auto
-				+controls()
-		+e.sale -20%
-		+e.price
-			+e.newPrice= newPrice
-			+e.oldPrice= oldPrice
-		+e.category(href="#")= category
-		+e.names(href="#")= text
+		+e.content
+			+e.imgWrap.picture-bg(href="#")
+				img.res-i.lazy(src="" data-src=`img/@2x/catalog-${img}.jpg`, alt="")
+			.row.justify-content-between
+				.col-auto
+					+e.hit hit
+				.col-auto
+					+controls()
+			+e.sale -20%
+			+e.price
+				+e.newPrice= newPrice
+				+e.oldPrice= oldPrice
+			+e.category(href="#")= category
+			if wide
+				.row.justify-content-between
+					.col-auto
+						+e.names(href="#")= text
+					.col-auto
+						+b.timer-box.timer-box-js
+							+icon('sand-clock')
+							+e.item
+								.days 2
+								+e.small day
+							+e.item
+								.hours  17
+								+e.small hr
+							+e.item
+								.minutes 35
+								+e.small min
+							+e.item
+								.seconds 17
+								+e.small sec
+			else
+				+e.names(href="#")= text
+				+b.timer-box.timer-box-js
+					+icon('sand-clock')
+					+e.item
+						.days 2
+						+e.small day
+					+e.item
+						.hours  17
+						+e.small hr
+					+e.item
+						.minutes 35
+						+e.small min
+					+e.item
+						.seconds 17
+						+e.small sec
 		+e.hiddenBlock
 			+e.size Size: 45
 			+e.radioWrap
@@ -61,18 +100,22 @@ mixin catalogItem-blue(img,newPrice,oldPrice,category,text,wide)
 			if wide
 				.row
 					.col-auto
-						+e.get.btn.btn-outline-info(href="#") Get it now!
+						+e.get(href="#") Get it now!
 					.col
 						+e.lastItem 
-							+e.triangle !
+							img(src="img/@2x/danger.png", alt="")
 							| Last item in stock
-						+e.options Product available with different options
+						+e.options 
+							img(src="img/@2x/warning.png", alt="")
+							| Product available with different options
 			else
-				+e.get.btn.btn-outline-info(href="#") Get it now!
+				+e.get(href="#") Get it now!
 				+e.lastItem 
-					+e.triangle !
-					| !Last item in stock
-				+e.options Product available with different options
+					img(src="img/@2x/danger.png", alt="")
+					| Last item in stock
+				+e.options 
+					img(src="img/@2x/warning.png", alt="")
+					| Product available with different options
 
 
 mixin sCatalog()
@@ -81,25 +124,25 @@ mixin sCatalog()
 		.container
 			+section-title-vertical('Best offers')
 			.row
-				.col-xl-6
+				.col-lg-8.col-xl-6
 					+catalogItem('1','89 €','189 €','Asics','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue','wide')
-				.col-xl-3
+				.col-md-6.col-lg-4.col-xl-3
 					+catalogItem('2','89 €','189 €','Grunge John Orchestra','Man`s bomber Grunge John Orchestra Toxic Olive')
-				.col-xl-3
+				.col-md-6.col-lg-4.col-xl-3
 					+catalogItem('3','89 €','189 €','Grunge John Orchestra','Man`s bomber Grunge John Orchestra Toxic Olive')
-				.col-xl-3
+				.col-md-6.col-lg-4.col-xl-3
 					+catalogItem('4','89 €','189 €','Garmont','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue')
-				.col-xl-3
-					+catalogItem('5','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive','wide')
-				.col-xl-6
-					+catalogItem-blue('6','89 €','189 €','Asics','Woman`s  jacket BRIGANDINE FUTURELIGHT PAPAYA ORANGE FUSE')(class="catalogItem--imgBg")
-				.col-xl-3
+				.col-md-6.col-lg-4.col-xl-3
+					+catalogItem('5','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive')
+				.col-lg-8.col-xl-6
+					+catalogItem-blue('6','89 €','189 €','Asics','Woman`s  jacket BRIGANDINE FUTURELIGHT PAPAYA ORANGE FUSE','wide')
+				.col-md-6.col-lg-4.col-xl-3
 					+catalogItem-blue('7','89 €','189 €','Osprey','Man`s bomber Grunge John Orchestra Toxic Olive')
-				.col-xl-3
+				.col-md-6.col-lg-4.col-xl-3
 					+catalogItem('8','89 €','189 €','Garmont','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue')
-				.col-xl-3
+				.col-md-6.col-lg-4.col-xl-3
 					+catalogItem('9','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive')
-				.col-xl-3
+				.col-md-6.col-lg-4.col-xl-3
 					+catalogItem('10','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive')
-			+e.seeMore.btn.btn-outline-primary(href="#") see more
+			+e.btn(href="#") see more
 	// end sCatalog

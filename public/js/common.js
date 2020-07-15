@@ -126,8 +126,8 @@ function eventHandler() {
 	JSCCommon.mobileMenu();
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-
-	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/02-1920.jpg);"></div>'); // /добавляет подложку для pixel perfect
+	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
+	// /добавляет подложку для pixel perfect
 	// const url = document.location.href;
 	// $.each($(".top-nav__nav a "), function() {
 	// 	if (this.href == url) {
@@ -285,8 +285,8 @@ function eventHandler() {
 		}
 	}));
 	$(".catalogItem").hover(function () {
-		$(this).find(".catalogItem__hiddenBlock").fadeToggle();
-		$(this).find(".catalogItem__hiddenBlock").slideToggle();
+		$(this).toggleClass('active');
+		$(this).find(".catalogItem__hiddenBlock").fadeToggle(); // $(this).find(".catalogItem__hiddenBlock").slideToggle();
 	});
 	var galleryTop2 = new Swiper('.sLogos__slider--js', _objectSpread(_objectSpread({}, defaultSl), {}, {
 		loop: true,

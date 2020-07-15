@@ -36,17 +36,17 @@
 .custom-radio {
 	margin-bottom: 1rem;
 	margin-right: 8px;
-	width: 32px;
-	height: 32px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+
 	&__text{
+		width: 32px;
+		height: 32px;
 		font-size: $small;
 		border-radius: 8px;
 		border: 1px solid $primary;
 		cursor: pointer;
-		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		@include mt;
 		&:hover{
 			background: rgba(40, 126, 255, 0.1);
