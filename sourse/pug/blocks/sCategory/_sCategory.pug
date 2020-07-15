@@ -40,5 +40,18 @@ mixin sCategory()
 	+b.SECTION.sCategory.section#sCategory&attributes(attributes)
 		.container
 			+section-title-vertical('Popular categories')
-		
+			+e.row.row
+				+e.col
+					+categoryItem('long','','Equipment','1','Rucksacks','Tents','Floor mats','Sleeping bags','Burners','Cycling')
+				+e.col
+					+categoryItem('','','Сlothes','3','Clothing for running and fitness','Summer clothes','Membrane clothes','Fleece clothing','Warm clothing','Thermal underwear','Softshell clothing')(class="img-other")
+				+e.col
+					+categoryItem('','','Training equipment','6')(class="subcategories-hidden")
+				+e.col
+					+categoryItem('','','Accessory','5')(class="subcategories-hidden")
+				+e.col
+					+categoryItem('','mixed','Ski','2','Sneakers','Sandals','Trekking boots','Climbing shoes','Active style')
+				+e.col
+					+categoryItem('','mixed','Footwear','4','Sneakers','Sandals','Trekking boots','Climbing shoes','Active style')(class="h-auto")
+			+e.allCatalog.btn.btn-outline-primary(href="#") all catalog
 	// end sCategory
