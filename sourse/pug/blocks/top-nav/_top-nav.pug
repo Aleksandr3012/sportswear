@@ -3,48 +3,76 @@ mixin mob-mnu()
 	+b.main-nav 
 		.row.no-gutters
 			+e.left-col.col-md-auto
-				+e.nav
-					ul
-						li(data-tab="#tab-1"): a(href="#") Сlothes
-						li(data-tab="#tab-2"): a(href="#") Footwear
-					ul
-						li(data-tab="#tab-3"): a(href="#") 
-							img(src="img/@2x/menu-1.jpg", alt="")
-							| Trail run
-						li(data-tab="#tab-4"): a(href="#") 
-							img(src="img/@2x/menu-2.jpg", alt="")
-							| Tourism
-						li(data-tab="#tab-5"): a(href="#") 
-							img(src="img/@2x/menu-3.jpg", alt="")
-							| Skee
-						li(data-tab="#tab-6"): a(href="#") 
-							img(src="img/@2x/menu-4.jpg", alt="")
-							| Crossfit
-						li(data-tab="#tab-7"): a(href="#") 
-							img(src="img/@2x/menu-5.jpg", alt="")
-							| Climbing
-				+e.footer
-					+e.footer-title contacts
-					+e.tel(href="tel:+ 44 1202 946444") + 44 1202 946444
-					+e.text Our social networks
-					+soc()
+				.container
+					+e.head.row.align-items-center.d-md-none
+						.col
+							+b.toggle-menu-mobile--js
+									//- img.res-i(src="img/svg/arrow-long-left.svg", alt="")
+									+icon("arrow-long-left")
+						.col-auto
+							+b.toggle-menu-mobile--js
+								+icon("close")
+					+e.nav
+						ul
+							li(data-tab="#tab-1"): a(href="#") Сlothes
+							li(data-tab="#tab-2"): a(href="#") Footwear
+						ul
+							li(data-tab="#tab-3"): a(href="#") 
+								img(src="img/@2x/menu-1.jpg", alt="")
+								| Trail run
+							li(data-tab="#tab-4"): a(href="#") 
+								img(src="img/@2x/menu-2.jpg", alt="")
+								| Tourism
+							li(data-tab="#tab-5"): a(href="#") 
+								img(src="img/@2x/menu-3.jpg", alt="")
+								| Skee
+							li(data-tab="#tab-6"): a(href="#") 
+								img(src="img/@2x/menu-4.jpg", alt="")
+								| Crossfit
+							li(data-tab="#tab-7"): a(href="#") 
+								img(src="img/@2x/menu-5.jpg", alt="")
+								| Climbing
+					+e.footer.d-md-none
+						+e.footer-title contacts
+						+e.tel(href="tel:+ 44 1202 946444") + 44 1202 946444
+						+e.text Our social networks
+						+soc()
 			.col
-				- for (var x = 0; x < 7; x++)
-					+b.UL.main-categories(id=`tab-${x + 1}`)
-						mixin item(t,all, ...items)
-							+e.LI.item
-								+e.link--title(href="#")= t
-								+e.UL.list
-									each item in items
-										li: +e.link--sm(href="#")= item
-									if all
-										li: +e.link--sm.text-danger(href="#")= all
-						+item(`All clothes ${x + 1}`,'','Running clothes','Summer clothes','Membrane clothes','Fleece','Thermal underwear','Warm clothing','Softshell','Ski clothing','Only discounts') 
-						+item('Man',`All men's clothing`,'Membrane clothes','Softshell clothing','Fleece clothing','Summer clothes','Running clothes','Thermal underwear','Warm clothing','Winter clothes for the city','Ski clothing','Discounts') 
-						+item('Woman',`All men's clothing`,'Membrane clothes','Softshell clothing','Fleece clothing','Summer clothes','Running clothes','Thermal underwear','Warm clothing','Winter clothes for the city','Ski clothing','Discounts')
-						+item('Kids',`All men's clothing`,'Membrane clothes','Softshell clothing','Fleece clothing','Summer clothes','Running clothes','Thermal underwear','Warm clothing','Winter clothes for the city','Ski clothing','Discounts')
-						+item('Accessory','All accessories','Caps and panama','Bandanas, scarves, dressings','Balaclava masks','Socks','Gloves','Mittens','Leggings','Hats','Cape & Cloaks','Belts and suspenders','Impregnation and washing')
-
+				mixin tab(x,t)
+					+b.main-categories-wrap(id=`tab-${x}`)&attributes(attributes): .container
+						
+						.d-md-none
+							+e.head.row.align-items-center
+								.col
+									+b.toggle-menu-mobile--inner-js
+											//- img.res-i(src="img/svg/arrow-long-left.svg", alt="")
+											+icon("arrow-long-left")
+								.col-auto
+									+b.toggle-menu-mobile--js
+										+icon("close")
+						+e.title.h4.strong 
+							a(href="#")= t
+						+b.UL.main-categories
+							mixin item(t,all, ...items)
+								+e.LI.item
+									+e.link--title(href="#")= t
+									+e.UL.list
+										each item in items
+											li: +e.link--sm(href="#")= item
+										if all
+											li: +e.link--sm.text-danger(href="#")= all
+							+item(`All clothes`,'','Running clothes','Summer clothes','Membrane clothes','Fleece','Thermal underwear','Warm clothing','Softshell','Ski clothing','Only discounts') 
+							+item('Man',`All men's clothing`,'Membrane clothes','Softshell clothing','Fleece clothing','Summer clothes','Running clothes','Thermal underwear','Warm clothing','Winter clothes for the city','Ski clothing','Discounts') 
+							+item('Woman',`All men's clothing`,'Membrane clothes','Softshell clothing','Fleece clothing','Summer clothes','Running clothes','Thermal underwear','Warm clothing','Winter clothes for the city','Ski clothing','Discounts')
+							+item('Kids',`All men's clothing`,'Membrane clothes','Softshell clothing','Fleece clothing','Summer clothes','Running clothes','Thermal underwear','Warm clothing','Winter clothes for the city','Ski clothing','Discounts')
+							+item('Accessory','All accessories','Caps and panama','Bandanas, scarves, dressings','Balaclava masks','Socks','Gloves','Mittens','Leggings','Hats','Cape & Cloaks','Belts and suspenders','Impregnation and washing')
+				+tab('1','Сlothes')
+				+tab('2','Footwear')
+				+tab('3','Trail run')
+				+tab('4',' Tourism')
+				+tab('5','Skee')
+				+tab('6','Crossfit')
+				+tab('7','Climbing')
 	// /nav
 mixin top-nav() 
 	// start top-nav
