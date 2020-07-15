@@ -1,0 +1,119 @@
+mixin sProdCard()
+	// start sProdCard
+	+b.SECTION.sProdCard.section#sProdCard&attributes(attributes)
+		.container
+			block
+			+e.row.row
+				+e.slider-col.col-lg-8
+					+b.prod-card-slider
+						.swiper-container.prod-card-slider-js
+							.swiper-wrapper
+								+prodCardSlide(1)
+								+prodCardSlide(2)
+								+prodCardSlide(3)
+								+prodCardSlide(4)
+								+prodCardSlide(5)
+						+e.thumb
+							.swiper-container.prod-card-thumb-js
+								.swiper-wrapper
+									+prodCardThumb(1)
+									+prodCardThumb(2)
+									+prodCardThumb(3)
+									+prodCardThumb(4)
+									+prodCardThumb(5)
+					+e.tabs-cont.tabs
+						+e.tabs-slider
+							.swiper-container.prod-card-tabs-js
+								.swiper-wrapper.tabs__caption
+									.swiper-slide.tabs__btn.active ABOUT PRODUCT
+									.swiper-slide.tabs__btn CHARACTERISTICS
+									.swiper-slide.tabs__btn TECHNOLOGIES
+									.swiper-slide.tabs__btn ABOUT BRAND
+						+e.tabs-content.tabs__wrap
+							+e.tabs-conent-item.tabs__content.active
+								+e.txt-block
+									p The new GEL-Nimbus 22&nbsp;model, which is&nbsp;part of&nbsp;the top ASICS line, is&nbsp;endowed with greater comfort, stability and speed than its previous versions.
+									p The jacquard mesh was chosen as&nbsp;the material of&nbsp;the top, with a&nbsp;thoughtful pattern in&nbsp;strategic zones, which allows you to&nbsp;adjust the degree of&nbsp;breathability and fit of&nbsp;the foot.
+									p ASICS engineers equipped these sneakers with a&nbsp;modified Gel shock-absorbing block in&nbsp;the heel and added 2&nbsp;millimeters of&nbsp;energy-resistant Flytefoam Propel to&nbsp;the midsole.
+									p Stability of&nbsp;movement is&nbsp;supported by&nbsp;Trusstic technology, which reinforces the outer region of&nbsp;the midfoot and counteracts the twisting effect.
+									p The highly abrasive Ahar + rubber is&nbsp;located in&nbsp;the zones of&nbsp;maximum outsole load, which are located both in&nbsp;the heel part and in&nbsp;the toe area.
+									p GEL-Nimbus 22&nbsp;is a&nbsp;model of&nbsp;reliability and comfort for runners with a&nbsp;neutral foot position, who prefer running from the heel and midfoot.
+									p In&nbsp;these sneakers, you can run a&nbsp;distance of&nbsp;any length.
+								ul
+									li adaptive fit;
+									li jacquard mesh;
+									li Socklining Eva OrthoLite&nbsp;&mdash; lightweight, soft, durable, comfortable molded insole made of&nbsp;Eva polymer;
+									li Gel&nbsp;&mdash; technology of&nbsp;depreciation and shock absorption in&nbsp;the heel and toe;
+									li Trusstic System&nbsp;&mdash; a&nbsp;thermoplastic insert under the elevator of&nbsp;the foot provides stability, reduces weight and extends the life of&nbsp;the sole;
+									li Flytefoam Propel&nbsp;&mdash; the upper layer of&nbsp;the sole creates a&nbsp;high degree of&nbsp;recoil during deformation, providing a&nbsp;springy effect;
+									li Flyte Foam&nbsp;&mdash; improved sole technology, the lightest material in&nbsp;the history of&nbsp;the brand, excellent cushioning and energy return;
+									li 3d&nbsp;Full Contact&nbsp;&mdash; the design covers the entire arch of&nbsp;the foot, maximum contact with the surface in&nbsp;each phase of&nbsp;running;
+									li Ahar + - high-carbon rubber, developed by&nbsp;ASICS, anti-abrasion of&nbsp;soles in&nbsp;places of&nbsp;maximum load.
+							+e.tabs-conent-item.tabs__content
+								| 222
+							+e.tabs-conent-item.tabs__content
+								| 333
+							+e.tabs-conent-item.tabs__content
+								| 444
+				+e.nav-col.col-lg-4
+					+e.top-nav-bar
+						+e.br-links
+							a(href="#") New
+							a(href="#") Sale
+						+e.like-share-cont
+							a.heart-link(href="#")
+								+icon('heart')
+							a(href="#")
+								+icon('stat')
+							a(href="#")
+								+icon('share')
+					+e.A.brand-link(href="#") Asics
+					+e.H1.prod-name Men&rsquo;s shoes sneakers ASICS GEL-Nimbus 22 White/Electric&#160;Blue
+					+e.article-txt Article 1011A780100
+					+e.old-price-strip
+						+e.old-price-txt 189 €
+						+e.discount - 20%
+					+e.new-price-strip
+						+e.new-price-txt 89 €
+						+e.timer.prod-timer-box-js
+							+icon('sand-clock')
+							span.days 2
+							span.hours 17
+							span.minutes 35
+							span.seconds 17
+					+e.chars-pills-strip
+						a(href="#") 10€/kg
+						a(href="#") Tax included
+						a(href="#") Something else
+					+e.other-items
+						+otherItem(1, true)
+						+otherItem(2, true)
+						+otherItem(3)
+						+otherItem(4)
+						+otherItem(5)
+					+e.color-likns
+						a(href="#" style="color: #287EFF; background-color: #287EFF;")
+						a(href="#" style="color: #FF4949; background-color: #FF4949;")
+						a(href="#" style="color: #F8CC43; background-color: #F8CC43;")
+						a(href="#" style="color: #1ECBCB; background-color: #1ECBCB;")
+						a(href="#" style="color: #000000; background-color: #000000;")
+						a(href="#" style="color: #F35321; background-color: #F35321;")
+	// end sProdCard
+mixin otherItem(imgNum, hasDiscount=false)
+	+e.A.other-item(href='#')
+		+e.other-item-content
+			img.lazy(src='#' data-src=`img/@2x/02-other-item-${imgNum}.jpg` alt='')
+			if hasDiscount
+				.discount - 20%
+
+mixin prodCardSlide(imgNum)
+	.swiper-slide
+		+e.A.slide-link(href=`img/@2x/02-slider-${imgNum}.jpg` data-fancybox="prodCardGroup")
+			+e.img-cont
+				img.swiper-lazy(src="#" data-src=`img/@2x/02-slider-${imgNum}.jpg` alt="")
+
+mixin prodCardThumb(imgNum)
+	.swiper-slide
+		+e.thumb-img
+			img(src=`img/@2x/02-slider-${imgNum}.jpg` alt="")
+			//-.swiper-lazy(src="#" data-

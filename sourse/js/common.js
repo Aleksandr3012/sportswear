@@ -128,7 +128,7 @@ function eventHandler() {
 
 	// JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
+	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/02-1920.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
 
 
@@ -245,7 +245,7 @@ function eventHandler() {
 		loop: false,
 		spaceBetween: 30,
 
-		
+
 		breakpoints: {
 			768: {
 				spaceBetween: 47,
@@ -254,7 +254,7 @@ function eventHandler() {
 
 	});
 	// modal window
- 
+
 
 	//timer
 	function tikTak(parentQselector) {
@@ -336,17 +336,17 @@ function eventHandler() {
 			swiper: galleryThumbs,
 		},
 	});
-	
+
 	var galleryTop2 = new Swiper('.sLogos__slider--js', {
 		...defaultSl,
-		loop: true, 
+		loop: true,
 		slidesPerView: 'auto',
 		spaceBetween: 24,
 		freeMode: true,
 		watchSlidesVisibility: true,
 		watchSlidesProgress: true,
 		breakpoints: {
-			
+
 			1200: {
 				freeMode: false,
 				spaceBetween: 34,
@@ -357,7 +357,7 @@ function eventHandler() {
 				// slidesOffsetAfter: -80,
 			}
 		}
-		 
+
 	});
 
  
@@ -384,18 +384,64 @@ function eventHandler() {
 		$(".main-nav").toggle();
 		$("body").toggleClass('fixed')
 	})
-	
-	$(" .toggle-menu-mobile--js").click(function () {
-		$('.toggle-main-menu--js').removeClass('on');
-		$(".main-nav").hide();
-		$("body").removeClass('fixed')
-	})
-	
-	$(".toggle-menu-mobile--inner-js").click(function () {
-		$(this).parents(".main-categories-wrap").removeClass('active');
-	})
-	
-	
+	//luckyone JS
+
+	//02 prod card
+
+	//breadcrumbs
+	let breadSl = new Swiper('.breadcrumb-slider-js', {
+		slidesPerView: 'auto',
+		//spaceBetween: 28,
+		freeMode: true,
+		freeModeMomentum: true,
+		watchOverflow: true,
+	});
+
+	//prodSlider
+	let prodCardThumb = new Swiper('.prod-card-thumb-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+		//loop: true,
+		on: {
+			click: () => {
+				//photoGaleryThumb.slideTo(photoGaleryThumb.clickedIndex - 1, 700, false);
+				prodCardThumb.updateSlidesClasses();
+				prodCard.updateSlidesClasses();
+			},
+		},
+	});
+
+	let prodCard = new Swiper('.prod-card-slider-js', {
+		//thumbs
+		thumbs: {
+			swiper: prodCardThumb
+		},
+		lazy: {
+			loadPrevNext: true,
+		},
+		loop: true,
+		on: {
+			click: () => {
+				//photoGaleryThumb.slideTo(photoGaleryThumb.clickedIndex - 1, 700, false);
+				prodCardThumb.updateSlidesClasses();
+				prodCard.updateSlidesClasses();
+			},
+		},
+	});
+	//tabs slider
+
+	let ProdPageTabs = new Swiper('.prod-card-tabs-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 51,
+		freeMode: true,
+		freeModeMomentum: true,
+		watchOverflow: true,
+	});
+
+	//timer
+	tikTak('.prod-timer-box-js');
+
+	//end luckyone JS
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 	if (isIE11) {
 		$("body").prepend(`<p   class="browsehappy container">К сожалению, вы используете устаревший браузер. Пожалуйста, <a href="http://browsehappy.com/" target="_blank">обновите ваш браузер</a>, чтобы улучшить производительность, качество отображаемого материала и повысить безопасность.</p>`)

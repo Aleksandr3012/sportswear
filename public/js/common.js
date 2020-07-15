@@ -126,8 +126,8 @@ function eventHandler() {
 	JSCCommon.mobileMenu();
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
-	// /добавляет подложку для pixel perfect
+
+	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/02-1920.jpg);"></div>'); // /добавляет подложку для pixel perfect
 	// const url = document.location.href;
 	// $.each($(".top-nav__nav a "), function() {
 	// 	if (this.href == url) {
@@ -320,6 +320,7 @@ function eventHandler() {
 	$(".toggle-main-menu--js").click(function () {
 		$(this).toggleClass('on');
 		$(".main-nav").toggle();
+<<<<<<< HEAD
 		$("body").toggleClass('fixed');
 	});
 	$(" .toggle-menu-mobile--js").click(function () {
@@ -329,7 +330,60 @@ function eventHandler() {
 	});
 	$(".toggle-menu-mobile--inner-js").click(function () {
 		$(this).parents(".main-categories-wrap").removeClass('active');
+=======
+	}); //luckyone JS
+	//02 prod card
+	//breadcrumbs
+
+	var breadSl = new Swiper('.breadcrumb-slider-js', {
+		slidesPerView: 'auto',
+		//spaceBetween: 28,
+		freeMode: true,
+		freeModeMomentum: true,
+		watchOverflow: true
+	}); //prodSlider
+
+	var prodCardThumb = new Swiper('.prod-card-thumb-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+		//loop: true,
+		on: {
+			click: function click() {
+				//photoGaleryThumb.slideTo(photoGaleryThumb.clickedIndex - 1, 700, false);
+				prodCardThumb.updateSlidesClasses();
+				prodCard.updateSlidesClasses();
+			}
+		}
+>>>>>>> 590b231d1ae73b51e5b25808219a52003905f64a
 	});
+	var prodCard = new Swiper('.prod-card-slider-js', {
+		//thumbs
+		thumbs: {
+			swiper: prodCardThumb
+		},
+		lazy: {
+			loadPrevNext: true
+		},
+		loop: true,
+		on: {
+			click: function click() {
+				//photoGaleryThumb.slideTo(photoGaleryThumb.clickedIndex - 1, 700, false);
+				prodCardThumb.updateSlidesClasses();
+				prodCard.updateSlidesClasses();
+			}
+		}
+	}); //tabs slider
+
+	var ProdPageTabs = new Swiper('.prod-card-tabs-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 51,
+		freeMode: true,
+		freeModeMomentum: true,
+		watchOverflow: true
+	}); //timer
+
+	tikTak('.prod-timer-box-js'); //end luckyone JS
+
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
 	if (isIE11) {
