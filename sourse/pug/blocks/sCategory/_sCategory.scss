@@ -9,6 +9,10 @@
 	&__row {
 		margin-bottom: rem(31);
 	}
+
+	.row {
+		height: 100%;
+	}
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
 	@include media-breakpoint-up(md) {}
