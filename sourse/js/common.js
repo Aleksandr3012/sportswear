@@ -122,7 +122,7 @@ function eventHandler() {
 
 	JSCCommon.tabscostume('tabs');
 
-	JSCCommon.mobileMenu();
+	// JSCCommon.mobileMenu();
 
 	JSCCommon.inputMask();
 
@@ -390,11 +390,19 @@ function eventHandler() {
 		return false;
 	})
 	
-	$(".toggle-main-menu--js").click(function () {
-		$(this).toggleClass('on');
+	$(".toggle-main-menu--js, .toggle-menu-mobile--js").click(function () {
+		$('.toggle-main-menu--js').toggleClass('on');
 		$(".main-nav").toggle();
 		$("body").toggleClass('fixed')
 	})
+
+	
+	$(".toggle-menu-mobile--inner-js").click(function () {
+		$(this).parents(".main-categories-wrap").removeClass('active');
+		// $(".main-nav").toggle(); 
+	})
+
+
 	//luckyone JS
 
 	//02 prod card

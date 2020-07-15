@@ -122,8 +122,8 @@ function eventHandler() {
 	// svg4everybody({});
 
 	JSCCommon.modalCall();
-	JSCCommon.tabscostume('tabs');
-	JSCCommon.mobileMenu();
+	JSCCommon.tabscostume('tabs'); // JSCCommon.mobileMenu();
+
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
 	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/360.jpg);"></div>')
@@ -325,10 +325,13 @@ function eventHandler() {
 		$(dataTab).addClass('active').siblings().removeClass('active');
 		return false;
 	});
-	$(".toggle-main-menu--js").click(function () {
-		$(this).toggleClass('on');
+	$(".toggle-main-menu--js, .toggle-menu-mobile--js").click(function () {
+		$('.toggle-main-menu--js').toggleClass('on');
 		$(".main-nav").toggle();
 		$("body").toggleClass('fixed');
+	});
+	$(".toggle-menu-mobile--inner-js").click(function () {
+		$(this).parents(".main-categories-wrap").removeClass('active'); // $(".main-nav").toggle(); 
 	}); //luckyone JS
 	//02 prod card
 	//breadcrumbs
