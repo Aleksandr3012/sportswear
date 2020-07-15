@@ -33,6 +33,45 @@
 	color: red;
 }
 
+.custom-radio {
+	margin-bottom: 1rem;
+	margin-right: 8px;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&__text{
+		font-size: $small;
+		border-radius: 8px;
+		border: 1px solid $primary;
+		cursor: pointer;
+		text-align: center;
+		@include mt;
+		&:hover{
+			background: rgba(40, 126, 255, 0.1);
+
+		}
+	}
+	input{
+		@extend .invisible;
+	}
+ 
+	input:checked ~ &__text {
+		background: $primary;
+		color: #fff;
+	}
+
+	&--incative {
+		pointer-events: none;
+
+		.custom-radio__text {
+			border-color: $secondary;
+			color: $secondary;
+		}
+	}
+}
+
 // 
 @include media-breakpoint-up(xl) {}
 

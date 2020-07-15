@@ -61,7 +61,12 @@ mixin in-c(typ="checkbox", text, name= typ )
 			block 
 		else
 			+e.SPAN.text= text
- 
+
+mixin custom-radio(t,n)
+	+b.LABEL.custom-radio&attributes(attributes)
+		input(type="radio" name= n)
+		+e.SPAN.text= t
+
 mixin add-file(n)
 	+b.add-file
 		label

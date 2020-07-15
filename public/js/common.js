@@ -267,6 +267,10 @@ function eventHandler() {
 			}, 4000);
 		}).fail(function () {});
 	});
+	$(".catalogItem").hover(function () {
+		$(this).find(".catalogItem__hiddenBlock").fadeToggle();
+		$(this).find(".catalogItem__hiddenBlock").slideToggle();
+	});
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
 	if (isIE11) {
