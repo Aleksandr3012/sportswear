@@ -2,36 +2,37 @@ mixin categoryItem(long,mixed,title,img,...items)
 	+b.categoryItem&attributes(attributes)
 		if long
 			.row
-				.col
-					+e.title.h1(href="#")= title
 				.col-auto
+					+e.title.h4(href="#")= title
+				.col
 					+e.DIV.subcategories
 						ul
-						each item in items
-							li: a(href="#")= item
+							each item in items
+								li: a(href="#")= item
 						+e.more(href="#") MORE
 				.col-auto
 					img.res-i.lazy(src="#" data-src=`img/@2x/category-${img}.jpg`, alt="")
 		else if mixed
 			.row
-				+e.col.col
-					+e.title.h1(href="#")= title
+				.col
+					+e.title.h4(href="#")= title
 					+e.DIV.subcategories
 						ul
-						each item in items
-							li: a(href="#")= item
+							each item in items
+								li: a(href="#")= item
 						+e.more(href="#") MORE
-				.col
+				+e.col.col-auto
 					img.res-i.lazy(src="#" data-src=`img/@2x/category-${img}.jpg`, alt="")
 		else
-			+e.title.h1(href="#")= title
-				if items
-					+e.DIV.subcategories
-						ul
-						each item in items
-							li: a(href="#")= item
-						+e.more(href="#") MORE
-			img.res-i.lazy(src="#" data-src=`img/@2x/category-${img}.jpg`, alt="")
+			+e.itemWrap
+				+e.title.h4(href="#")= title
+					if items
+						+e.DIV.subcategories
+							ul
+								each item in items
+									li: a(href="#")= item
+							+e.more(href="#") MORE
+				img.res-i.lazy(src="#" data-src=`img/@2x/category-${img}.jpg`, alt="")
 
 
 mixin sCategory()
@@ -39,7 +40,7 @@ mixin sCategory()
 	+b.SECTION.sCategory.section#sCategory&attributes(attributes)
 		.container
 			+section-title-vertical('Popular categories')
-			.row
+			+e.row.row
 				.col-xl-6
 					.row
 						.col-12
@@ -49,12 +50,12 @@ mixin sCategory()
 						.col-6
 							+categoryItem('','mixed','Ski','2','Sneakers','Sandals','Trekking boots','Climbing shoes','Active style')
 				.col-xl-3
-					+categoryItem('','','Сlothes','3','Clothing for running and fitness','Summer clothes','Membrane clothes','Fleece clothing','Warm clothing','Thermal underwear','Softshell clothing')
+					+categoryItem('','','Сlothes','3','Clothing for running and fitness','Summer clothes','Membrane clothes','Fleece clothing','Warm clothing','Thermal underwear','Softshell clothing')(class="img-other")
 				.col-xl-3
 					.row
 						.col-12
 							+categoryItem('','mixed','Footwear','4','Sneakers','Sandals','Trekking boots','Climbing shoes','Active style')
 						.col-12
-							+categoryItem('','','Accessory','5')
+							+categoryItem('','','Accessory','5')(class="subcategories-hidden")
 			+e.allCatalog.btn.btn-outline-primary(href="#") all catalog
 	// end sCategory
