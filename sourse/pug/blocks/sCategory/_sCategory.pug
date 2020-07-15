@@ -1,9 +1,61 @@
+mixin categoryItem(long,mixed,title,img,...items)
+	+b.categoryItem&attributes(attributes)
+		if long
+			.row
+				.col-auto
+					+e.title.h4(href="#")= title
+				.col
+					+e.DIV.subcategories
+						ul
+							each item in items
+								li: a(href="#")= item
+						+e.more(href="#") MORE
+				.col-auto
+					img.res-i.lazy(src="#" data-src=`img/@2x/category-${img}.jpg`, alt="")
+		else if mixed
+			.row
+				.col
+					+e.title.h4(href="#")= title
+					+e.DIV.subcategories
+						ul
+							each item in items
+								li: a(href="#")= item
+						+e.more(href="#") MORE
+				+e.col.col-auto
+					img.res-i.lazy(src="#" data-src=`img/@2x/category-${img}.jpg`, alt="")
+		else
+			+e.itemWrap
+				+e.title.h4(href="#")= title
+					if items
+						+e.DIV.subcategories
+							ul
+								each item in items
+									li: a(href="#")= item
+							+e.more(href="#") MORE
+				img.res-i.lazy(src="#" data-src=`img/@2x/category-${img}.jpg`, alt="")
+
+
 mixin sCategory()
 	// start sCategory
 	+b.SECTION.sCategory.section#sCategory&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 sCategory
-				
-			.row
+			+section-title-vertical('Popular categories')
+			+e.row.row
+				.col-xl-6
+					.row
+						.col-12
+							+categoryItem('long','','Equipment','1','Rucksacks','Tents','Floor mats','Sleeping bags','Burners','Cycling')
+						.col-6
+							+categoryItem('','','Training equipment','6','Sneakers','Sandals','Trekking boots','Climbing shoes','Active style')(class="subcategories-hidden")
+						.col-6
+							+categoryItem('','mixed','Ski','2','Sneakers','Sandals','Trekking boots','Climbing shoes','Active style')
+				.col-xl-3
+					+categoryItem('','','Сlothes','3','Clothing for running and fitness','Summer clothes','Membrane clothes','Fleece clothing','Warm clothing','Thermal underwear','Softshell clothing')(class="img-other")
+				.col-xl-3
+					.row
+						+e.col.col-12
+							+categoryItem('','mixed','Footwear','4','Sneakers','Sandals','Trekking boots','Climbing shoes','Active style')(class="h-auto")
+						.col-12
+							+categoryItem('','','Accessory','5')(class="subcategories-hidden")
+			+e.allCatalog.btn.btn-outline-primary(href="#") all catalog
 	// end sCategory

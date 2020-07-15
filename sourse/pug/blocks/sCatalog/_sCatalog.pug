@@ -6,12 +6,13 @@ mixin catalogItem(img,newPrice,oldPrice,category,text)
 			.col-auto
 				+controls()
 		+e.imgWrap(href="#")
-			img.res-i.lazy(src="" data-src=`img/@2x/category-${img}.jpg`, alt="")
+			img.res-i.lazy(src="" data-src=`img/@2x/catalog-${img}.jpg`, alt="")
 		+e.sale -20%
 		+e.newPrice= newPrice
 		+e.oldPrice= oldPrice
 		+e.category(href="#")= category
 		+e.names(href="#")= text
+
 
 
 mixin sCatalog()
@@ -40,4 +41,5 @@ mixin sCatalog()
 					+catalogItem('9','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive')
 				.col-xl-3
 					+catalogItem('10','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive')
+			+e.seeMore.btn.btn-outline-primary(href="#") see more
 	// end sCatalog

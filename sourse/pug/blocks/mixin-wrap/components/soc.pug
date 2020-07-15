@@ -1,14 +1,18 @@
 
+mixin item-sos(icon, a='#')
+	+e.A.item(href= a target="_blank")
+		if block
+			block
+		else
+			+icon(icon)
 //- scial buttons
 mixin soc()
 	+b.soc
-		mixin item(icon, a='#')
-			+e.A.item(href= a target="_blank")
-				if block
-					block
-				else
-					+icon(icon)
-		+item('fb')
-		+item('inst')
-		+item('telegram')
+		if block
+			block
+		else
+			+item-sos('fb')
+			+item-sos('instagram')
+			+item-sos('telegram')
+
 //- /scial buttons 

@@ -23,7 +23,7 @@
 	}
 	.icon{
 		@include mt;
-		font-size: rem(20);
+		font-size: rem(32);
 	}
 	 
 
@@ -42,6 +42,16 @@
 }
 
 .section-title-vertical {
+	@include media-breakpoint-up(xl) {
+		z-index: 2;
+		padding-left: 0;
+		position: absolute;
+		top: rem(32);
+		right: 100.7%;
+		transform: rotate(-90deg);
+		transform-origin: top right;
+		white-space: nowrap;
+	}
 	
 	h2 {
 		letter-spacing: 0.1em;
@@ -53,14 +63,7 @@
 		@include media-breakpoint-up(lg) {
 			padding-left: rem(20);
 		}
-		@include media-breakpoint-up(xl) {
-			z-index: 2;
-			padding-left: 0;
-			position: absolute;
-			top: rem(54);
-			left: rem(-33);
-			transform: rotate(-90deg);
-		}
+
 		@include media-breakpoint-down(xl) {
 			padding-bottom: rem(10);
 		}
@@ -93,12 +96,15 @@
 		@include mt;
 		fill: transparent;
 		stroke: $secondary;
-		font-size: rem(20);
+		font-size: rem(19);
 	}
 
 	&__item {
 		cursor: pointer;
 		display: inline;
+		&:not(:last-child) {
+			margin-right: rem(13);
+		}
 
 		&:hover .icon{
 			stroke: $primary;

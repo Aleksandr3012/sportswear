@@ -1,0 +1,19 @@
+.timer-box{
+	display: flex;
+	@include roww(rem(15));
+	margin-bottom: 1rem;
+	&__item{
+		position: relative;
+		&:not(:last-child){
+			&::after{
+				content: ':';
+				position: absolute;
+				right: 0;
+				top: rem(0);
+			}
+		}
+	}
+	&__small{
+		font-size: 8px;
+	}
+}
