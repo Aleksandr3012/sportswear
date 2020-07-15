@@ -126,8 +126,8 @@ function eventHandler() {
 	JSCCommon.mobileMenu();
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
-	// /добавляет подложку для pixel perfect
+
+	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/02-1920.jpg);"></div>'); // /добавляет подложку для pixel perfect
 	// const url = document.location.href;
 	// $.each($(".top-nav__nav a "), function() {
 	// 	if (this.href == url) {
@@ -175,6 +175,9 @@ function eventHandler() {
 		return false;
 	});
 	var defaultSl = {
+		loop: true,
+		loopedSlides: 5,
+		//looped slides should be the same
 		lazy: {
 			loadPrevNext: true
 		}
@@ -209,68 +212,162 @@ function eventHandler() {
 			}
 		}
 	})); // modal window
+	//timer
 
-	var gets = function () {
-		var a = window.location.search;
-		var b = new Object();
-		var c;
-		a = a.substring(1).split("&");
+	function tikTak(parentQselector) {
+		//html elements
+		var parent = document.querySelector(parentQselector);
+		if (!parent) return;
+		var days = parent.querySelector('.days');
+		var hours = parent.querySelector('.hours');
+		var minutes = parent.querySelector('.minutes');
+		var seconds = parent.querySelector('.seconds'); //date elements
 
-		for (var i = 0; i < a.length; i++) {
-			c = a[i].split("=");
-			b[c[0]] = c[1];
+		var now = new Date(); // d === days.innerHtml + now.getDate... others the same way
+
+		var d = getTime(days, now.getDate());
+		var h = getTime(hours, now.getHours());
+		var m = getTime(minutes, now.getMinutes());
+		var s = getTime(seconds, now.getSeconds());
+		var targetDate = new Date(now.getFullYear(), now.getMonth(), d, h, m, s); //interval
+
+		tikTakReadOut(parent, targetDate, ThisReadOutID, days, hours, minutes, seconds);
+		var ThisReadOutID = window.setInterval(tikTakReadOut.bind(null, parent, targetDate, ThisReadOutID, days, hours, minutes, seconds), 1000);
+	}
+
+	tikTak('.timer-box-js'); //additional funcs to tikTak
+
+	function tikTakReadOut(parent, targetDate, ReadOutID, days, hours, minutes, seconds) {
+		var now = new Date();
+		var timeLeft = (targetDate - now) / 1000;
+
+		if (timeLeft < 1) {
+			window.clearInterval(ReadOutID); //to do something after timer ends
+
+			$(parent).fadeOut();
 		}
 
-		return b;
-	}(); // form
+		days.innerHTML = Math.floor(timeLeft / 60 / 60 / 24);
+		timeLeft = (timeLeft / 60 / 60 / 24 - Math.floor(timeLeft / 60 / 60 / 24)) * 60 * 60 * 24;
+		hours.innerHTML = Math.floor(timeLeft / 60 / 60);
+		timeLeft = (timeLeft / 60 / 60 - Math.floor(timeLeft / 60 / 60)) * 60 * 60;
+		minutes.innerHTML = Math.floor(timeLeft / 60);
+		timeLeft = (timeLeft / 60 - Math.floor(timeLeft / 60)) * 60;
+		seconds.innerHTML = Math.floor(timeLeft);
+	}
 
+	function getTime(htmlEl, currentTimeItem) {
+		var timeItem = Number(htmlEl.innerHTML);
 
-	var gets = function () {
-		var a = window.location.search;
-		var b = new Object();
-		var c;
-		a = a.substring(1).split("&");
-
-		for (var i = 0; i < a.length; i++) {
-			c = a[i].split("=");
-			b[c[0]] = c[1];
+		if (timeItem) {
+			timeItem += currentTimeItem;
+		} else {
+			timeItem = currentTimeItem;
 		}
 
-		return b;
-	}(); // form
+		return timeItem;
+	}
 
-
-	$("form").submit(function (e) {
-		e.preventDefault();
-		var th = $(this);
-		var data = th.serialize();
-		th.find('.utm_source').val(decodeURIComponent(gets['utm_source'] || ''));
-		th.find('.utm_term').val(decodeURIComponent(gets['utm_term'] || ''));
-		th.find('.utm_medium').val(decodeURIComponent(gets['utm_medium'] || ''));
-		th.find('.utm_campaign').val(decodeURIComponent(gets['utm_campaign'] || ''));
-		$.ajax({
-			url: 'action.php',
-			type: 'POST',
-			data: data
-		}).done(function (data) {
-			$.fancybox.close();
-			$.fancybox.open({
-				src: '#modal-thanks',
-				type: 'inline'
-			}); // window.location.replace("/thanks.html");
-
-			setTimeout(function () {
-				// Done Functions
-				th.trigger("reset"); // $.magnificPopup.close();
-				// ym(53383120, 'reachGoal', 'zakaz');
-				// yaCounter55828534.reachGoal('zakaz');
-			}, 4000);
-		}).fail(function () {});
+	var galleryThumbs = new Swiper('.gallery-thumbs', {
+		spaceBetween: 0,
+		slidesPerView: 'auto',
+		loop: true,
+		freeMode: true,
+		loopedSlides: 5,
+		//looped slides should be the same
+		watchSlidesVisibility: true,
+		watchSlidesProgress: true
 	});
+	var galleryTop = new Swiper('.gallery-top', _objectSpread(_objectSpread({}, defaultSl), {}, {
+		spaceBetween: 20,
+		thumbs: {
+			swiper: galleryThumbs
+		}
+	}));
 	$(".catalogItem").hover(function () {
 		$(this).find(".catalogItem__hiddenBlock").fadeToggle();
 		$(this).find(".catalogItem__hiddenBlock").slideToggle();
 	});
+	var galleryTop2 = new Swiper('.sLogos__slider--js', _objectSpread(_objectSpread({}, defaultSl), {}, {
+		loop: true,
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+		freeMode: true,
+		watchSlidesVisibility: true,
+		watchSlidesProgress: true,
+		breakpoints: {
+			1200: {
+				freeMode: false,
+				spaceBetween: 34,
+				watchSlidesVisibility: false,
+				watchSlidesProgress: false,
+				slidesPerView: 6 // slidesOffsetBefore: -80,
+				// slidesOffsetAfter: -80,
+
+			}
+		}
+	}));
+	$(".main-nav [data-tab]").hover(function () {
+		var dataTab = $(this).data('tab');
+		$('[data-tab]').removeClass('active');
+		$(this).addClass('active').siblings().removeClass('active');
+		$(dataTab).addClass('active').siblings().removeClass('active');
+	});
+	$(".toggle-main-menu--js").click(function () {
+		$(this).toggleClass('on');
+		$(".main-nav").toggle();
+	}); //luckyone JS
+	//02 prod card
+	//breadcrumbs
+
+	var breadSl = new Swiper('.breadcrumb-slider-js', {
+		slidesPerView: 'auto',
+		//spaceBetween: 28,
+		freeMode: true,
+		freeModeMomentum: true,
+		watchOverflow: true
+	}); //prodSlider
+
+	var prodCardThumb = new Swiper('.prod-card-thumb-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+		//loop: true,
+		on: {
+			click: function click() {
+				//photoGaleryThumb.slideTo(photoGaleryThumb.clickedIndex - 1, 700, false);
+				prodCardThumb.updateSlidesClasses();
+				prodCard.updateSlidesClasses();
+			}
+		}
+	});
+	var prodCard = new Swiper('.prod-card-slider-js', {
+		//thumbs
+		thumbs: {
+			swiper: prodCardThumb
+		},
+		lazy: {
+			loadPrevNext: true
+		},
+		loop: true,
+		on: {
+			click: function click() {
+				//photoGaleryThumb.slideTo(photoGaleryThumb.clickedIndex - 1, 700, false);
+				prodCardThumb.updateSlidesClasses();
+				prodCard.updateSlidesClasses();
+			}
+		}
+	}); //tabs slider
+
+	var ProdPageTabs = new Swiper('.prod-card-tabs-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 51,
+		freeMode: true,
+		freeModeMomentum: true,
+		watchOverflow: true
+	}); //timer
+
+	tikTak('.prod-timer-box-js'); //end luckyone JS
+
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
 	if (isIE11) {

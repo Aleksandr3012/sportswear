@@ -1,27 +1,80 @@
 mixin mob-mnu()
-	-
-		//- let path = require('path');
-		//- let fs = require('fs');
-		//- var requestURL = 'top-nav.json';
-		//- var request = new XMLHttpRequest();
-		//- request.open('GET', requestURL);
-		//- request.responseType = 'json';
-		//- let dataJson = JSON.parse(json);
-	//- h1= dataJson['lala'] 
-	+b.toggle-menu-mobile--js.d-lg-none
-		span
-	+b.menu-mobile--js.d-lg-none
-		+b.toggle-menu-mobile--js
-			span
-		+e.inner
-		
-			+mnu()
-			.text-right
-	//  мобильное меню
+	//nav
+	+b.main-nav 
+		.row.no-gutters
+			+e.left-col.col-md-auto
+				+e.nav
+					ul
+						li(data-tab="#tab-1"): a(href="#") Сlothes
+						li(data-tab="#tab-2"): a(href="#") Footwear
+					ul
+						li(data-tab="#tab-3"): a(href="#") 
+							img(src="img/@2x/menu-1.jpg", alt="")
+							| Trail run
+						li(data-tab="#tab-4"): a(href="#") 
+							img(src="img/@2x/menu-2.jpg", alt="")
+							| Tourism
+						li(data-tab="#tab-5"): a(href="#") 
+							img(src="img/@2x/menu-3.jpg", alt="")
+							| Skee
+						li(data-tab="#tab-6"): a(href="#") 
+							img(src="img/@2x/menu-4.jpg", alt="")
+							| Crossfit
+						li(data-tab="#tab-7"): a(href="#") 
+							img(src="img/@2x/menu-5.jpg", alt="")
+							| Climbing
+				+e.footer
+					+e.footer-title contacts
+					+e.tel(href="tel:+ 44 1202 946444") + 44 1202 946444
+					+e.text Our social networks
+					+soc()
+			.col
+				- for (var x = 0; x < 7; x++)
+					+b.UL.main-categories(id=`tab-${x + 1}`)
+						mixin item(t,all, ...items)
+							+e.LI.item
+								+e.link--title(href="#")= t
+								+e.UL.list
+									each item in items
+										li: +e.link--sm(href="#")= item
+									if all
+										li: +e.link--sm.text-danger(href="#")= all
+						+item(`All clothes ${x + 1}`,'','Running clothes','Summer clothes','Membrane clothes','Fleece','Thermal underwear','Warm clothing','Softshell','Ski clothing','Only discounts') 
+						+item('Man',`All men's clothing`,'Membrane clothes','Softshell clothing','Fleece clothing','Summer clothes','Running clothes','Thermal underwear','Warm clothing','Winter clothes for the city','Ski clothing','Discounts') 
+						+item('Woman',`All men's clothing`,'Membrane clothes','Softshell clothing','Fleece clothing','Summer clothes','Running clothes','Thermal underwear','Warm clothing','Winter clothes for the city','Ski clothing','Discounts')
+						+item('Kids',`All men's clothing`,'Membrane clothes','Softshell clothing','Fleece clothing','Summer clothes','Running clothes','Thermal underwear','Warm clothing','Winter clothes for the city','Ski clothing','Discounts')
+						+item('Accessory','All accessories','Caps and panama','Bandanas, scarves, dressings','Balaclava masks','Socks','Gloves','Mittens','Leggings','Hats','Cape & Cloaks','Belts and suspenders','Impregnation and washing')
+
+	// /nav
 mixin top-nav() 
 	// start top-nav
-	+b.top-nav.block-with-lazy
-		.container
-			+mnu()
-					
+	.container
+		+b.top-nav.block-with-lazy
+			+e.row.row
+				.col-auto
+					+b.toggle-main-menu--js
+						span
+				.col-lg-auto.col
+					+e.logo(href="/")
+						img.res-i(src="img/svg/logoText.svg", alt="")
+				+e.nav.col.d-none.d-lg-block
+					ul
+						li: +e.link(href="#") New
+						li: +e.link(href="#") Clothes
+						li: +e.link(href="#") footwear
+						li: +e.link(href="#") ACTION
+						li: +e.link(href="#").text-danger Sale
+				+e.col.col-auto.d-none.d-xl-block
+					+e.link(href="#") sports
+				.col-auto 
+					+e.btn(href="#"): +icon("search")
+				.col-auto.d-none.d-sm-block 
+					+e.btn(href="#"): +icon("heart")
+				.col-auto.d-none.d-sm-block 
+					+e.btn(href="#"): +icon("stat")
+				.col-auto 
+					+e.btn(href="#"): +icon("user")
+				.col-auto 
+					+e.btn(href="#"): +icon("basket") 
+			+mob-mnu()
 	// end top-nav

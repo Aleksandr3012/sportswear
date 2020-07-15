@@ -1,0 +1,129 @@
+.main-nav{
+	@include media-breakpoint-up(md){
+
+		position: absolute;
+		top: 100%;
+
+		border-radius: 16px;
+	}
+	top: 0;
+
+	position: fixed;
+	left: 0;
+	z-index: 200;
+	background-color: #ffffff;
+	background: #FFFFFF;
+	width: 100%; 
+	box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+	overflow: hidden;
+		display: none;
+	.container{
+		padding: 0;
+	}
+	.row{
+		// @include roww(0);
+		position: static;
+
+	}
+	&__nav{
+		padding: rem(28);
+		ul{
+			margin-bottom: rem(35);
+		}
+		li{
+			margin-bottom: rem(9);
+		}
+		a{
+			display: inline-flex;
+			position: relative;
+			align-items: center;
+			color: #ffffff;
+			font-weight: bold;
+			&::before{
+				content: '';
+				position: absolute;
+				left: 100%;
+				background-color: #ffffff;
+				height: 1px;
+				@include a-cent(y);
+				opacity: 0;
+				width: 1px;
+				@include mt;
+				margin-left: 0;
+			}
+			 
+		}
+		li.active,
+		li:hover{
+			a{
+				&::before {
+					margin-left: rem(55);
+					opacity: 1;
+					width: 120px;
+				}
+			}
+		}
+		img{
+			opacity: 0.96;
+			/* Preview shadow */
+
+			box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+			border-radius: 4px;
+			width: rem(28);
+			height: rem(30);
+			object-fit: cover;
+			margin-right: rem(8);
+		}
+	}	
+	&__left-col{
+		background: linear-gradient(0deg, #287EFF, #287EFF),
+		linear-gradient(90deg, #287EFF 0%, #3FAFF6 100%);
+		@include media-breakpoint-up(xl){
+		width: rem(264);
+		}
+		
+		@include media-breakpoint-up(lg){
+		width: rem(244);
+		}
+		@include media-breakpoint-up(md){
+		width: rem(224);
+		}
+
+
+	}
+}
+
+.main-categories{
+	@include media-breakpoint-up(xl){
+
+		padding: rem(28) rem(60); 
+	}
+	padding: rem(28) rem(30); 
+	display: none;
+	&.active{
+		display: flex;
+	}
+	@extend .row;
+	&__item{
+
+		@extend .col-xl-3;
+		@extend .col-lg-4;
+		@extend .col-md-6;
+		margin-bottom: rem(36);
+	}
+	&__list{
+		// display: inline-block;
+		// width: 100%;
+	}
+	&__link{
+		display: inline-block;
+		margin-bottom: rem(5);
+		&--title{
+			font-weight: bold;
+			margin-bottom: rem(9);
+		}
+		&--sm{
+			font-size: rem(14);
+		}
+	}
+}

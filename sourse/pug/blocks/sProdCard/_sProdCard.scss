@@ -1,0 +1,527 @@
+// start .sProdCard
+.sProdCard {
+
+	&__row{
+		@include roww(24px);
+	}
+
+	//slider col
+	&__slider-col{
+
+	}
+	//tabs
+	&__tabs-cont{
+
+	}
+	//slider
+	&__tabs-slider{
+		.swiper-container{}
+		.swiper-wrapper{}
+		.swiper-slide{
+			width: auto;
+			height: auto;
+
+			white-space: nowrap;
+			font-weight: bold;
+			line-height: (24/14);
+			letter-spacing: 0.1em;
+
+			font-size: rem(14);
+			padding: rem(44) 0;
+
+			@include mt();
+
+			&.active{
+				color: $primary;
+			}
+		}
+	}
+	//tabs-content
+	&__tabs-content{
+		padding-bottom: rem(42);
+	}
+	&__tabs-conent-item{
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+
+			li{
+				font-size: rem(16px);
+				line-height: 1.75;
+				&:before{
+					content: '•  ';
+					display: inline-block;
+					vertical-align: top;
+					padding-right: 3px;
+				}
+			}
+		}
+	}
+	&__txt-block{
+		p{
+			font-size: rem(16px);
+			line-height: 1.75;
+			margin-bottom: 0;
+		}
+		p:last-child{
+			padding-bottom: rem(26);
+		}
+	}
+	//nav-col
+	&__nav-col{
+		padding-top: rem(15);
+		@include media-breakpoint-up(xl){
+			padding: rem(15px) rem(40) 0 rem(40);
+		}
+	}
+	//top nav bar
+	&__top-nav-bar{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		padding-bottom: rem(20);
+	}
+	&__br-links{
+		display: flex;
+		align-items: center;
+		a{
+			display: flex;
+			align-items: center;
+
+			line-height: (18/12);
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: $primary;
+			font-size: rem(12px);
+
+			&:after{
+				content: '';
+				width: rem(20px);
+				border-bottom: 1px solid $primary;
+				margin: 0 rem(4);
+			}
+
+			&:last-child:after{
+				content: none;
+			}
+		}
+
+	}
+	&__like-share-cont{
+		display: flex;
+		align-items: center;
+		a{
+			width: rem(32);
+			height: rem(32);
+			margin-left: 4px;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+
+			.icon{
+				@include mt();
+				font-size: 20px;
+				color: transparent;
+				stroke: $secondary;
+			}
+
+			&:hover{
+				.icon{
+					stroke: $primary;
+				}
+			}
+		}
+	}
+	//brand-link
+	&__brand-link{
+		display: block;
+		font-size: rem(14px);
+		line-height: 1.71;
+	}
+
+	&__prod-name{
+		font-weight: bold;
+		line-height: 1.35;
+	}
+	&__article-txt{
+		position: relative;
+		margin-top: -8px;
+
+		line-height: 1.33;
+		color: $secondary;
+		font-size: rem(12px);
+
+		padding-bottom: rem(26);
+	}
+	&__old-price-strip{
+		display: flex;
+		align-items: center;
+		padding-left: 5px;
+	}
+	&__old-price-txt{
+		line-height: 1.5;
+		text-decoration-line: line-through;
+
+		font-size: rem(16px);
+		margin-right: rem(23);
+	}
+	&__discount{
+		position: relative;
+		padding: 0 rem(10);
+
+		display: flex;
+		align-items: center;
+
+		font-weight: bold;
+		font-size: rem(14px);
+		color: $white;
+
+		&:before{
+			content: '';
+			position: absolute;
+			z-index: -1;
+			left: 0;
+			top: 0;
+			background-color: $danger;
+			width: 100%;
+			height: 100%;
+			transform: skewX(-30deg);
+		}
+	}
+	//
+	&__new-price-strip{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__new-price-txt{
+		line-height: 1.33;
+		color: $danger;
+		font-size: rem(36px);
+	}
+	&__timer{
+		display: flex;
+		align-items: center;
+
+		.icon{
+			color: $primary;
+			margin-right: rem(12);
+			font-size: rem(24);
+		}
+		span{
+			position: relative;
+			font-size: rem(16px);
+			line-height: 1.5;
+			margin-right: rem(21px);
+			margin-bottom: rem(5px);
+
+			display: flex;
+			align-items: center;
+			color: $primary;
+
+			&:before{
+				position: absolute;
+				left: 0;
+				top: 85%;
+				width: 100%;
+
+				font-size: 8px;
+				line-height: 1;
+
+				color: $primary;
+			}
+			&:after{
+				content: ':';
+				position: absolute;
+				left: 100%;
+				top: 0;
+				height: 100%;
+				width: rem(20px);
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+			}
+
+			&.days:before{
+				content: 'day';
+			}
+			&.hours:before{
+				content: 'hr';
+			}
+			&.minutes:before{
+				content: 'min';
+			}
+			&.seconds:before{
+				content: 'sec';
+			}
+		}
+		span:last-child{
+			margin-right: 0;
+			&:after{
+				content: none;
+			}
+		}
+	}
+	//
+	&__chars-pills-strip{
+		margin-bottom: rem(32);
+		a{
+			line-height: 1.35;
+			color: $secondary;
+			@include mt();
+			&:hover{
+				color: $primary;
+			}
+
+			&:after{
+				content: '•';
+				display: inline-flex;
+				vertical-align: top;
+				align-items: center;
+				line-height: 2;
+				padding: 0 5px;
+
+			}
+			&:last-child:after{
+				content: none;
+			}
+
+			font-size: rem(12px);
+		}
+	}
+	&__other-items{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+
+		padding-bottom: 20px;
+		@include media-breakpoint-up(xl){
+			padding-bottom: 24px;
+		}
+	}
+	&__other-item{
+		display: block;
+		position: relative;
+		margin-bottom: 20px;
+
+
+		width: calc(25% - (24px * 3 / 4));//calc(20% - (16px * 4))
+		height: 56px;
+
+		margin-right: 24px;
+		&:nth-child(4n){
+			margin-right: 0;
+		}
+		@include media-breakpoint-up(xl){
+			width: calc(20% - (16px * 4 / 5));//calc(20% - (16px * 4))
+			height: 56px;
+
+			margin-right: 16px;
+			&:nth-child(4n){
+				margin-right: 16px;
+			}
+			&:nth-child(5n){
+				margin-right: 0;
+			}
+		}
+
+		border-radius: 8px;
+		img{
+			max-width: 100%;
+			max-height: 100%;
+			width: auto;
+			height: auto;
+			margin: auto;
+
+			opacity: 0.5;
+			//@include mt();
+		}
+
+
+		.discount{
+			position: absolute;
+			z-index: 2;
+			left: 50%;
+			top: 100%;
+			transform: translateX(-50%) translateY(-50%);
+			height: 16px;
+			width: 40px;
+			//padding: 0 rem(10);
+
+			display: flex;
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+
+			font-weight: bold;
+			font-size: rem(10px);
+			color: $white;
+
+			&:before{
+				content: '';
+				position: absolute;
+				z-index: -1;
+				left: 0;
+				top: 0;
+				background-color: $danger;
+				width: 100%;
+				height: 100%;
+				transform: skewX(-30deg);
+			}
+		}
+
+	}
+	&__other-item-content{
+		display: flex;
+		width: 100%;
+		height: 100%;
+
+		&:hover{
+			img{
+				opacity: 1;
+			}
+		}
+	}
+	//color-likns
+	&__color-likns{
+		display: flex;
+		align-items: center;
+
+		a{
+			width: 24px;
+			height: 24px;
+			border-radius: 6px;
+			position: relative;
+
+			margin-right: 12px;
+			&:last-child{
+				margin-right: 0;
+			}
+
+			&:hover:before{
+				opacity: 1;
+			}
+
+			&:before{
+				position: absolute;
+				content: '';
+				left: -4px;
+				top: -4px;
+				width: 32px;
+				height: 32px;
+				border-radius: 8px;
+				border: 1px solid currentColor;
+				background-color: transparent;
+				opacity: 0;
+				@include mt();
+			}
+		}
+	}
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+
+
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-up(xs) {}
+	
+	//
+	@include media-breakpoint-between(md, xl) { }
+	
+	
+	//
+	@include media-breakpoint-only(xs) {}
+	@include media-breakpoint-only(sm) {}
+	@include media-breakpoint-only(md) {}
+	@include media-breakpoint-only(lg) {}
+	@include media-breakpoint-only(xl) {}
+	
+	//
+	@include media-breakpoint-down(xl) {}
+	@include media-breakpoint-down(lg) {}
+	@include media-breakpoint-down(md) {}
+	@include media-breakpoint-down(sm) {}
+	@include media-breakpoint-down(xs) {} 
+
+} // end.sProdCard
+
+.prod-card-slider{
+	padding-bottom: rem(9);
+
+	//swiper default
+	& > .swiper-container{
+		padding-bottom: rem(31);
+	}
+	.swiper-wrapper{}
+	.swiper-slide{}
+
+	//
+	&__slide-link{
+		display: block;
+		position: relative;
+		width: 100%;
+		padding-top: 71.43%;
+	}
+	&__img-cont{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+
+		img{
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+			margin: auto;
+		}
+	}
+
+	//thumb slider
+	&__thumb{
+		//swiper default
+		.swiper-container{}
+		.swiper-wrapper{}
+		.swiper-slide{
+			width: rem(84px);
+			height: rem(64px);
+			cursor: pointer;
+			opacity: .5;
+			@include mt();
+
+
+
+			&:hover, &.swiper-slide-active{
+				opacity: 1;
+			}
+		}
+	}
+	&__thumb-img{
+		width: 100%;
+		height: 100%;
+		display: flex;
+		img{
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+			margin: auto;
+		}
+	}
+
+}
