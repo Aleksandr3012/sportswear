@@ -242,10 +242,12 @@ function eventHandler() {
 		slidesPerView: 3,
 		// slidesPerGroup: 1,
 		loop: false,
+		spaceBetween: 30,
+
 		
 		breakpoints: {
 			768: {
-				spaceBetween: 24,
+				spaceBetween: 47,
 			}
 		},
 

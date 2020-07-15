@@ -1,6 +1,6 @@
 // start .sSeasons
 .sSeasons {
-	padding-top: rem(30);
+	padding-top: rem(34);
 	padding-bottom: rem(30);
 	.container {
 		position: relative;
@@ -8,19 +8,27 @@
 
 	.swiper-container {
 		overflow: visible;
-		margin-left: 20px;
+		margin-left: 14px;
 	}
 
 	&__body {
 		position: absolute;
 		display: block;
+		z-index: 0;
 		left: 0;
 		top: 0;
 		height: 100%;
 		width: 100%;
 		transform: skewX(8deg);
-		@include media-breakpoint-up(sm) {
-			transform: skewX(12deg);
+
+
+		&::before {
+			content: '';
+			width: 110%;
+			height: 110%;
+			z-index: 1;
+			@include a-cent;
+			background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
 		}
 	}
 
@@ -31,26 +39,15 @@
 		border-radius: $em-base;
 		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 		transform: skewX(-8deg);
-		max-height: rem(160);
-		@include media-breakpoint-up(sm) {
-			transform: skewX(-12deg);
-		}
+		// max-height: rem(150);
 
-		&::before {
-			content: '';
-			width: 110%;
-			height: 110%;
-			z-index: 1;
-			@include a-cent;
-			background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
-		}
 
 		&:hover img{
 			transform: scale(1.1);
 		}
 		min-height: rem(150px);
 		@include media-breakpoint-up(sm) {
-			min-height: rem(168px);
+			min-height: rem(160px);
 		}
 	}
 
