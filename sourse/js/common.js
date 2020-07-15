@@ -128,7 +128,7 @@ function eventHandler() {
 
 	// JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/02-1920.jpg);"></div>')
+	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
 
 
@@ -335,6 +335,12 @@ function eventHandler() {
 		thumbs: {
 			swiper: galleryThumbs,
 		},
+	});
+
+	$(".catalogItem").hover(function () {
+		$(this).toggleClass('active');
+		$(this).find(".catalogItem__hiddenBlock").fadeToggle();
+		// $(this).find(".catalogItem__hiddenBlock").slideToggle();
 	});
 
 	var galleryTop2 = new Swiper('.sLogos__slider--js', {
