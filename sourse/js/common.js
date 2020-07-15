@@ -128,7 +128,7 @@ function eventHandler() {
 
 	// JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/360.jpg);"></div>')
+	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/02-1920.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
 
 
@@ -290,7 +290,125 @@ function eventHandler() {
 		}).fail(function () { });
 
 	});
+	//luckyone JS
 
+	//02 prod card
+
+	//breadcrumbs
+	let breadSl = new Swiper('.breadcrumb-slider-js', {
+		slidesPerView: 'auto',
+		//spaceBetween: 28,
+		freeMode: true,
+		freeModeMomentum: true,
+		watchOverflow: true,
+	});
+
+	//prodSlider
+	let prodCardThumb = new Swiper('.prod-card-thumb-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+		//loop: true,
+		on: {
+			click: () => {
+				//photoGaleryThumb.slideTo(photoGaleryThumb.clickedIndex - 1, 700, false);
+				prodCardThumb.updateSlidesClasses();
+				prodCard.updateSlidesClasses();
+			},
+		},
+	});
+
+	let prodCard = new Swiper('.prod-card-slider-js', {
+		//thumbs
+		thumbs: {
+			swiper: prodCardThumb
+		},
+		lazy: {
+			loadPrevNext: true,
+		},
+		loop: true,
+		on: {
+			click: () => {
+				//photoGaleryThumb.slideTo(photoGaleryThumb.clickedIndex - 1, 700, false);
+				prodCardThumb.updateSlidesClasses();
+				prodCard.updateSlidesClasses();
+			},
+		},
+	});
+	//tabs slider
+
+	let ProdPageTabs = new Swiper('.prod-card-tabs-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 51,
+		freeMode: true,
+		freeModeMomentum: true,
+		watchOverflow: true,
+	});
+
+
+
+	//timer
+	function tikTak(parentQselector){
+		//html elements
+		let parent = document.querySelector(parentQselector);
+		if (!parent) return
+
+		let days = parent.querySelector('.days');
+		let hours = parent.querySelector('.hours');
+		let minutes = parent.querySelector('.minutes');
+		let seconds = parent.querySelector('.seconds');
+
+		//date elements
+		let now = new Date();
+
+		// d === days.innerHtml + now.getDate... others the same way
+		let d = getTime(days, now.getDate());
+		let h = getTime(hours, now.getHours());
+		let m = getTime(minutes, now.getMinutes());
+		let s = getTime(seconds, now.getSeconds());
+
+		let targetDate = new Date(now.getFullYear(), now.getMonth(), d, h, m, s);
+
+		//interval
+		tikTakReadOut(parent, targetDate, ThisReadOutID, days, hours, minutes, seconds);
+		let ThisReadOutID = window.setInterval(tikTakReadOut.bind(null,parent, targetDate, ThisReadOutID, days, hours, minutes, seconds), 1000);
+	}
+	//tikTak('.timer-box-js');
+	//additional funcs to tikTak
+
+	function tikTakReadOut(parent,targetDate, ReadOutID, days, hours, minutes, seconds){
+		let now = new Date();
+		let timeLeft = (targetDate - now) / 1000;
+
+		if (timeLeft < 1) {
+			window.clearInterval(ReadOutID);
+			//to do something after timer ends
+			$(parent).fadeOut();
+		}
+
+		days.innerHTML = Math.floor(timeLeft / 60 / 60 / 24);
+		timeLeft = ((timeLeft / 60 / 60 / 24) - Math.floor(timeLeft / 60 / 60 / 24)) * 60 * 60 * 24;
+
+		hours.innerHTML = Math.floor(timeLeft / 60 / 60);
+		timeLeft = ((timeLeft / 60 / 60) - Math.floor(timeLeft / 60 / 60)) * 60 * 60;
+
+		minutes.innerHTML = Math.floor((timeLeft / 60));
+		timeLeft = ((timeLeft / 60) - Math.floor((timeLeft / 60))) * 60;
+
+		seconds.innerHTML = Math.floor(timeLeft);
+	}
+
+	function getTime(htmlEl, currentTimeItem) {
+		let timeItem = Number(htmlEl.innerHTML);
+		if (timeItem) {
+			timeItem += currentTimeItem;
+		}
+		else {
+			timeItem = currentTimeItem;
+		}
+		return timeItem
+	}
+
+	//end luckyone JS
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 	if (isIE11) {
 		$("body").prepend(`<p   class="browsehappy container">К сожалению, вы используете устаревший браузер. Пожалуйста, <a href="http://browsehappy.com/" target="_blank">обновите ваш браузер</a>, чтобы улучшить производительность, качество отображаемого материала и повысить безопасность.</p>`)
