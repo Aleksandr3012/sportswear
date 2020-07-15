@@ -320,17 +320,7 @@ function eventHandler() {
 	$(".toggle-main-menu--js").click(function () {
 		$(this).toggleClass('on');
 		$(".main-nav").toggle();
-<<<<<<< HEAD
 		$("body").toggleClass('fixed');
-	});
-	$(" .toggle-menu-mobile--js").click(function () {
-		$('.toggle-main-menu--js').removeClass('on');
-		$(".main-nav").hide();
-		$("body").removeClass('fixed');
-	});
-	$(".toggle-menu-mobile--inner-js").click(function () {
-		$(this).parents(".main-categories-wrap").removeClass('active');
-=======
 	}); //luckyone JS
 	//02 prod card
 	//breadcrumbs
@@ -354,7 +344,6 @@ function eventHandler() {
 				prodCard.updateSlidesClasses();
 			}
 		}
->>>>>>> 590b231d1ae73b51e5b25808219a52003905f64a
 	});
 	var prodCard = new Swiper('.prod-card-slider-js', {
 		//thumbs
