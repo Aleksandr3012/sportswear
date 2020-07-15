@@ -126,7 +126,7 @@ function eventHandler() {
 	JSCCommon.mobileMenu();
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
+	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/360.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
 	// const url = document.location.href;
 	// $.each($(".top-nav__nav a "), function() {
@@ -202,13 +202,17 @@ function eventHandler() {
 		}
 	}));
 	var swiper5 = new Swiper('.seasonsSlider-js', _objectSpread(_objectSpread({}, defaultSl), {}, {
-		slidesPerView: 3,
 		// slidesPerGroup: 1,
 		loop: false,
 		spaceBetween: 30,
+		slidesPerView: 1,
 		breakpoints: {
 			768: {
-				spaceBetween: 47
+				spaceBetween: 47,
+				slidesPerView: 2
+			},
+			1200: {
+				slidesPerView: 3
 			}
 		}
 	})); // modal window
@@ -285,7 +289,7 @@ function eventHandler() {
 		}
 	}));
 	$(".catalogItem").hover(function () {
-		$(this).toggleClass('active');
+		// $(this).toggleClass('active');
 		$(this).find(".catalogItem__hiddenBlock").fadeToggle(); // $(this).find(".catalogItem__hiddenBlock").slideToggle();
 	});
 	var galleryTop2 = new Swiper('.sLogos__slider--js', _objectSpread(_objectSpread({}, defaultSl), {}, {

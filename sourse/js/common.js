@@ -128,7 +128,7 @@ function eventHandler() {
 
 	// JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
+	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/360.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
 
 
@@ -239,15 +239,20 @@ function eventHandler() {
 
 	const swiper5 = new Swiper('.seasonsSlider-js', {
 		...defaultSl,
-		slidesPerView: 3,
 		// slidesPerGroup: 1,
 		loop: false,
 		spaceBetween: 30,
+		slidesPerView: 1,
+
 
 
 		breakpoints: {
 			768: {
 				spaceBetween: 47,
+				slidesPerView: 2,
+			},
+			1200: {
+				slidesPerView: 3,
 			}
 		},
 
@@ -337,7 +342,7 @@ function eventHandler() {
 	});
 
 	$(".catalogItem").hover(function () {
-		$(this).toggleClass('active');
+		// $(this).toggleClass('active');
 		$(this).find(".catalogItem__hiddenBlock").fadeToggle();
 		// $(this).find(".catalogItem__hiddenBlock").slideToggle();
 	});
