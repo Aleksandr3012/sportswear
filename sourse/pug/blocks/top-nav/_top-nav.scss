@@ -56,7 +56,7 @@ ul{
 }
 &__col{
 	text-align: center;
-	@include media-breakpoint-up(xl) { 
+	@include media-breakpoint-up(xxl) { 
 	width: rem(300);
 	}
 }

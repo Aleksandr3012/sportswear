@@ -23,6 +23,29 @@
 		.row{
 			@include roww(0);
 		}
+		
+	}
+	&__slide-lg{
+		@include media-breakpoint-between(md, lg) {
+
+			&.slide-light {
+				.headerBlock__caption {
+				.headerBlock__price-old{
+					color: rgba(40, 126, 255, 0.5);
+				}
+				.headerBlock__price-new{
+					color: $danger;
+				}
+				.timer-box,
+				.headerBlock__title,
+				.headerBlock__label,
+				.headerBlock__label a {
+					
+					color: $primary !important;
+				}
+			}
+		}
+	}
 	}
 			&__caption{
 					@include media-breakpoint-up(md) {
@@ -131,6 +154,7 @@
 			}
 			&__btn-icon{
 				cursor: pointer;
+				color: #c4c4c4;
 				.icon{
 					font-size: rem(20);
 					fill: transparent;
@@ -199,28 +223,44 @@
 
 							max-width: rem(240);
 						}
-				display: flex;
-				align-items: center;
-				font-size: $small;
-				font-weight: 700; 
-				opacity: 0.5;
-				@include mt;
-				cursor: pointer;
-				&:hover,
-				&.swiper-slide-thumb-active{
-					opacity: 1;
-				}
+						@include mt;
+						*{
+
+							opacity: 0.5;
+							@include mt;
+						}
+						&:hover,
+						&.swiper-slide-thumb-active{
+							*{
+
+								opacity: 1;
+							}
+						}
+					}
+					&__item{
+					opacity: 1 !important;
+						display: flex;
+						align-items: center;
+						font-size: $small;
+						font-weight: 700; 
+						@include mt;
+						cursor: pointer;
+						background-color: $primary;
+						border-radius: 8px;
+						box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+						max-width: rem(264);
+
 			}
 			&__title-sm{
 				max-width: rem(150);
 			}
 			&__img-wrap-sm{
 				// width: ;
-				width: 64px;
-				height: 48px;
-				border-radius: 4px;
+				width: rem(88px);
+				height: rem(64px);
+				border-radius: 8px 0 0 8px;
 				opacity: 0.96;
-				margin-right: rem(8);
+				margin-right: rem(15);
 				position: relative;
 				overflow: hidden;
 			}

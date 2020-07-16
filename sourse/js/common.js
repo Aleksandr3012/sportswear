@@ -325,7 +325,7 @@ function eventHandler() {
 
 
 	var galleryThumbs = new Swiper('.gallery-thumbs', {
-		spaceBetween: 0,
+		spaceBetween: 20,
 		slidesPerView: 'auto',
 		loop: true,
 		freeMode: true,

@@ -393,7 +393,9 @@ img.img-bg,
 iframe {
 	border: none;
 }
-
+.btn-primary{
+	box-shadow: 0px 8px 24px rgba(13, 120, 120, 0.25);
+}
 .btn-outline-primary {
 	letter-spacing: rem(1.6px);
 	max-width: rem(233px);
