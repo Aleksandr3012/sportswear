@@ -67,6 +67,7 @@
 				@extend .h1;
 				font-weight: bold;
 				max-width: em(160);
+				margin-bottom: rem(30);
 					@include media-breakpoint-up(lg) {
 						margin-right: 0;
 					}
@@ -79,22 +80,23 @@
 			}
 			&__stock{ 
 				position: relative;
-				transform: skewX(-30deg);
+				transform: skewX(-28deg);
+				margin-left: em(6);
 				span{
 					display: block;
 					position: relative;
-					transform: skewX(30deg);
+					transform: skewX(28deg);
 				}
 				@include media-breakpoint-up(md){
-					font-size: 1rem;
-					padding: rem(2) rem(15);
+					font-size: 14px;
+					// padding: rem(1) rem(15);
 				}
 				font-size: 12px;
 				padding: rem(1) rem(10);
 
 				background-color: $danger;
 				display: inline-block;
-				margin-bottom: rem(10);
+				margin-bottom: rem(6);
 				
 			}
 			&__price{
@@ -102,7 +104,7 @@
 				align-items: flex-end;
 					@include media-breakpoint-up(md) {
 
-						padding-bottom: rem(32);
+						padding-bottom: rem(36);
 					}
 					padding-bottom: rem(16);
 				&-new{
@@ -199,10 +201,15 @@
 			.timer-box{
 
 				// padding-left: rem(36);
+				margin-bottom: rem(20);
 				.icon{
-					font-size: rem(46);
+					font-size: rem(25);
 					position: relative;
-					top: em(-1);
+					// top: em(-3);
+					margin-left: rem(15);
+					margin-right: rem(5);
+					padding-left: 0;
+					padding-right: 0;
 				}
 			}
 

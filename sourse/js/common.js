@@ -128,7 +128,7 @@ function eventHandler() {
 
 	// JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/360.jpg);"></div>')
+	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
 
 
@@ -390,11 +390,18 @@ function eventHandler() {
 		return false;
 	})
 	
-	$(".toggle-main-menu--js, .toggle-menu-mobile--js").click(function () {
+	$(".toggle-main-menu--js:not(.on) ").click(function () { 
+			$('.toggle-main-menu--js').addClass('on');
+			$(".main-nav").show();
+			$("body").addClass('fixed') 
+	})
+	
+	$(" .toggle-menu-mobile--js").click(function () {
 		$('.toggle-main-menu--js').toggleClass('on');
 		$(".main-nav").toggle();
 		$("body").toggleClass('fixed')
 	})
+
 
 	
 	$(".toggle-menu-mobile--inner-js").click(function () {
@@ -403,6 +410,14 @@ function eventHandler() {
 	})
 
 
+	$(document).mouseup(function (e) {
+		var container = $(".main-nav");
+		if (container.has(e.target).length === 0 || $(".top-nav").has(e.target).length === 0) {
+			container.hide();
+			$("body, html").removeClass("fixed");
+			$(".toggle-main-menu--js").removeClass("on");
+		}
+	});
 	//luckyone JS
 
 	//02 prod card

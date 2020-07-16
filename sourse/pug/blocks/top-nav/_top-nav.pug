@@ -14,24 +14,24 @@ mixin mob-mnu()
 								+icon("close")
 					+e.nav
 						ul
-							li(data-tab="#tab-1"): a(href="#") Сlothes
-							li(data-tab="#tab-2"): a(href="#") Footwear
+							li(data-tab="#tab-1"): a(href="#"): span Сlothes
+							li(data-tab="#tab-2"): a(href="#"): span Footwear
 						ul
 							li(data-tab="#tab-3"): a(href="#") 
 								img(src="img/@2x/menu-1.jpg", alt="")
-								| Trail run
+								span Trail run
 							li(data-tab="#tab-4"): a(href="#") 
 								img(src="img/@2x/menu-2.jpg", alt="")
-								| Tourism
+								span Tourism
 							li(data-tab="#tab-5"): a(href="#") 
 								img(src="img/@2x/menu-3.jpg", alt="")
-								| Skee
+								span Skee
 							li(data-tab="#tab-6"): a(href="#") 
 								img(src="img/@2x/menu-4.jpg", alt="")
-								| Crossfit
+								span Crossfit
 							li(data-tab="#tab-7"): a(href="#") 
 								img(src="img/@2x/menu-5.jpg", alt="")
-								| Climbing
+								span Climbing
 					+e.footer.d-md-none
 						+e.footer-title contacts
 						+e.tel(href="tel:+ 44 1202 946444") + 44 1202 946444
@@ -50,8 +50,8 @@ mixin mob-mnu()
 								.col-auto
 									+b.toggle-menu-mobile--js
 										+icon("close")
-						+e.title.h4.strong 
-							a(href="#")= t
+							+e.title.h4.strong 
+								a(href="#")= t
 						+b.UL.main-categories
 							mixin item(t,all, ...items)
 								+e.LI.item
