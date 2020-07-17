@@ -445,7 +445,56 @@ function eventHandler() {
 			if (Number(ProdAmountInp.value) >= 999) return;
 			ProdAmountInp.value = Number(ProdAmountInp.value) + 1;
 		}
-	}); //sticky
+	}); //blue strip
+
+	var ProdAmountInpFixed = document.querySelector('.prod-amount-inp-js-fixed');
+	$('.form-wrap__add-control-btn-fixed').click(function () {
+		if (!ProdAmountInpFixed) return;
+
+		if (this.classList.contains('minus-btn')) {
+			if (Number(ProdAmountInpFixed.value) <= 1) return;
+			ProdAmountInpFixed.value = Number(ProdAmountInpFixed.value) - 1;
+		} else {
+			if (Number(ProdAmountInpFixed.value) >= 999) return;
+			ProdAmountInpFixed.value = Number(ProdAmountInpFixed.value) + 1;
+		}
+	}); //to use
+	//1 add mixin to page
+	//2 add class '.red-hook-js' to element,  scroll over/above of which will show/hide red str
+
+	function redBottomStip() {
+		var fixedStrip = document.querySelector('.bottom-fixed-strip');
+		console.log(fixedStrip);
+		if (!fixedStrip) return;
+		var fixedHook = document.querySelector('.fixed-hook-js');
+		console.log(fixedHook);
+		if (!fixedHook) return;
+		window.addEventListener("scroll", toggleFixedStrip.bind(undefined, fixedHook, fixedStrip), {
+			passive: true
+		});
+	}
+
+	redBottomStip();
+
+	function toggleFixedStrip(fixedHook, fixedStrip) {
+		var hookTop = $(fixedHook)[0].getBoundingClientRect().top + $(window)['scrollTop']();
+		var hookHeight = fixedHook.offsetHeight;
+		var hookBot = hookTop + hookHeight;
+		var footerTop = $('.footer')[0].getBoundingClientRect().top + $(window)['scrollTop']();
+		var windowHeight = calcVh(100);
+
+		if (hookBot > window.scrollY || footerTop - windowHeight < window.scrollY) {
+			$(fixedStrip).removeClass('active');
+		} else {
+			$(fixedStrip).addClass('active');
+		}
+	}
+
+	function calcVh(v) {
+		var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+		return v * h / 100;
+	} //sticky
+
 
 	var sticky = new Sticky('.sticky-js');
 	console.log(sticky); //related slider

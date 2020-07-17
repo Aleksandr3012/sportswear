@@ -1,6 +1,7 @@
 mixin sProdCard()
 	// start sProdCard
 	+b.SECTION.sProdCard.section#sProdCard&attributes(attributes)
+		+BlueStrip()
 		.container(data-sticky-container)
 			block
 			+e.row.row
@@ -95,7 +96,7 @@ mixin sProdCard()
 												+e.add-control-btn.minus-btn -
 												+input('', 'number', undefined, 'prodAmount')(value='999' class="prod-amount-inp-js" min="1" max="999")
 												+e.add-control-btn.plus-btn +
-											+e.A.add-btn(href="#") add to cart
+											+e.A.add-btn.fixed-hook-js(href="#") add to cart
 									+e.caution-box
 										+e.caution.danger Last item in stock
 										+e.caution.warning Product available with different options
@@ -168,6 +169,28 @@ mixin sProdCard()
 							+e.play-btn-cont
 								+e.play-btn
 	// end sProdCard
+mixin BlueStrip()
+	+b.bottom-fixed-strip.d-lg-none
+		+e.img-cont
+			img.lazy(src="#" data-src='img/@2x/02-slider-1.jpg' alt="")
+		+e.price-bl
+			+e.discount -20%
+			+e.price
+				span 89 €
+				span 189 €
+		+form-wrap()
+			+e.add-inp-box
+				+e.add-control-btn-fixed.minus-btn -
+				+input('', 'number', undefined, 'prodAmount')(value='999' class="prod-amount-inp-js-fixed" min="1" max="999")
+				+e.add-control-btn-fixed.plus-btn +
+			+e.A.add-btn(href="#") buy
+		+e.icons-bl
+			a(href="#")
+				img(src="img/like-img.svg" alt="")
+			a(href="#")
+				img(src="img/stat-img.svg" alt="")
+			a(href="#")
+				img(src="img/bag-img.svg" alt="")
 
 mixin solidContentSubItem(statusColor='red', shopTxt='Shop №1', address='Voronovo, Kaluga highway, 40 km from MKAD')
 	+e.solid-subitem
