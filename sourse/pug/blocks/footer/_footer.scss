@@ -18,7 +18,8 @@
 
 	&__title {
 		text-transform: uppercase;
-		font-weight: 700;
+		font-weight: bold;
+		letter-spacing: 0.1em;
 	}
 
 	&__menu {
@@ -45,6 +46,7 @@
 	}
 
 	.soc {
+		margin-left: 0;
 		margin-bottom: rem(20);
 	}
 
@@ -99,12 +101,17 @@
 			right: 0;
 			border: none;
 			background-color: transparent;
+			@include media-breakpoint-up(md) {
+				display: none;
+			}
 		}
 	}
 
 	.h4 {
 		letter-spacing: rem(0.4);
 		padding-bottom: rem(10);
+		font-weight: bold;
+		text-transform: uppercase;
 	}
 
 	p {

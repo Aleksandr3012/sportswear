@@ -10,7 +10,7 @@
 	// background-image: url('../img/@2x/blog-bg.jpg');
 	// background-position: top center;
 
-	h2 {
+	.h2 {
 		color: $primary;
 		padding-left: rem(34);
 		@include media-breakpoint-up(lg) {
@@ -19,6 +19,7 @@
 		// letter-spacing: 0.11em;
 		font-size: rem(36px);
 		font-weight: bold;
+		text-decoration: none !important;
 	}
 
 	.row {

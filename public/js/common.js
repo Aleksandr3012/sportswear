@@ -126,7 +126,7 @@ function eventHandler() {
 	JSCCommon.mobileMenu();
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/360.jpg);"></div>')
+	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
 	// const url = document.location.href;
 	// $.each($(".top-nav__nav a "), function() {
@@ -311,6 +311,12 @@ function eventHandler() {
 			}
 		}
 	}));
+	$('.sWeAreDifferent-btn-js').click(function () {
+		$('.sWeAreDifferent-hiddenBlock-js').slideToggle();
+	});
+	$('.footer-input-js').click(function () {
+		$('.form-wrap__enter').addClass('d-block');
+	});
 	$(".main-nav [data-tab] a").hover(function () {
 		var dataTab = $(this).parent().data('tab');
 		$('[data-tab]').removeClass('active');
