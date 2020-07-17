@@ -4,6 +4,8 @@
 	margin-bottom: 1rem;
 	&__item{
 		position: relative;
+		min-width: rem(35);
+		line-height: 1;
 		&:not(:last-child){
 			&::after{
 				content: ':';

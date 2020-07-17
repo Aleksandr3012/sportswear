@@ -6,8 +6,8 @@ mixin headerBlock()
 				h2  Special offer
 			+e.slider-lg--js.swiper-container.gallery-top
 				.swiper-wrapper
-					- for (var x = 1; x < 5; x++)
-						+e.slide-lg.swiper-slide
+					mixin slide(x)
+						+e.slide-lg.swiper-slide&attributes(attributes)
 							.row
 								.col-md
 									+e.img-wrap.bg-wrap
@@ -28,6 +28,7 @@ mixin headerBlock()
 											+e.price-new 89 €
 											+e.price-old 189 €
 										+b.timer-box.timer-box-js
+											+icon("sand-clock")
 											+e.item
 												.days 2
 												+e.small day
@@ -42,14 +43,19 @@ mixin headerBlock()
 												+e.small sec
 
 										+e.btn(href="#") Get it now!
-
+					+slide('1')
+					+slide('2')(class="slide-light")
+					+slide('3')(class="slide-light")
+					+slide('4')(class="slide-light")
+					+slide('5')(class="slide-light")
 			+e.slider-sm-wrap.d-none.d-md-block
 				+e.slider-sm--js.swiper-container.gallery-thumbs
 					.swiper-wrapper
 						- for (var x = 1; x < 5; x++)
 							+e.slide-sm.swiper-slide
-								+e.img-wrap-sm.bg-wrap
-									img.img-bg.object-fit-js(src=`img/@1x/head-slide-${x}.jpg`, alt="")
-								+e.title-sm Nike Sportswear Icon Clash
+								+e.item
+									+e.img-wrap-sm.bg-wrap
+										img.img-bg.object-fit-js(src=`img/@1x/head-slide-${x}.jpg`, alt="")
+									+e.title-sm Nike Sportswear Icon Clash
 
 	// end headerBlock 

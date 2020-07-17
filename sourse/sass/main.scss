@@ -20,6 +20,12 @@ $output-bourbon-deprecation-warnings: false;
 // $theme-colors: map-remove($theme-colors, "info", "light", "dark",'warning');
 @import "./node_modules/bootstrap/scss/root";
 @import "./node_modules/bootstrap/scss/reboot";
+a{
+
+	&:hover{
+		color: rgba($color: $primary, $alpha: .5);
+	}
+} 
 @import "./node_modules/bootstrap/scss/type";
 // @import "./node_modules/bootstrap/scss/images";
 // @import "./node_modules/bootstrap/scss/code";

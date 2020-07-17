@@ -13,6 +13,7 @@ $h: 2px;
 
 	&.on {
 		// color: #ffffff;
+		pointer-events: none;
 	}
 
 	span:after,

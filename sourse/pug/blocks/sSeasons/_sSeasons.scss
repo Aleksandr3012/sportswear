@@ -1,7 +1,10 @@
 // start .sSeasons
 .sSeasons {
 	padding-top: rem(34);
-	padding-bottom: rem(30);
+	padding-bottom: rem(12);
+	@include media-breakpoint-up(lg) {
+		padding-bottom: rem(30);
+	}
 	.container {
 		position: relative;
 	}
@@ -42,10 +45,10 @@
 		// max-height: rem(150);
 
 
-		&:hover img{
-			transform: scale(1.1);
+		&:hover img {
+			transform: scale(1.1) translate(-45.5%,-45.5%);
 		}
-		min-height: rem(150px);
+		min-height: rem(111px);
 		@include media-breakpoint-up(sm) {
 			min-height: rem(160px);
 		}
@@ -57,8 +60,15 @@
 		display: block;
 		position: absolute;
 		z-index: -2;
-		left: -3%;
-		top: -50%;
+		// left: -3%;
+		// top: -50%;
+		// @include media-breakpoint-up(sm) {
+		// 	top: -20%;
+		// }
+		// @include media-breakpoint-up(xl) {
+		// 	top: -50%;
+		// }
+		@include a-cent;
 		width: 107%;
 		max-width: 107%;
 		object-fit: cover;

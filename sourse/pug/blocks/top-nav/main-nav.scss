@@ -1,13 +1,16 @@
 .main-nav{
 	@include media-breakpoint-up(md){
-
+		
 		position: absolute;
 		top: 100%;
-
+		margin-top: 20px;
+		
 		border-radius: 16px;
 	}
-	top: 0;
-
+	@include media-breakpoint-down(sm){
+		
+	}
+	top: 0; 
 	position: fixed;
 	left: 0;
 	z-index: 200;
@@ -27,11 +30,13 @@
 	}
 	&__nav{
 		padding: rem(28);
+		flex-grow: 1;
 		ul{
 			margin-bottom: rem(35);
 		}
 		li{
 			margin-bottom: rem(9);
+			cursor: pointer;
 		}
 		a{
 			display: inline-flex;
@@ -39,8 +44,31 @@
 			align-items: center;
 			color: #ffffff;
 			font-weight: bold;
-			&::before{
-				content: '';
+			span{
+				@include mt;
+			}
+			&:hover{
+			
+			}
+			@include media-breakpoint-down(sm){
+				pointer-events: none;
+				display: block;
+				&::after{
+					content: '';
+					background-image: url(../img/svg/chevron-right.svg);
+					width: (14px * 1.4);
+					height: (8px * 1.4);
+					position: absolute;
+					right: 0;
+					top: 0;
+					background-repeat: no-repeat;
+					background-size: 100% 100%;
+				}
+			}
+			@include media-breakpoint-up(md){
+
+				&::before{
+					content: '';
 				position: absolute;
 				left: 100%;
 				background-color: #ffffff;
@@ -51,11 +79,15 @@
 				@include mt;
 				margin-left: 0;
 			}
+		}
 			 
 		}
 		li.active,
 		li:hover{
 			a{
+					span {
+						opacity: 0.5;
+					}
 				&::before {
 					margin-left: rem(55);
 					opacity: 1;
@@ -86,23 +118,102 @@
 		width: rem(244);
 		}
 		@include media-breakpoint-up(md){
-		width: rem(224);
+			width: rem(224);
 		}
+				@include media-breakpoint-down(sm){
+
+					height: calc(var(--vh, 1vh) * 100);
+					overflow-y: auto;
+					position: relative;
+					overflow-x: hidden;
+					display: flex;
+					.container{
+						height: 100%;
+						display: flex;
+						flex-direction: column;
+					}
+				}
 
 
 	}
-}
+	&__head{ 
+		padding: rem(28) rem(30);  
+	}
+	&__footer-title{
+		font-size: 14px;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: #ffffff;
+		font-weight: bold;
+		margin-bottom: rem(8);
+	}
+	&__text{
+		margin-bottom: rem(8);
+		font-size: 14px;
+		color: rgba(255, 255, 255, 0.5);
+	}
+	&__footer{
+		padding: rem(28) rem(30); 
+			a {
+				margin-bottom: rem(8);
+				display: inline-block;
+			}
+		.soc{
+			margin-left: rem(-10);
+		}
+		a{
+			color: #ffffff;
+		}
 
+	}
+}
+.main-categories-wrap{
+	.icon{
+		color: $primary !important;
+	}
+		&__title {
+			padding: rem(20) rem(30) 0;
+
+		}
+
+		&__head {
+
+			padding: rem(28) rem(30);
+		}
+	@include media-breakpoint-up(md) {
+
+		display: none;
+
+		&.active {
+			display: flex;
+		}
+	}
+
+	@include media-breakpoint-down(sm) {
+		position: fixed !important;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 200;
+		background-color: #ffffff;
+		transform: translateX(100%);
+		@include mt;
+		overflow-y: auto;
+		&.active {
+			transform: translateX(0);
+			// display: flex;
+		}
+	}
+}
 .main-categories{
 	@include media-breakpoint-up(xl){
 
 		padding: rem(28) rem(60); 
 	}
+
 	padding: rem(28) rem(30); 
-	display: none;
-	&.active{
-		display: flex;
-	}
+
 	@extend .row;
 	&__item{
 
@@ -126,4 +237,19 @@
 			font-size: rem(14);
 		}
 	}
+}
+
+.toggle-menu-mobile{
+.icon {
+	// color: #ffffff;
+	fill: transparent;
+	stroke: currentColor;
+	color: #ffffff;
+	font-size: rem(20);
+	stroke-width: 2px;
+	&-arrow-long-left{
+		font-size: rem(14);
+
+	}
+}
 }

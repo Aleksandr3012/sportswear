@@ -122,7 +122,7 @@ function eventHandler() {
 
 	JSCCommon.tabscostume('tabs');
 
-	JSCCommon.mobileMenu();
+	// JSCCommon.mobileMenu();
 
 	JSCCommon.inputMask();
 
@@ -169,11 +169,12 @@ function eventHandler() {
 			}
 		});
 		// конец добавил
-		if (window.matchMedia("(min-width: 992px)").matches) {
-			JSCCommon.closeMenu();
-		}
-	}
 
+	}
+	if (window.matchMedia("(min-width: 992px)").matches) {
+		$(".main-categories-wrap:first-child, .main-nav__nav ul:first-child li:first-child").addClass('active')
+
+	}
 	$(window).resize(function () {
 		heightses();
 
@@ -239,15 +240,20 @@ function eventHandler() {
 
 	const swiper5 = new Swiper('.seasonsSlider-js', {
 		...defaultSl,
-		slidesPerView: 3,
 		// slidesPerGroup: 1,
 		loop: false,
 		spaceBetween: 30,
+		slidesPerView: 1,
+
 
 
 		breakpoints: {
 			768: {
 				spaceBetween: 47,
+				slidesPerView: 2,
+			},
+			1200: {
+				slidesPerView: 3,
 			}
 		},
 
@@ -321,7 +327,7 @@ function eventHandler() {
 
 
 	var galleryThumbs = new Swiper('.gallery-thumbs', {
-		spaceBetween: 0,
+		spaceBetween: 20,
 		slidesPerView: 'auto',
 		loop: true,
 		freeMode: true,
@@ -336,6 +342,12 @@ function eventHandler() {
 		thumbs: {
 			swiper: galleryThumbs,
 		},
+	});
+
+	$(".catalogItem").hover(function () {
+		// $(this).toggleClass('active');
+		$(this).find(".catalogItem__hiddenBlock").fadeToggle();
+		// $(this).find(".catalogItem__hiddenBlock").slideToggle();
 	});
 
 	var galleryTop2 = new Swiper('.sLogos__slider--js', {
@@ -361,17 +373,53 @@ function eventHandler() {
 
 	});
 
-	$(".main-nav [data-tab]").hover(function () {
+
+	$(".main-nav [data-tab] a").hover(function () {
+		var dataTab = $(this).parent().data('tab');
+
+		$('[data-tab]').removeClass('active');
+		$(this).parent().addClass('active').siblings().removeClass('active');
+		$(dataTab).addClass('active').siblings().removeClass('active');
+		return false;
+	})
+
+	$(".main-nav [data-tab]").click(function () {
 		var dataTab = $(this).data('tab');
 
 		$('[data-tab]').removeClass('active');
 		$(this).addClass('active').siblings().removeClass('active');
 		$(dataTab).addClass('active').siblings().removeClass('active');
+		return false;
 	})
-	$(".toggle-main-menu--js").click(function () {
-		$(this).toggleClass('on');
+
+	$(".toggle-main-menu--js:not(.on) ").click(function () {
+			$('.toggle-main-menu--js').addClass('on');
+			$(".main-nav").show();
+			$("body").addClass('fixed')
+	})
+
+	$(" .toggle-menu-mobile--js").click(function () {
+		$('.toggle-main-menu--js').toggleClass('on');
 		$(".main-nav").toggle();
+		$("body").toggleClass('fixed')
 	})
+
+
+
+	$(".toggle-menu-mobile--inner-js").click(function () {
+		$(this).parents(".main-categories-wrap").removeClass('active');
+		// $(".main-nav").toggle();
+	})
+
+
+	$(document).mouseup(function (e) {
+		var container = $(".main-nav");
+		if (container.has(e.target).length === 0 || $(".top-nav").has(e.target).length === 0) {
+			container.hide();
+			$("body, html").removeClass("fixed");
+			$(".toggle-main-menu--js").removeClass("on");
+		}
+	});
 	//luckyone JS
 
 	//02 prod card

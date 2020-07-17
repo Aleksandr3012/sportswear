@@ -1,19 +1,38 @@
 
 	// start .topLine
-	.topLine {
+	.header--main .topLine{
 		color: #ffffff;
-		// padding-top: rem(16);
-		padding-bottom: rem(16);
-		.row{
-			align-items: center;
-		}
 		.soc{
 			&__item{
 				color: #ffffff !important;
+			
+				&:hover{
+					opacity: 0.5;
+				}
 			}
 		}
+	 
+&__link {
+	color: #ffffff !important;
+	&:hover{
+		opacity: 0.5;
+	}
+}
+	}
+	.topLine {
+		// padding-top: rem(16);
+		padding-bottom: rem(16);
+		.soc{
+			.icon{
+				color: currentColor;
+			}
+		}
+		.row{
+			align-items: center;
+		}
 		&__link{
-			color: #ffffff;
+		 
+			text-decoration: none !important;	
 			font-weight: bold;
 			.icon{
 				color: $danger;
@@ -29,6 +48,7 @@
 			@include roww(rem(40));
 			list-style: none;
 			margin-bottom: 0;
+			margin-right: rem(50);
 		}
 		 
 	@include media-breakpoint-up(xl) {}
