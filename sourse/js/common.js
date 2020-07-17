@@ -128,7 +128,7 @@ function eventHandler() {
 
 	// JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/02-1920.jpg);"></div>')
+	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/02-360.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
 
 
@@ -258,28 +258,30 @@ function eventHandler() {
 	//timer
 	function tikTak(parentQselector) {
 		//html elements
-		let parent = document.querySelector(parentQselector);
-		if (!parent) return
+		let parents = document.querySelectorAll(parentQselector);
+		if (parents.length === 0) return
+		for (let parent of parents){
 
-		let days = parent.querySelector('.days');
-		let hours = parent.querySelector('.hours');
-		let minutes = parent.querySelector('.minutes');
-		let seconds = parent.querySelector('.seconds');
+			let days = parent.querySelector('.days');
+			let hours = parent.querySelector('.hours');
+			let minutes = parent.querySelector('.minutes');
+			let seconds = parent.querySelector('.seconds');
 
-		//date elements
-		let now = new Date();
+			//date elements
+			let now = new Date();
 
-		// d === days.innerHtml + now.getDate... others the same way
-		let d = getTime(days, now.getDate());
-		let h = getTime(hours, now.getHours());
-		let m = getTime(minutes, now.getMinutes());
-		let s = getTime(seconds, now.getSeconds());
+			// d === days.innerHtml + now.getDate... others the same way
+			let d = getTime(days, now.getDate());
+			let h = getTime(hours, now.getHours());
+			let m = getTime(minutes, now.getMinutes());
+			let s = getTime(seconds, now.getSeconds());
 
-		let targetDate = new Date(now.getFullYear(), now.getMonth(), d, h, m, s);
+			let targetDate = new Date(now.getFullYear(), now.getMonth(), d, h, m, s);
 
-		//interval
-		tikTakReadOut(parent, targetDate, ThisReadOutID, days, hours, minutes, seconds);
-		let ThisReadOutID = window.setInterval(tikTakReadOut.bind(null, parent, targetDate, ThisReadOutID, days, hours, minutes, seconds), 1000);
+			//interval
+			tikTakReadOut(parent, targetDate, ThisReadOutID, days, hours, minutes, seconds);
+			let ThisReadOutID = window.setInterval(tikTakReadOut.bind(null, parent, targetDate, ThisReadOutID, days, hours, minutes, seconds), 1000);
+		}
 	}
 	tikTak('.timer-box-js');
 	//additional funcs to tikTak
@@ -388,17 +390,11 @@ function eventHandler() {
 		slidesPerView: 'auto',
 		spaceBetween: 24,
 		//loop: true,
-		on: {
-			click: () => {
-				//photoGaleryThumb.slideTo(photoGaleryThumb.clickedIndex - 1, 700, false);
-				prodCardThumb.updateSlidesClasses();
-				prodCard.updateSlidesClasses();
-			},
-		},
 	});
 
 	let prodCard = new Swiper('.prod-card-slider-js', {
 		//thumbs
+		slidesPerView: 'auto',
 		thumbs: {
 			swiper: prodCardThumb
 		},
@@ -406,26 +402,94 @@ function eventHandler() {
 			loadPrevNext: true,
 		},
 		loop: true,
-		on: {
-			click: () => {
-				//photoGaleryThumb.slideTo(photoGaleryThumb.clickedIndex - 1, 700, false);
-				prodCardThumb.updateSlidesClasses();
-				prodCard.updateSlidesClasses();
-			},
-		},
 	});
 	//tabs slider
 
 	let ProdPageTabs = new Swiper('.prod-card-tabs-js', {
 		slidesPerView: 'auto',
-		spaceBetween: 51,
+		breakpoints: {
+			1200: {
+				spaceBetween: 51,
+			},
+			996: {
+				spaceBetween: 28,
+			},
+			768: {
+				spaceBetween: 28,
+			},
+			320: {
+				spaceBetween: 32,
+			},
+		},
+
 		freeMode: true,
 		freeModeMomentum: true,
 		watchOverflow: true,
 	});
 
 	//timer
-	tikTak('.prod-timer-box-js');
+	//tikTak('.prod-timer-box-js');
+
+	//02 select
+	$('.custom-select2').select2({
+		minimumResultsForSearch: Infinity,
+		dropdownCssClass: "drop-down-full-blue",
+	});
+	$('.custom-select2-margined').select2({
+		minimumResultsForSearch: Infinity,
+		dropdownCssClass: "drop-down-margined",
+	});
+
+	//02 toggle pills
+	$('.prod-nav-header-js').click(function () {
+		$(this).toggleClass('active');
+		$(this.parentElement).find('.prod-nav-content-js').slideToggle(function () {
+			$(this).toggleClass('active');
+		});
+	});
+
+	//02 +- btns
+	//
+	let ProdAmountInp = document.querySelector('.prod-amount-inp-js');
+	$('.form-wrap__add-control-btn').click(function (){
+		if (!ProdAmountInp) return
+
+		if (this.classList.contains('minus-btn')){
+			if (Number(ProdAmountInp.value) <= 1) return;
+			ProdAmountInp.value = Number(ProdAmountInp.value) - 1;
+		}
+		else{
+			if (Number(ProdAmountInp.value) >= 999) return;
+			ProdAmountInp.value = Number(ProdAmountInp.value) + 1;
+		}
+	})
+
+	//sticky
+	let sticky = new Sticky('.sticky-js');
+	console.log(sticky);
+
+	//related slider
+	let relatedSlider = new Swiper('.related-slider-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+		loop: true,
+		//
+		lazy: {
+			loadPrevNext: true,
+			loadPrevNextAmount: 3,
+		},
+		//
+		breakpoints: {
+			768: {
+				spaceBetween: 24,
+			},
+		},
+
+		navigation: {
+			nextEl: '.next-related-js',
+			prevEl: '.prev-related-js',
+		},
+	});
 
 	//end luckyone JS
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;

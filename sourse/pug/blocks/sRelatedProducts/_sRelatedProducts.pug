@@ -1,0 +1,57 @@
+mixin sRelatedProducts()
+	// start sRelatedProducts
+	+b.sRelatedProducts#sRelatedProducts&attributes(attributes)
+		+e.section-bg-cont
+			+e.section-bg
+				img.lazy.d-block.d-xl-none(src="#" data-src="img/@2x/related-products-bg-2.jpg" alt="")
+				img.lazy.d-none.d-xl-block(src="#" data-src="img/@2x/related-products-bg.jpg" alt="")
+		.container
+			+e.section-title Related products
+			+e.slider.related-sl
+				.prev-related-js.d-none.d-xl-flex
+					+icon('chevron-left')
+				.next-related-js.d-none.d-xl-flex
+					+icon('chevron-right')
+				.swiper-container.related-slider-js
+					.swiper-wrapper
+						+relatedItem('1','89 €','189 €','Asics','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue', 'big-related-item')
+						+relatedItem('2','89 €','189 €','Grunge John Orchestra','Man`s bomber Grunge John Orchestra Toxic Olive', 'small-related-item')
+						+relatedItem('3','89 €','189 €','Grunge John Orchestra','Man`s bomber Grunge John Orchestra Toxic Olive', 'small-related-item')
+						//-
+						+relatedItem('1','89 €','189 €','Asics','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue', 'big-related-item')
+						+relatedItem('2','89 €','189 €','Grunge John Orchestra','Man`s bomber Grunge John Orchestra Toxic Olive', 'small-related-item')
+						+relatedItem('3','89 €','189 €','Grunge John Orchestra','Man`s bomber Grunge John Orchestra Toxic Olive', 'small-related-item')
+			+e.see-more-btn.d-sm-none see more
+			+e.section-title Viewed items
+			+e.slider.viwed-sl
+				.prev-related-js.d-none.d-xl-flex
+					+icon('chevron-left')
+				.next-related-js.d-none.d-xl-flex
+					+icon('chevron-right')
+				.swiper-container.related-slider-js
+					.swiper-wrapper
+						+relatedItem('4','89 €','189 €','Garmont','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue', 'small-related-item')
+						+relatedItem('5','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive', 'small-related-item')
+						+relatedItem('6','89 €','189 €','Asics','Woman`s  jacket BRIGANDINE FUTURELIGHT PAPAYA ORANGE FUSE', 'big-related-item')(class="catalogItemRelated--imgBg")
+			+b.blue-strip.d-none
+				+e.img-cont
+					img.lazy(src="#" data-src='img/@2x/.jpg' alt="")
+	// end sRelatedProducts
+
+mixin relatedItem(img,newPrice,oldPrice,category,text, slideSize)
+	.swiper-slide
+		+e.slide-content(class=slideSize)
+			+b.catalogItemRelated&attributes(attributes)
+				.row.justify-content-between
+					.col-auto
+						+e.hit hit
+					.col-auto
+						+controls()
+				+e.imgWrap(href="#")
+					img.swiper-lazy(src="" data-src=`img/@2x/related-${img}.jpg`, alt="")
+				+e.lower-content
+					+e.sale -20%
+					+e.newPrice=newPrice
+					+e.oldPrice=oldPrice
+					+e.category(href="#")= category
+					+e.names(href="#")= text
