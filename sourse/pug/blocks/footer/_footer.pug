@@ -6,8 +6,8 @@ mixin footer()
 					+e.signUp
 						.h4 Be the first to know
 						p Sign up&nbsp;to&nbsp;our newsletter and keep up&nbsp;to&nbsp;date about Osprey products and promotions
-						+form-wrap
-							+e.enter.d-md-none(type="button")
+						+form-wrap(class="footer-input-js")
+							+e.enter(type="button")
 								img.lazy(src="#" data-src="img/svg/enter.svg" alt="")
 							+input('Email adress','email')
 				.col-auto.d-flex

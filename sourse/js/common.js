@@ -128,7 +128,7 @@ function eventHandler() {
 
 	// JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/02-360.jpg);"></div>')
+	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
 
 
@@ -244,7 +244,6 @@ function eventHandler() {
 		loop: false,
 		spaceBetween: 30,
 		slidesPerView: 1,
-
 
 
 		breakpoints: {
@@ -373,6 +372,15 @@ function eventHandler() {
 
 	});
 
+	$('.sWeAreDifferent-btn-js').click(function(){
+		$('.sWeAreDifferent-hiddenBlock-js').slideToggle();
+	})
+
+	$('.footer-input-js').click(function(){
+		$('.form-wrap__enter').addClass('d-block');
+	})
+
+ 
 
 	$(".main-nav [data-tab] a").hover(function () {
 		var dataTab = $(this).parent().data('tab');

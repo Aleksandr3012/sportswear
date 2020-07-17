@@ -2,7 +2,7 @@ mixin catalogItem(img,newPrice,oldPrice,category,text,wide)
 	+b.catalogItem&attributes(attributes)
 		.row.justify-content-between
 			.col-auto
-				+e.hit hit
+				+e.hit(href="#") hit
 			.col-auto
 				+controls()
 		+e.imgWrap(href="#")
@@ -47,7 +47,7 @@ mixin catalogItem-blue(img,newPrice,oldPrice,category,text,wide)
 				img.res-i.lazy(src="" data-src=`img/@2x/catalog-${img}.jpg`, alt="")
 			.row.justify-content-between
 				.col-auto
-					+e.hit hit
+					+e.hit(href="#") hit
 				.col-auto
 					+controls()
 			+e.sale -20%

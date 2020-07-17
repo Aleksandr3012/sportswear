@@ -3,6 +3,7 @@
 	overflow: hidden;
 	margin-bottom: rem(24);
 	height: calc(100% - #{rem(24)});
+	box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
 
 
 	&__imgBg {
@@ -13,6 +14,7 @@
 	}
 
 	&__title {
+		text-decoration: none !important;
 		color: $primary;
 		font-weight: bold;
 		line-height: 1.35;
@@ -99,6 +101,11 @@
 		font-size: $small;
 		padding-bottom: rem(25);
 		line-height: 1.7;
+		text-decoration: none !important;
+
+		&:hover {
+			color: $black;
+		}
 	}
 	
 	&.bg-gray {

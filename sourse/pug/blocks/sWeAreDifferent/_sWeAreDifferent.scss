@@ -43,6 +43,10 @@
 
 	}
 
+	.sWeAreDifferent-hiddenBlock-js {
+		display: none;
+	}
+
 	&__imgWrap {
 		&::before {
 			content: '';
@@ -76,6 +80,7 @@
 	}
 
 	&__btn {
+		width: 100%;
 		@include media-breakpoint-down(sm) {
 			margin-left: auto;
 			margin-right: auto;
