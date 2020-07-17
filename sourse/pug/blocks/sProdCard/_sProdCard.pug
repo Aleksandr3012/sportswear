@@ -1,7 +1,7 @@
 mixin sProdCard()
 	// start sProdCard
 	+b.SECTION.sProdCard.section#sProdCard&attributes(attributes)
-		.container
+		.container(data-sticky-container)
 			block
 			+e.row.row
 				+e.slider-col.col-lg-8
@@ -21,6 +21,111 @@ mixin sProdCard()
 									+prodCardThumb(3)
 									+prodCardThumb(4)
 									+prodCardThumb(5)
+					+e.nav-col
+						.sticky-js(data-margin-top="140")
+							+e.top-nav-bar
+								+e.br-links
+									a(href="#") New
+									a(href="#") Sale
+								+e.like-share-cont
+									a.heart-link(href="#")
+										+icon('heart')
+									a(href="#")
+										+icon('stat')
+									a(href="#")
+										+icon('share')
+							+e.A.brand-link(href="#") Asics
+							+e.H1.prod-name Men&rsquo;s shoes sneakers ASICS GEL-Nimbus 22 White/Electric Blue
+							+e.article-txt Article 1011A780100
+							+e.old-price-strip
+								+e.old-price-txt 189 €
+								+e.discount - 20%
+							+e.new-price-strip
+								+e.new-price-txt 89 €
+								+b.timer-box.timer-box-js
+									+e.icon-cont
+										+icon('sand-clock')
+									+e.item
+										.days 2
+										+e.small day
+									+e.item
+										.hours  17
+										+e.small hr
+									+e.item
+										.minutes 35
+										+e.small min
+									+e.item
+										.seconds 17
+										+e.small sec
+							+e.chars-pills-strip.d-none.d-sm-block
+								a(href="#") 10€/kg
+								a(href="#") Tax included
+								a(href="#") Something else
+							+e.other-items
+								+otherItem(1, true)
+								+otherItem(2, true)
+								+otherItem(3)
+								+otherItem(4)
+								+otherItem(5)
+							+e.color-likns.d-none.d-lg-flex
+								a(href="#" style="color: #287EFF; background-color: #287EFF;")
+								a(href="#" style="color: #FF4949; background-color: #FF4949;")
+								a(href="#" style="color: #F8CC43; background-color: #F8CC43;")
+								a(href="#" style="color: #1ECBCB; background-color: #1ECBCB;")
+								a(href="#" style="color: #000000; background-color: #000000;")
+								a(href="#" style="color: #F35321; background-color: #F35321;")
+							+e.size-bar
+								+e.size-bar-top
+									+b.size-type-select
+										+countrSizeSelct()
+									+e.A.size-table-link(href="#") Size table
+								+e.size-bar-pills
+									a.active(href="#") 42
+									a(href="#") 42 ½
+									a.red-doted(href="#") 43
+									a.red-doted(href="#") 43H
+									a.disabled(href="#") 44
+								+b.size-select
+									+SizeSelct()
+							+b.toggle-pills-box
+								+togglePillItem('Product castomization','active')
+									+e.add-strip
+										+form-wrap()
+											+e.add-inp-box
+												+e.add-control-btn.minus-btn -
+												+input('', 'number', undefined, 'prodAmount')(value='999' class="prod-amount-inp-js" min="1" max="999")
+												+e.add-control-btn.plus-btn +
+											+e.A.add-btn(href="#") add to cart
+									+e.caution-box
+										+e.caution.danger Last item in stock
+										+e.caution.warning Product available with different options
+									+e.get-video-call
+										+e.get-video-content
+											+icon('video-consult')
+											span Get a video consultation
+								+togglePillSolidItem('Availability')
+									+solidContentSubItem('#1ECBCB')
+										| In stock
+									+solidContentSubItem('#287EFF')
+										| Under
+										br
+										| the order
+								+togglePillSolidItem('Delivery')
+									+solidContentSubItem('#1ECBCB')
+										| In stock
+									+solidContentSubItem('#287EFF')
+										| Under
+										br
+										| the order
+							+e.policy-links
+								+e.A.policy-link(href="#")
+									+e.policy-icon.car
+										+icon('delivery-car')
+									span Delivery policy
+								+e.A.policy-link(href="#")
+									+e.policy-icon.arrows
+										+icon('return-arrows')
+									span Return policy
 					+e.tabs-cont.tabs
 						+e.tabs-slider
 							.swiper-container.prod-card-tabs-js
@@ -55,50 +160,54 @@ mixin sProdCard()
 								| 333
 							+e.tabs-conent-item.tabs__content
 								| 444
-				+e.nav-col.col-lg-4
-					+e.top-nav-bar
-						+e.br-links
-							a(href="#") New
-							a(href="#") Sale
-						+e.like-share-cont
-							a.heart-link(href="#")
-								+icon('heart')
-							a(href="#")
-								+icon('stat')
-							a(href="#")
-								+icon('share')
-					+e.A.brand-link(href="#") Asics
-					+e.H1.prod-name Men&rsquo;s shoes sneakers ASICS GEL-Nimbus 22 White/Electric&#160;Blue
-					+e.article-txt Article 1011A780100
-					+e.old-price-strip
-						+e.old-price-txt 189 €
-						+e.discount - 20%
-					+e.new-price-strip
-						+e.new-price-txt 89 €
-						+e.timer.prod-timer-box-js
-							+icon('sand-clock')
-							span.days 2
-							span.hours 17
-							span.minutes 35
-							span.seconds 17
-					+e.chars-pills-strip
-						a(href="#") 10€/kg
-						a(href="#") Tax included
-						a(href="#") Something else
-					+e.other-items
-						+otherItem(1, true)
-						+otherItem(2, true)
-						+otherItem(3)
-						+otherItem(4)
-						+otherItem(5)
-					+e.color-likns
-						a(href="#" style="color: #287EFF; background-color: #287EFF;")
-						a(href="#" style="color: #FF4949; background-color: #FF4949;")
-						a(href="#" style="color: #F8CC43; background-color: #F8CC43;")
-						a(href="#" style="color: #1ECBCB; background-color: #1ECBCB;")
-						a(href="#" style="color: #000000; background-color: #000000;")
-						a(href="#" style="color: #F35321; background-color: #F35321;")
+					+e.overview-bl
+						+e.overview-headline Overview
+						+e.A.overview-link(href="https://www.youtube.com/watch?v=en6gms6e54Q&list=PLIU76b8Cjem5B3sufBJ_KFTpKkMEvaTQR" data-fancybox="video")
+							+e.overview-img
+								img.lazy(src='#' data-src="img/@2x/02-overview.jpg" alt="")
+							+e.play-btn-cont
+								+e.play-btn
 	// end sProdCard
+
+mixin solidContentSubItem(statusColor='red', shopTxt='Shop №1', address='Voronovo, Kaluga highway, 40 km from MKAD')
+	+e.solid-subitem
+		+e.solid-info
+			+e.solid-shop=shopTxt
+			+e.solid-address=address
+		+e.solid-status(style=`color: ${statusColor};`)
+			block
+
+mixin togglePillItem(headlineTxt, keyClass)
+	+e.item-cont
+		+e.header.prod-nav-header-js(class=keyClass)
+			span=headlineTxt
+			+icon('chevron-down')
+		+e.content.prod-nav-content-js(class=keyClass)
+			block
+
+mixin togglePillSolidItem(headlineTxt, keyClass)
+	+e.solid-item-cont
+		+e.solid-header.prod-nav-header-js(class=keyClass)
+			span=headlineTxt
+			+icon('chevron-down')
+		+e.solid-content.prod-nav-content-js(class=keyClass)
+			block
+
+mixin SizeSelct(selectName, optionsArr=['1', '2', '3'], placeholder='', keyClass='custom-select2-margined')
+	select(name=selectName data-placeholder=placeholder class=keyClass)
+		option(value="" label='#')
+		option(value="90×60×90 cm" selected) 90×60×90 cm
+		- for (let item of optionsArr)
+			option(value=item)=`90×60×90 cm ${item}`
+
+mixin countrSizeSelct(selectName, optionsArr=['CM', 'UK', 'US'], placeholder='', keyClass='custom-select2')
+	select(name=selectName data-placeholder=placeholder class=keyClass)
+		option(value="" label='#')
+		option(value="EUR" selected) EUR
+		- for (let item of optionsArr)
+			option(value=item)=item
+
+
 mixin otherItem(imgNum, hasDiscount=false)
 	+e.A.other-item(href='#')
 		+e.other-item-content
@@ -107,7 +216,7 @@ mixin otherItem(imgNum, hasDiscount=false)
 				.discount - 20%
 
 mixin prodCardSlide(imgNum)
-	.swiper-slide
+	.swiper-slide.prod-card-slide
 		+e.A.slide-link(href=`img/@2x/02-slider-${imgNum}.jpg` data-fancybox="prodCardGroup")
 			+e.img-cont
 				img.swiper-lazy(src="#" data-src=`img/@2x/02-slider-${imgNum}.jpg` alt="")

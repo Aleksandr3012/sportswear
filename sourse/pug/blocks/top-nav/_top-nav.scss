@@ -8,10 +8,10 @@ position: relative;
 z-index: 200;
 @include media-breakpoint-up(sm){
 
-	padding: rem(4) rem(24);
+	padding: rem(8) rem(24);
 }
 padding: rem(4) rem(16);
-margin-bottom: rem(24);
+margin-bottom: rem(32);
 /* Preview shadow */
 
 box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
@@ -33,7 +33,7 @@ ul{
 }
 &__nav ul{ 
 	display: flex;
-	@include roww(rem(24));
+	@include roww(rem(16));
 } 
 &__link{
 	letter-spacing: 0.1em;
@@ -51,16 +51,21 @@ ul{
 	.icon{
 		fill: transparent;
 		stroke: currentColor;
-		font-size: rem(24);
+		font-size: rem(32);
 	}
 }
 &__col{
 	text-align: center;
-	@include media-breakpoint-up(xl) { 
+	@include media-breakpoint-up(xxl) { 
 	width: rem(300);
 	}
 }
- 
+ &__logo{
+
+	 @include media-breakpoint-up(xl) {
+		 margin-right: 50px;
+	 }
+ }
 	
 
 	// 

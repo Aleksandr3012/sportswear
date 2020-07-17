@@ -12,10 +12,10 @@ html {
 	overflow: hidden;
 	width: 100%;
 	height: 100%;
-	background-position: center 0;
-	background-position: center -12px;
+	background-position: center 0;//16px
+	//background-position: center 72px;
 	opacity: 0;
-	opacity: 0.7;
+	//opacity: 0.7;
 }
 
 body,
@@ -63,7 +63,7 @@ body {
 			left: 0;
 			top: 0;
 			z-index: 999;
-			
+
 			&::before {
 				// z-index: 999;
 				// opacity: 0.76;
@@ -393,7 +393,9 @@ img.img-bg,
 iframe {
 	border: none;
 }
-
+.btn-success {
+	box-shadow: 0px 8px 24px rgba(13, 120, 120, 0.25);
+}
 .btn-outline-primary {
 	letter-spacing: rem(1.6px);
 	max-width: rem(233px);
@@ -453,7 +455,10 @@ iframe {
 //breadcrumbs
 .breadcrumb-slider-js{
 	.swiper-wrapper{
-		padding: 0 0 0 23px;
+		padding: 0 0 0 18px;
+		@include media-breakpoint-up(sm){
+			padding: 0 0 0 23px;
+		}
 		margin: 0;
 		list-style: none;
 	}
@@ -462,7 +467,10 @@ iframe {
 		display: flex;
 		align-items: center;
 
-		padding: rem(24) 0;
+		padding: 0 0 rem(16) 0;
+		@include media-breakpoint-up(sm){
+			padding: rem(8) 0 rem(24) 0;
+		}
 
 		&:after{
 			content: '';
@@ -500,4 +508,26 @@ iframe {
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	color: #ffffff;
+}
+
+.btn-success-frame{
+	@include mt();
+	white-space: nowrap;
+
+	padding: rem(8) rem(31);
+	color: $white;
+	box-shadow: 0px 8px 24px rgba(13, 120, 120, 0.25);
+	border: none !important;
+
+	font-weight: 500;
+	font-size: rem(16px);
+	line-height: 2;
+
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
 }

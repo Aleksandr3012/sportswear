@@ -1,5 +1,11 @@
 "use strict";
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -122,8 +128,8 @@ function eventHandler() {
 	// svg4everybody({});
 
 	JSCCommon.modalCall();
-	JSCCommon.tabscostume('tabs');
-	JSCCommon.mobileMenu();
+	JSCCommon.tabscostume('tabs'); // JSCCommon.mobileMenu();
+
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
 	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
@@ -220,23 +226,36 @@ function eventHandler() {
 
 	function tikTak(parentQselector) {
 		//html elements
-		var parent = document.querySelector(parentQselector);
-		if (!parent) return;
-		var days = parent.querySelector('.days');
-		var hours = parent.querySelector('.hours');
-		var minutes = parent.querySelector('.minutes');
-		var seconds = parent.querySelector('.seconds'); //date elements
+		var parents = document.querySelectorAll(parentQselector);
+		if (parents.length === 0) return;
 
-		var now = new Date(); // d === days.innerHtml + now.getDate... others the same way
+		var _iterator = _createForOfIteratorHelper(parents),
+				_step;
 
-		var d = getTime(days, now.getDate());
-		var h = getTime(hours, now.getHours());
-		var m = getTime(minutes, now.getMinutes());
-		var s = getTime(seconds, now.getSeconds());
-		var targetDate = new Date(now.getFullYear(), now.getMonth(), d, h, m, s); //interval
+		try {
+			for (_iterator.s(); !(_step = _iterator.n()).done;) {
+				var parent = _step.value;
+				var days = parent.querySelector('.days');
+				var hours = parent.querySelector('.hours');
+				var minutes = parent.querySelector('.minutes');
+				var seconds = parent.querySelector('.seconds'); //date elements
 
-		tikTakReadOut(parent, targetDate, ThisReadOutID, days, hours, minutes, seconds);
-		var ThisReadOutID = window.setInterval(tikTakReadOut.bind(null, parent, targetDate, ThisReadOutID, days, hours, minutes, seconds), 1000);
+				var now = new Date(); // d === days.innerHtml + now.getDate... others the same way
+
+				var d = getTime(days, now.getDate());
+				var h = getTime(hours, now.getHours());
+				var m = getTime(minutes, now.getMinutes());
+				var s = getTime(seconds, now.getSeconds());
+				var targetDate = new Date(now.getFullYear(), now.getMonth(), d, h, m, s); //interval
+
+				tikTakReadOut(parent, targetDate, ThisReadOutID, days, hours, minutes, seconds);
+				var ThisReadOutID = window.setInterval(tikTakReadOut.bind(null, parent, targetDate, ThisReadOutID, days, hours, minutes, seconds), 1000);
+			}
+		} catch (err) {
+			_iterator.e(err);
+		} finally {
+			_iterator.f();
+		}
 	}
 
 	tikTak('.timer-box-js'); //additional funcs to tikTak
@@ -273,7 +292,7 @@ function eventHandler() {
 	}
 
 	var galleryThumbs = new Swiper('.gallery-thumbs', {
-		spaceBetween: 0,
+		spaceBetween: 20,
 		slidesPerView: 'auto',
 		loop: true,
 		freeMode: true,
@@ -331,10 +350,27 @@ function eventHandler() {
 		$(dataTab).addClass('active').siblings().removeClass('active');
 		return false;
 	});
-	$(".toggle-main-menu--js").click(function () {
-		$(this).toggleClass('on');
+	$(".toggle-main-menu--js:not(.on) ").click(function () {
+		$('.toggle-main-menu--js').addClass('on');
+		$(".main-nav").show();
+		$("body").addClass('fixed');
+	});
+	$(" .toggle-menu-mobile--js").click(function () {
+		$('.toggle-main-menu--js').toggleClass('on');
 		$(".main-nav").toggle();
 		$("body").toggleClass('fixed');
+	});
+	$(".toggle-menu-mobile--inner-js").click(function () {
+		$(this).parents(".main-categories-wrap").removeClass('active'); // $(".main-nav").toggle();
+	});
+	$(document).mouseup(function (e) {
+		var container = $(".main-nav");
+
+		if (container.has(e.target).length === 0 || $(".top-nav").has(e.target).length === 0) {
+			container.hide();
+			$("body, html").removeClass("fixed");
+			$(".toggle-main-menu--js").removeClass("on");
+		}
 	}); //luckyone JS
 	//02 prod card
 	//breadcrumbs
@@ -349,43 +385,97 @@ function eventHandler() {
 
 	var prodCardThumb = new Swiper('.prod-card-thumb-js', {
 		slidesPerView: 'auto',
-		spaceBetween: 24,
-		//loop: true,
-		on: {
-			click: function click() {
-				//photoGaleryThumb.slideTo(photoGaleryThumb.clickedIndex - 1, 700, false);
-				prodCardThumb.updateSlidesClasses();
-				prodCard.updateSlidesClasses();
-			}
-		}
+		spaceBetween: 24 //loop: true,
+
 	});
 	var prodCard = new Swiper('.prod-card-slider-js', {
 		//thumbs
+		slidesPerView: 'auto',
 		thumbs: {
 			swiper: prodCardThumb
 		},
 		lazy: {
 			loadPrevNext: true
 		},
-		loop: true,
-		on: {
-			click: function click() {
-				//photoGaleryThumb.slideTo(photoGaleryThumb.clickedIndex - 1, 700, false);
-				prodCardThumb.updateSlidesClasses();
-				prodCard.updateSlidesClasses();
-			}
-		}
+		loop: true
 	}); //tabs slider
 
 	var ProdPageTabs = new Swiper('.prod-card-tabs-js', {
 		slidesPerView: 'auto',
-		spaceBetween: 51,
+		breakpoints: {
+			1200: {
+				spaceBetween: 51
+			},
+			996: {
+				spaceBetween: 28
+			},
+			768: {
+				spaceBetween: 28
+			},
+			320: {
+				spaceBetween: 32
+			}
+		},
 		freeMode: true,
 		freeModeMomentum: true,
 		watchOverflow: true
 	}); //timer
+	//tikTak('.prod-timer-box-js');
+	//02 select
 
-	tikTak('.prod-timer-box-js'); //end luckyone JS
+	$('.custom-select2').select2({
+		minimumResultsForSearch: Infinity,
+		dropdownCssClass: "drop-down-full-blue"
+	});
+	$('.custom-select2-margined').select2({
+		minimumResultsForSearch: Infinity,
+		dropdownCssClass: "drop-down-margined"
+	}); //02 toggle pills
+
+	$('.prod-nav-header-js').click(function () {
+		$(this).toggleClass('active');
+		$(this.parentElement).find('.prod-nav-content-js').slideToggle(function () {
+			$(this).toggleClass('active');
+		});
+	}); //02 +- btns
+	//
+
+	var ProdAmountInp = document.querySelector('.prod-amount-inp-js');
+	$('.form-wrap__add-control-btn').click(function () {
+		if (!ProdAmountInp) return;
+
+		if (this.classList.contains('minus-btn')) {
+			if (Number(ProdAmountInp.value) <= 1) return;
+			ProdAmountInp.value = Number(ProdAmountInp.value) - 1;
+		} else {
+			if (Number(ProdAmountInp.value) >= 999) return;
+			ProdAmountInp.value = Number(ProdAmountInp.value) + 1;
+		}
+	}); //sticky
+
+	var sticky = new Sticky('.sticky-js');
+	console.log(sticky); //related slider
+
+	var relatedSlider = new Swiper('.related-slider-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+		loop: true,
+		//
+		lazy: {
+			loadPrevNext: true,
+			loadPrevNextAmount: 3
+		},
+		//
+		breakpoints: {
+			768: {
+				spaceBetween: 24
+			}
+		},
+		navigation: {
+			nextEl: '.next-related-js',
+			prevEl: '.prev-related-js'
+		}
+	}); //end luckyone JS
 
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 

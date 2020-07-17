@@ -3,6 +3,7 @@
 		
 		position: absolute;
 		top: 100%;
+		margin-top: 20px;
 		
 		border-radius: 16px;
 	}
@@ -43,6 +44,12 @@
 			align-items: center;
 			color: #ffffff;
 			font-weight: bold;
+			span{
+				@include mt;
+			}
+			&:hover{
+			
+			}
 			@include media-breakpoint-down(sm){
 				pointer-events: none;
 				display: block;
@@ -78,6 +85,9 @@
 		li.active,
 		li:hover{
 			a{
+					span {
+						opacity: 0.5;
+					}
 				&::before {
 					margin-left: rem(55);
 					opacity: 1;
