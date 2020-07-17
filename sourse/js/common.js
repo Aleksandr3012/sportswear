@@ -542,11 +542,9 @@ function eventHandler() {
 
 	function redBottomStip(){
 		let fixedStrip = document.querySelector('.bottom-fixed-strip');
-		console.log(fixedStrip);
 		if(!fixedStrip) return
 
 		let fixedHook = document.querySelector('.fixed-hook-js');
-		console.log(fixedHook);
 		if(!fixedHook) return
 
 		window.addEventListener("scroll", toggleFixedStrip.bind(undefined, fixedHook, fixedStrip), {passive:  true});
@@ -578,27 +576,29 @@ function eventHandler() {
 	let sticky = new Sticky('.sticky-js');
 	console.log(sticky);
 
-	//related slider
-	let relatedSlider = new Swiper('.related-slider-js', {
-		slidesPerView: 'auto',
-		spaceBetween: 24,
-		loop: true,
-		//
-		lazy: {
-			loadPrevNext: true,
-			loadPrevNextAmount: 3,
-		},
-		//
-		breakpoints: {
-			768: {
-				spaceBetween: 24,
+	//related sliders
+	$('.sRelatedProducts__slider').each(function () {
+		let relatedSlider = new Swiper($(this).find('.related-slider-js'), {
+			slidesPerView: 'auto',
+			spaceBetween: 24,
+			loop: true,
+			//
+			lazy: {
+				loadPrevNext: true,
+				loadPrevNextAmount: 3,
 			},
-		},
+			//
+			breakpoints: {
+				768: {
+					spaceBetween: 24,
+				},
+			},
 
-		navigation: {
-			nextEl: '.next-related-js',
-			prevEl: '.prev-related-js',
-		},
+			navigation: {
+				nextEl: $(this).find('.next-related-js'),
+				prevEl: $(this).find('.prev-related-js'),
+			},
+		});
 	});
 
 	//end luckyone JS
