@@ -39,6 +39,13 @@
 		@include media-breakpoint-up(xl) {
 			line-height: 2.25;
 		}
+
+		a {
+			text-decoration: none !important;
+			&:hover {
+				opacity: .5;
+			}
+		}
 	}
 
 	&__soc {
@@ -105,13 +112,19 @@
 				display: none;
 			}
 		}
+
+		&__input {
+			height: rem(64);
+			border-radius: rem(100);
+			padding: rem(16) rem(24);
+		}
 	}
 
 	.h4 {
 		letter-spacing: rem(0.4);
 		padding-bottom: rem(10);
 		font-weight: bold;
-		text-transform: uppercase;
+		// text-transform: uppercase;
 	}
 
 	p {

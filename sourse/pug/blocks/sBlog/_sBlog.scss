@@ -20,6 +20,10 @@
 		font-size: rem(36px);
 		font-weight: bold;
 		text-decoration: none !important;
+
+		&:hover {
+			opacity: .5;
+		}
 	}
 
 	.row {

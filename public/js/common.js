@@ -201,8 +201,12 @@ function eventHandler() {
 		slidesPerView: 1,
 		// slidesPerGroup: 1,
 		loop: true,
+		spaceBetween: 5,
 		breakpoints: {
 			768: {
+				spaceBetween: 50
+			},
+			1200: {
 				spaceBetween: 93
 			}
 		}
