@@ -26,6 +26,10 @@
 		@include media-breakpoint-up(lg) {
 			max-width: rem(260);
 		}
+
+		&:hover {
+			opacity: .5;
+		}
 	}
 
 	&__category {
@@ -37,6 +41,11 @@
 		}
 		letter-spacing: 0.1em;
 		font-size: $xsmall;
+		text-decoration: none !important;
+
+		&:hover {
+			opacity: .5;
+		}
 	}
 
 	&__col {
@@ -51,9 +60,14 @@
 
 	&__date {
 		font-size: $xsmall;
-		color: rgba(0, 0, 0, 0.5);
+		color: rgba(0, 0, 0, 0.5) !important;
 		margin-top: auto;
 		line-height: 2;
+		text-decoration: none !important;
+
+		&:hover {
+			opacity: .5;
+		}
 	}
 
 	&__imgWrap {
@@ -121,7 +135,7 @@
 			color: #fff;
 		}
 		.blogItem__date {
-			color: $white;
+			color: $white !important;
 		}
 	}
 	&.minHeight {

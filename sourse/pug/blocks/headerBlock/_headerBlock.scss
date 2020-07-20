@@ -115,6 +115,7 @@
 				}
 				&-old{
 					color: rgba(255, 255, 255, 0.5);
+					text-decoration: line-through;
 						@include media-breakpoint-up(md){
 
 							margin-bottom: em(4);
@@ -157,14 +158,22 @@
 			&__btn-icon{
 				cursor: pointer;
 				color: #c4c4c4;
+				@include mt;
+				&:hover{
+					color: #287eff;
+				}
 				.icon{
-					font-size: rem(20);
+					font-size: rem(32);
 					fill: transparent;
 					stroke: currentColor;
 				}
 			}
 			&__play{
 				@include a-cent;
+				@include mt;
+				&:hover{
+					background: rgba(255, 255, 255, 0.25);
+				}
 					@include media-breakpoint-up(md) {
 
 						width: rem(96);
@@ -231,7 +240,7 @@
 							max-width: rem(240);
 						}
 						@include mt;
-						*{
+						.headerBlock__title-sm {
 
 							opacity: 0.5;
 							@include mt;
@@ -266,7 +275,10 @@
 				width: rem(88px);
 				height: rem(64px);
 				border-radius: 8px 0 0 8px;
-				opacity: 0.96;
+				opacity: 0.96 !important;
+				img{
+					// opacity: 1 !important;
+				}
 				margin-right: rem(15);
 				position: relative;
 				overflow: hidden;

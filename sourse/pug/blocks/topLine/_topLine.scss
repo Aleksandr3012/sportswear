@@ -51,7 +51,12 @@
 			margin-right: rem(50);
 		}
 		 
-	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {
+		.container{
+
+			padding-right: rem(45);
+		}
+	}
 	@include media-breakpoint-up(lg) {}
 	@include media-breakpoint-up(md) {}
 	@include media-breakpoint-up(sm) {}
