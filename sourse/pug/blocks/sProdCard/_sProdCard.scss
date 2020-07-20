@@ -40,8 +40,12 @@
 
 			@include mt();
 
+			color: $primary;
 			&.active{
-				color: $primary;
+				color: $black;
+			}
+			&:hover{
+				color: rgba($primary, .5);
 			}
 		}
 	}
