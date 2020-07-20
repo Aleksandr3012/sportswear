@@ -134,17 +134,6 @@ function eventHandler() {
 	// добавляет подложку для pixel perfect
 	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
 	// /добавляет подложку для pixel perfect
-	// const url = document.location.href;
-	// $.each($(".top-nav__nav a "), function() {
-	// 	if (this.href == url) {
-	// 		if ($(this).hasClass("top-nav__link") == true) {
-	// 			$(this).addClass('top-nav__link-active');
-	// 		}
-	// 		if ($(this).hasClass("footer__link") == true) {
-	// 			$(this).addClass('footer__link-active');
-	// 		} 
-	// 	}; 
-	// }); 
 	// /закрыть/открыть мобильное меню
 
 	function heightses() {
@@ -299,11 +288,26 @@ function eventHandler() {
 		spaceBetween: 20,
 		slidesPerView: 'auto',
 		loop: true,
-		freeMode: true,
 		loopedSlides: 5,
 		//looped slides should be the same
+		freeMode: true,
 		watchSlidesVisibility: true,
-		watchSlidesProgress: true
+		watchSlidesProgress: true,
+		breakpoints: {
+			992: {
+				freeMode: false,
+				spaceBetween: 34,
+				watchSlidesVisibility: false,
+				watchSlidesProgress: false,
+				slidesPerView: 3
+			},
+			1200: {
+				slidesPerView: 4,
+				freeMode: false,
+				watchSlidesVisibility: false,
+				watchSlidesProgress: false
+			}
+		}
 	});
 	var galleryTop = new Swiper('.gallery-top', _objectSpread(_objectSpread({}, defaultSl), {}, {
 		spaceBetween: 20,
