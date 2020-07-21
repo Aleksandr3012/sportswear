@@ -1363,7 +1363,7 @@
 .bottom-fixed-strip{
 	background-color: $primary;
 	color: $white;
-	padding: rem(15px);
+	padding: 4px 16px;
 	@include media-breakpoint-up(sm){
 		padding: rem(12px) rem(24px);
 	}
@@ -1384,12 +1384,9 @@
 	display: flex;
 	align-items: center;
 
-	flex-wrap: wrap;
-	@include media-breakpoint-up(md){
-		flex-wrap: nowrap;
-	}
 
 	&__img-cont{
+		flex-shrink: 0;
 		border-radius: rem(8);
 		background-color: $white;
 		width: 48px;
@@ -1415,6 +1412,8 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+
+		flex-shrink: 0;
 	}
 	&__discount{
 		position: relative;
@@ -1463,20 +1462,11 @@
 	}
 	//
 	.form-wrap{
-		width: 100%;
-		order: 1;
-		margin-top: 12px;
-		@include media-breakpoint-up(md){
-			width: auto;
-			order: 0;
-			margin: 0 auto;
-		}
-
+		margin: 0 auto;
 
 		form{
 			display: flex;
 			align-items: center;
-			//justify-content: space-between;
 		}
 
 		&__add-inp-box{
@@ -1533,11 +1523,9 @@
 			@extend .btn-success;
 			@extend .btn-success-frame;
 
-			flex-grow: 1;
-			@include media-breakpoint-up(sm){
-				//flex-grow: 0;
-			}
 
+			width: 156px;
+			margin: 0 0 0 10px;
 			@include media-breakpoint-up(sm){
 				min-width: 192px;
 			}
@@ -1558,8 +1546,8 @@
 
 		a{
 			position: relative;
-			width: rem(28px);
 			height: rem(28px);
+
 
 			margin-left: rem(12px);
 			@include media-breakpoint-up(sm){
@@ -1576,23 +1564,51 @@
 			img{
 				width: 24px;
 				height: 24px;
+				margin-right: 8px;
 			}
 
-			&:after{
-				content: '';
-				position: absolute;
-				bottom: 0;
-				right: 0;
-				width: rem(8);
-				height: rem(8);
-				border-radius: 50%;
-				background-color: $danger;
+			span{
+				display: none;
+				@include media-breakpoint-up(lg){
+					display: block;
+				}
+
+				font-size: 14px;
+				line-height: (21/14);
+				color: $white;
 			}
+
 		}
 
-
 	}
-	&__{}
+	&__icon-img-cont{
+		position: relative;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: rem(28px);
+		@include media-breakpoint-up(lg){
+			margin-right: 8px;
+		}
+
+		&:after{
+			content: '';
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: rem(8);
+			height: rem(8);
+			border-radius: 50%;
+			background-color: $danger;
+		}
+
+		&.heart-icon-cont:after{
+			left: 50%;
+			right: unset;
+		}
+	}
 	&__{}
 	&__{}
 	&__{}

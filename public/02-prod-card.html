@@ -1257,7 +1257,7 @@
 			</header>
 			<!-- start sProdCard-->
 			<section class="sProdCard section" id="sProdCard">
-				<div class="bottom-fixed-strip d-lg-none">
+				<div class="bottom-fixed-strip d-xl-none">
 					<div class="bottom-fixed-strip__img-cont"><img class="lazy" src="#" data-src="img/@2x/02-slider-1.jpg" alt=""/>
 					</div>
 					<div class="bottom-fixed-strip__price-bl">
@@ -1274,7 +1274,7 @@
 							<input class="utm_term" type="hidden" name="utm_term"/>
 							<input class="utm_medium" type="hidden" name="utm_medium"/>
 							<input class="utm_campaign" type="hidden" name="utm_campaign"/>
-							<div class="form-wrap__add-inp-box">
+							<div class="form-wrap__add-inp-box d-none d-md-flex">
 								<div class="form-wrap__add-control-btn-fixed minus-btn">-
 								</div>
 								<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control prod-amount-inp-js-fixed" type="number" placeholder="" step="any" name="prodAmount" value="999" min="1" max="999"/>
@@ -1285,7 +1285,13 @@
 							</div><a class="form-wrap__add-btn" href="#">buy</a>
 						</form>
 					</div>
-					<div class="bottom-fixed-strip__icons-bl"><a href="#"><img src="img/like-img.svg" alt=""/></a><a href="#"><img src="img/stat-img.svg" alt=""/></a><a href="#"><img src="img/bag-img.svg" alt=""/></a>
+					<div class="bottom-fixed-strip__icons-bl d-none d-md-flex"><a href="#">
+							<div class="bottom-fixed-strip__icon-img-cont heart-icon-cont"><img src="img/like-img.svg" alt=""/>
+							</div><span>Favorites</span></a><a href="#">
+							<div class="bottom-fixed-strip__icon-img-cont"><img src="img/stat-img.svg" alt=""/>
+							</div><span>Comparison</span></a><a href="#">
+							<div class="bottom-fixed-strip__icon-img-cont"><img src="img/bag-img.svg" alt=""/>
+							</div><span>Basket</span></a>
 					</div>
 				</div>
 				<div class="container" data-sticky-container="data-sticky-container">

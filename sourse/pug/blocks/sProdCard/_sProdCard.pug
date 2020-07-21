@@ -170,7 +170,7 @@ mixin sProdCard()
 								+e.play-btn
 	// end sProdCard
 mixin BlueStrip()
-	+b.bottom-fixed-strip.d-lg-none
+	+b.bottom-fixed-strip.d-xl-none
 		+e.img-cont
 			img.lazy(src="#" data-src='img/@2x/02-slider-1.jpg' alt="")
 		+e.price-bl
@@ -179,18 +179,24 @@ mixin BlueStrip()
 				span 89 €
 				span 189 €
 		+form-wrap()
-			+e.add-inp-box
+			+e.add-inp-box.d-none.d-md-flex
 				+e.add-control-btn-fixed.minus-btn -
 				+input('', 'number', undefined, 'prodAmount')(value='999' class="prod-amount-inp-js-fixed" min="1" max="999")
 				+e.add-control-btn-fixed.plus-btn +
 			+e.A.add-btn(href="#") buy
-		+e.icons-bl
+		+e.icons-bl.d-none.d-md-flex
 			a(href="#")
-				img(src="img/like-img.svg" alt="")
+				+e.icon-img-cont.heart-icon-cont
+					img(src="img/like-img.svg" alt="")
+				span Favorites
 			a(href="#")
-				img(src="img/stat-img.svg" alt="")
+				+e.icon-img-cont
+					img(src="img/stat-img.svg" alt="")
+				span Comparison
 			a(href="#")
-				img(src="img/bag-img.svg" alt="")
+				+e.icon-img-cont
+					img(src="img/bag-img.svg" alt="")
+				span Basket
 
 mixin solidContentSubItem(statusColor='red', shopTxt='Shop №1', address='Voronovo, Kaluga highway, 40 km from MKAD')
 	+e.solid-subitem
