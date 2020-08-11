@@ -1,0 +1,33 @@
+mixin sAccountMenu()
+	// start sAccountMenu
+	+b.SECTION.sAccountMenu.section#sAccountMenu&attributes(attributes)
+		.container
+			+b.top-line
+				h2 Your account
+				+e.A.delete-all(href='#')
+					+icon('log-out')
+					span.d-none.d-sm-block Log out
+			+e.row.row
+				+AccountMenuItem()
+					p Information
+				+AccountMenuItem()
+					p Adresses
+				+AccountMenuItem()
+					p
+						| Order history
+						br.d-none.d-sm-block
+						| and details
+				+AccountMenuItem()
+					p Credit clips
+				+AccountMenuItem()
+					p Vouchers
+				+AccountMenuItem()
+					p Merschandise
+				+AccountMenuItem()
+					p GDPR — Personal data
+	// end sAccountMenu
+
+mixin AccountMenuItem()
+	.col-sm-6.col-lg-4
+		+e.A.item(href='#')
+			block

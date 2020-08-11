@@ -20,26 +20,9 @@
 	&__row{
 		@include roww(24px);
 	}
-	&__top-line{
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-
+	.top-line{
 		@include media-breakpoint-up(xl){
 			max-width: 74.5%;
-		}
-
-		h2{
-			font-weight: bold;
-
-			font-size: 24px;
-			@include media-breakpoint-up(sm){
-				font-size: 36px;
-			}
-			margin-bottom: 0;
-			@include media-breakpoint-up(xl){
-				margin-bottom: 15px;
-			}
 		}
 
 		padding: 0 13px 25px 19px;
@@ -51,33 +34,6 @@
 		}
 		@include media-breakpoint-up(xl){
 			padding: 0 20px 12px 28px;
-		}
-	}
-	&__delete-all{
-		//margin-top: 8px;
-
-		display: flex;
-		align-items: center;
-		text-decoration: none !important;
-
-		&:hover{
-			.icon{
-				stroke: rgba($primary, .5);
-			}
-		}
-
-		.icon{
-			@include mt();
-			color: transparent;
-			stroke: $primary;
-			font-size: 32px;
-			@include media-breakpoint-up(sm){
-				margin-right: 4px;
-			}
-		}
-		span{
-			font-size: 12px;
-			line-height: (16/12);
 		}
 	}
 	//items
@@ -599,4 +555,53 @@
 	&__{}
 	&__{}
 	&__{}
+}
+
+//
+.top-line{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	h2{
+		font-weight: bold;
+
+		font-size: 24px;
+		@include media-breakpoint-up(md){
+			font-size: 36px;
+		}
+		margin-bottom: 0;
+		@include media-breakpoint-up(xl){
+			margin-bottom: 15px;
+		}
+	}
+
+	//
+	&__delete-all{
+		//margin-top: 8px;
+
+		display: flex;
+		align-items: center;
+		text-decoration: none !important;
+
+		&:hover{
+			.icon{
+				stroke: rgba($primary, .5);
+			}
+		}
+
+		.icon{
+			@include mt();
+			color: transparent;
+			stroke: $primary;
+			font-size: 32px;
+			@include media-breakpoint-up(sm){
+				margin-right: 4px;
+			}
+		}
+		span{
+			font-size: 12px;
+			line-height: (16/12);
+		}
+	}
 }

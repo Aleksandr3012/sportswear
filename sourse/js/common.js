@@ -128,7 +128,7 @@ function eventHandler() {
 
 	// JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/03-360.png);"></div>')
+	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/address-1920.png);"></div>')
 	// /добавляет подложку для pixel perfect
 
 
@@ -607,6 +607,21 @@ function eventHandler() {
 				prevEl: $(this).find('.prev-related-js'),
 			},
 		});
+	});
+
+	//10
+	$('.toggle-pass-inp-js').click(function () {
+		let inp = this.parentElement.querySelector('input');
+		if (!inp) return
+
+		if (this.classList.contains('pass-visiable')){
+			inp.setAttribute('type', 'password');
+		}
+		else{
+			inp.setAttribute('type', 'text');
+		}
+
+		this.classList.toggle('pass-visiable');
 	});
 
 	//end luckyone JS

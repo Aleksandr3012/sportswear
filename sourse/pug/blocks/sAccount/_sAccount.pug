@@ -1,0 +1,193 @@
+mixin sAccountInfo()
+	// start sAccount
+	+b.SECTION.sAccount.section#sAccount&attributes(attributes)
+		.container
+			block
+			+sAccountTopLine()
+			+e.row.row
+				.col-md-3.col-xl-2
+					+e.aside-menu
+						ul
+							li: a.current(href="#") Information
+							li: a(href="#") Adresses
+							li: a(href="#")
+								| Order history
+								br.d-none.d-lg-block
+								| and details
+							li: a(href="#") Credit clips
+							li: a(href="#") Vouchers
+							li: a(href="#") Merchandise
+							li: a(href="#") GPRD — personal data
+				.col-md-9
+					+sAccountInfoContent()
+	// end sAccount
+
+mixin sAccountTopLine(headlineTxt='Your personal information')
+	+b.top-line
+		h2=headlineTxt
+		+e.A.delete-all(href='#')
+			+icon('log-out')
+			span.d-none.d-sm-block Log out
+
+	//info
+mixin sAccountInfoContent()
+	+b.account-info
+		+form-wrap()
+			+e.top-items
+				+accountInfoItem('Social title', 'radio-content')
+					+radioBtn('Mr.', 'sex')(checked)
+					+radioBtn('Mrs.', 'sex')
+				+accountInfoItem('First name')
+					+input('', 'text', undefined, 'name')
+				+accountInfoItem('Last name')
+					+input('', 'text', undefined, 'surname')
+				+accountInfoItem('Email')
+					+input('', 'email', undefined)
+				+accountInfoItem('Password')
+					+e.input-wrap
+						+e.INPUT.input.form-control(type='password' name='password' value='pass1234')
+						+e.show-hide-btn.toggle-pass-inp-js
+							+icon('pass-eye')
+							+icon('pass-eye-closed')
+				+accountInfoItem('New password')
+					+e.input-wrap
+						+e.INPUT.input.form-control(type='password' name='new-password' value='')
+						+e.show-hide-btn.toggle-pass-inp-js
+							+icon('pass-eye')
+							+icon('pass-eye-closed')
+				+accountInfoItem('Birthday', '', 'has-description-txt')
+					+input('', 'text', undefined, 'bithday')
+						+e.optional-txt Optional
+						+e.description-txt (E.g.: 05/31/1970)
+			+e.lower-items
+				+e.checkbox-items
+					+accountInfoLowerItem('Receive offers from our partners')
+					+accountInfoLowerItem('Sign up for our newsletter', 'has-descr')
+						p You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.
+					+accountInfoLowerItem('I agree to the terms and conditions and the privacy policy')
+				+e.BUTTON.send-btn send
+
+mixin accountInfoItem(txt='Social title', contentClasses='', itemClasses='')
+	+e.item(class=itemClasses)
+		+e.title=txt
+		+e.content(class=contentClasses)
+			block
+
+mixin radioBtn(Txt, name)
+	+b.LABEL.radio-frame
+		input(type="radio" name=name value=Txt)&attributes(attributes)
+		span=Txt
+
+
+mixin accountInfoLowerItem(Txt, itemClasses='')
+	+b.LABEL.checkbox-item(class=itemClasses)
+		input(type="checkbox" name=name value=Txt)&attributes(attributes)
+		span=Txt
+		block
+	//-end info
+	//-end info
+
+mixin sAccountAddress()
+	// start sAccount
+	+b.SECTION.sAccount.section#sAccount&attributes(attributes)
+		.container
+			block
+			+sAccountTopLine('Addresses')
+			+e.row.row
+				.col-md-3.col-xl-2
+					+e.aside-menu
+						ul
+							li: a(href="#") Information
+							li: a.current(href="#") Adresses
+							li: a(href="#")
+								| Order history
+								br.d-none.d-lg-block
+								| and details
+							li: a(href="#") Credit clips
+							li: a(href="#") Vouchers
+							li: a(href="#") Merchandise
+							li: a(href="#") GPRD — personal data
+				.col-md-9.col-xl-8
+					+sAccountAddressContent()
+	// end sAccount
+
+mixin sAccountAddressContent()
+	+b.account-address
+		+e.row.row
+			+accoundAddressItem('Address #1')
+			+accoundAddressItem('Address #2')
+			.col-lg-6
+				+e.A.item(href='#' class="create-item")
+					span.link-txt + Create new address
+
+mixin accoundAddressItem(itemNum='1')
+	.col-lg-6
+		+e.item
+			+e.header
+				+e.number=itemNum
+				+e.controll-btns
+					+e.A.btn(href="#")
+						+icon('edit-icon')
+					+e.A.btn(href="#")
+						+icon('vaste')
+			+e.data
+				+e.data-item
+					span First name
+					span Nicolay
+				+e.data-item
+					span Last name
+					span Neretin
+				+e.data-item
+					span Address
+					span Paustovskogo, 4
+				+e.data-item
+					span Zip/Postal Code
+					span 117463
+				+e.data-item
+					span City
+					span Moscow
+				+e.data-item
+					span Country
+					span Russia
+	//-end address
+	//-end address
+
+mixin sAccountOrderHistory()
+	// start sAccount
+	+b.SECTION.sAccount.section#sAccount&attributes(attributes)
+		.container
+			block
+			+sAccountTopLine('Order history')
+			+e.row.row
+				.col-md-3.col-xl-2
+					+e.aside-menu
+						ul
+							li: a(href="#") Information
+							li: a(href="#") Adresses
+							li: a.current(href="#")
+								| Order history
+								br.d-none.d-lg-block
+								| and details
+							li: a(href="#") Credit clips
+							li: a(href="#") Vouchers
+							li: a(href="#") Merchandise
+							li: a(href="#") GPRD — personal data
+				.col-md-9.col-xl-8
+					+accountOrderHistoryContent
+	//-end order history
+	//-end order history
+
+mixin accountOrderHistoryContent()
+	+b.order-hisotry
+		+e.reorder-btn
+			+icon('refresh-icon')
+			span Reorder
+		+e.items
+			+e.item
+				+e.order № 214
+				+e.date 11.06.2019
+				+e.price 11 890 €
+				+e.payment Bank transfer
+				+e.status.danger-status Awaiting check payment
+				+e.icon
+					+icon('pdf')
