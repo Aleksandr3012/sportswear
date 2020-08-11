@@ -132,8 +132,8 @@ function eventHandler() {
 
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	// $(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/main.jpg);"></div>')
-	// /добавляет подложку для pixel perfect
+
+	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/03-360.png);"></div>'); // /добавляет подложку для pixel perfect
 	// /закрыть/открыть мобильное меню
 
 	function heightses() {
@@ -449,7 +449,7 @@ function eventHandler() {
 	//
 
 	var ProdAmountInp = document.querySelector('.prod-amount-inp-js');
-	$('.form-wrap__add-control-btn').click(function () {
+	$('.form-wrap__add-control-btn, .add-inp-box__add-control-btn').click(function () {
 		if (!ProdAmountInp) return;
 
 		if (this.classList.contains('minus-btn')) {

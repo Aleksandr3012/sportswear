@@ -1,0 +1,102 @@
+mixin sShoppingCart()
+	// start sShoppingCart
+	+b.SECTION.sShoppingCart.section#sShoppingCart&attributes(attributes)
+		.container
+			+e.top-line
+				h2 Shopping cart
+				+e.A.delete-all(href='#')
+					+icon('vaste')
+					span.d-none.d-sm-block Delete all items
+			+e.row.row
+				.col-xl-9
+					+e.items
+						+shopCartItem(1, true, true)
+							+b.discount-price-bl
+								+e.percents -20%
+								+e.price
+									+e.new-price 89 €
+									+e.old-price 189 €
+						+shopCartItem(2)
+							+e.common-price 89 €
+						+shopCartItem(3)
+							+e.common-price 89 €
+				.col-xl-3
+					+dataTable()
+					+b.policy-links.d-none.d-xl-block
+						+e.A.link(href="#")
+							+e.icon.car
+								+icon('delivery-car')
+							span Delivery policy
+						+e.A.link(href="#")
+							+e.icon.arrows
+								+icon('return-arrows')
+							span Return policy
+					//-cart-data-bg
+	// end sShoppingCart
+
+mixin shopCartItem(imgNum, lastItem=false, itemOnDiscount=flase)
+	+e.item
+		+e.A.close-item-btn(href='#')
+			+icon('close')
+		+e.img-and-descr
+			+e.A.item-img(href='#')
+				img(src=`img/@2x/shop-cart-${imgNum}.png` alt="")
+			+e.item-desr
+				+e.short-name Grunge John Orchestra
+				+e.A.long-name(href='#') Man`s bomber Grunge John Orchestra Toxic Olive
+				+e.artice Article 1011A780100
+				+e.other-info
+					+e.size 42
+					if lastItem
+						.caution-box__caution.danger Last item in stock
+		+e.input-and-price
+			+b.add-inp-box
+				+e.add-control-btn.minus-btn -
+				+input('', 'number', undefined, 'prodAmount')(value='1' class="prod-amount-inp-js" min="1" max="999")
+				+e.add-control-btn.plus-btn +
+			+e.price-block
+				block
+				+b.chars-pills-strip
+					a(href="#") 10€/kg
+					a(href="#") Tax included
+					a(href="#") Something else
+				if itemOnDiscount
+					+b.timer-box.timer-box-js
+						+e.icon-cont
+							+icon('sand-clock')
+						+e.item
+							.days 2
+							+e.small day
+						+e.item
+							.hours  17
+							+e.small hr
+						+e.item
+							.minutes 35
+							+e.small min
+						+e.item
+							.seconds 17
+							+e.small sec
+
+mixin dataTable()
+	+b.data-table
+		+e.img-bg
+			img(src='img/@2x/cart-data-bg.png' alt='')
+		+form-wrap()
+			+e.top-items
+				+dataTableItem('Items', '3')
+				+dataTableItem('Weight', '2.1 kg')
+				+dataTableItem('Promocode', '0 €')
+				+dataTableItem('Total discount', '189 €')
+				+dataTableItem('Sheeping', 'Free')
+			+e.lower-items
+				+input('Promocode', 'text', '', 'promocode')
+					+e.promo-circle
+						+icon('croped-vector')
+				+dataTableItem('TOTAL', '189 €', 'total-item')
+				+e.BUTTON.checkout-btn(type='submit') proceed to checkout
+
+
+mixin dataTableItem(name, val, ItemClasses='')
+	+e.item(class=ItemClasses)
+		span=name
+		span=val
