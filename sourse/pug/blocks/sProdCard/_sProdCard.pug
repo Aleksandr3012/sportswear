@@ -58,7 +58,7 @@ mixin sProdCard()
 									+e.item
 										.seconds 17
 										+e.small sec
-							+e.chars-pills-strip.d-none.d-sm-block
+							+b.chars-pills-strip.d-none.d-sm-block
 								a(href="#") 10€/kg
 								a(href="#") Tax included
 								a(href="#") Something else
@@ -97,7 +97,7 @@ mixin sProdCard()
 												+input('', 'number', undefined, 'prodAmount')(value='999' class="prod-amount-inp-js" min="1" max="999")
 												+e.add-control-btn.plus-btn +
 											+e.A.add-btn.fixed-hook-js(href="#") add to cart
-									+e.caution-box
+									+b.caution-box
 										+e.caution.danger Last item in stock
 										+e.caution.warning Product available with different options
 									+e.get-video-call
@@ -118,13 +118,13 @@ mixin sProdCard()
 										| Under
 										br
 										| the order
-							+e.policy-links
-								+e.A.policy-link(href="#")
-									+e.policy-icon.car
+							+b.policy-links
+								+e.A.link(href="#")
+									+e.icon.car
 										+icon('delivery-car')
 									span Delivery policy
-								+e.A.policy-link(href="#")
-									+e.policy-icon.arrows
+								+e.A.link(href="#")
+									+e.icon.arrows
 										+icon('return-arrows')
 									span Return policy
 					+e.tabs-cont.tabs

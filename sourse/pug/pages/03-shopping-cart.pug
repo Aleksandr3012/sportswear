@@ -1,0 +1,32 @@
+extends layout/main.pug
+
+
+include ../blocks/sContent/_sContent.pug
+include ../blocks/sContact/_sContact.pug 
+include ../blocks/sSportCategory/_sSportCategory.pug 
+include ../blocks/sSlider-action/_sSlider-action.pug 
+include ../blocks/sBlog/_sBlog.pug 
+include ../blocks/sWeAreDifferent/_sWeAreDifferent.pug 
+include ../blocks/sLogos/_sLogos.pug 
+include ../blocks/sCategories/_sCategories.pug 
+include ../blocks/sSeasons/_sSeasons.pug 
+include ../blocks/sCatalog/_sCatalog.pug
+
+include ../blocks/sProdCard/_sProdCard.pug
+include ../blocks/sRelatedProducts/_sRelatedProducts.pug
+include ../blocks/sShoppingCart/_sShoppingCart.pug
+
+
+block variables
+	- let  mainPage= 'prod-card-page'
+block title
+	- let  title= '03-shopping-cart'
+	title= title
+block pagecontent 
+	//- +mob-mnu()
+	header.header
+		+topLine()  
+		+top-nav()
+	+sShoppingCart()
+	+footer()
+	
