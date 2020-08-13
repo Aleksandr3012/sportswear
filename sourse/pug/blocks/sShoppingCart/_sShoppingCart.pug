@@ -38,7 +38,7 @@ mixin shopCartItem(imgNum, lastItem=false, itemOnDiscount=flase)
 	+e.item
 		+e.A.close-item-btn(href='#')
 			+icon('close')
-		+e.img-and-descr
+		+b.img-and-descr-frame
 			+e.A.item-img(href='#')
 				img(src=`img/@2x/shop-cart-${imgNum}.png` alt="")
 			+e.item-desr

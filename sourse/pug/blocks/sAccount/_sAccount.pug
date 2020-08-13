@@ -154,7 +154,83 @@ mixin accoundAddressItem(itemNum='1')
 
 mixin sAccountOrderHistory()
 	// start sAccount
+	+b.SECTION.sAccount.sAccount--order-history.section#sAccount&attributes(attributes)
+		.container
+			block
+			+sAccountTopLine('Order history')
+			+e.row.row
+				.col-md-3.col-xl-2.col-xxl-2
+					+e.aside-menu
+						ul
+							li: a(href="#") Information
+							li: a(href="#") Adresses
+							li: a.current(href="#")
+								| Order history
+								br.d-none.d-lg-block
+								| and details
+							li: a(href="#") Credit clips
+							li: a(href="#") Vouchers
+							li: a(href="#") Merchandise
+							li: a(href="#") GPRD — personal data
+				.col-md-9.col-xl-10.col-xxl-8
+					+accountOrderHistoryContent
+
+mixin accountOrderHistoryContent()
+	+b.order-history
+		+e.A.reorder-btn(href='#')
+			+icon('refresh-icon')
+			span Reorder
+		+e.items
+			+e.header.d-none.d-xl-flex
+				+e.header-item.order Order
+				+e.header-item.date date
+				+e.header-item.price total price
+				+e.header-item.payment payment
+				+e.header-item.status Status
+				+e.header-item.icon invoice
+			+orderHistoryItem()
+				a.col-link.pdf(href='#')
+					.css-icon
+			+orderHistoryItem('356', '12.01.2020' , 'Bank transfer' , 'processed' , 'primary-status' )
+				a.col-link.pdf(href='#')
+					.css-icon
+			+orderHistoryItem('1563', '02.03.2020' , 'Payments by check' , 'on the go' , 'primary-status' )
+				a.col-link(href='#')
+					.css-icon -
+			+orderHistoryItem('1669', '15.05.2020' , 'Payments by check' , 'on delivery' , 'success-status' )
+				a.col-link(href='#')
+					.css-icon -
+
+
+mixin orderHistoryItem(num='214', date='11.06.2019', payment='Bank transfer', statusTxt='Awaiting check payment', statusClasses='danger-status')
+	+e.item
+		+e.col.order
+			+e.col-header Order
+			+e.col-txt=`№ ${num}`
+		+e.col.date
+			+e.col-header date
+			+e.col-txt=date
+		+e.col.price
+			+e.col-header total price
+			+e.col-txt 11 890 €
+		+e.col.payment
+			+e.col-header payment
+			+e.col-txt=payment
+		+e.col.status(class=statusClasses)
+			+e.col-header Status
+			+e.col-txt
+				span=statusTxt
+		+e.col.icon
+			+e.col-header invoice
+			block
+
+	//-end order history
+	//-end order history
+
+mixin sAccountOrderHistoryDetail()
+	// start sAccount
 	+b.SECTION.sAccount.section#sAccount&attributes(attributes)
+		//-.sAccount--order-history
 		.container
 			block
 			+sAccountTopLine('Order history')
@@ -172,22 +248,162 @@ mixin sAccountOrderHistory()
 							li: a(href="#") Vouchers
 							li: a(href="#") Merchandise
 							li: a(href="#") GPRD — personal data
-				.col-md-9.col-xl-8
-					+accountOrderHistoryContent
-	//-end order history
-	//-end order history
+				.col-md-9.col-xl-10.col-xxl-8
+					+OrderHistoryDetailContent
 
-mixin accountOrderHistoryContent()
-	+b.order-hisotry
-		+e.reorder-btn
-			+icon('refresh-icon')
-			span Reorder
-		+e.items
-			+e.item
-				+e.order № 214
-				+e.date 11.06.2019
-				+e.price 11 890 €
-				+e.payment Bank transfer
-				+e.status.danger-status Awaiting check payment
-				+e.icon
-					+icon('pdf')
+mixin OrderHistoryDetailContent()
+	+b.ord-h-detail
+		+e.item
+			+e.top-line
+				+e.num Order № 2370
+				+e.A.reorder-btn(href='#')
+					+icon('refresh-icon')
+					span Reorder
+			+e.date 08.07.2020
+			+e.order-info
+				+e.order-info-header Order info
+				+e.order-info-item
+					span Carrier
+					span My carrier
+				+e.order-info-item
+					span Payment method
+					span Payments by check
+			+e.order-status
+				+e.order-status-header Order status
+				+e.order-status-items
+					+orderStatusItem('11.06.2019', 'Delivered', 'text-success')
+					+orderStatusItem('12.01.2020', 'Waiting in the store')
+					+orderStatusItem('02.03.2020', 'On the way')
+					+orderStatusItem('15.05.2020', 'Send')
+					+orderStatusItem('08.07.2020', 'Collect')
+			+e.address
+				+e.address-row.row
+					+e.address-col.col-lg-6
+						+e.address-header Delivery address My Address
+						+ordHistDetAddress()
+					+e.address-col.col-lg-6
+						+e.address-header Invoice address My Address
+						+ordHistDetAddress()
+			+e.order-items
+				+e.order-items-title Order items
+				+e.order-items-header.d-none.d-lg-flex
+					+e.oi-header-item.product Product
+					+e.oi-header-item.quantity Quantity
+					+e.oi-header-item.price Unit price
+					+e.oi-header-item.total-price Total price
+				+orderItemsPill(1, true, '2', '188 €')
+					+b.discount-price-bl
+						+e.percents -20%
+						+e.price
+							+e.new-price 89 €
+							+e.old-price 189 €
+				+orderItemsPill(2, false, '1')
+					+e.common-price 89 €
+				+orderItemsPill(3, false, '1')
+					+e.common-price 89 €
+			+e.bill
+				+e.bill-items
+					+e.bill-item
+						+e.bill-item-header Subtotal
+						+e.bill-item-price 376 €
+					+e.bill-item
+						+e.bill-item-header Shipping and handling
+						+e.bill-item-price 18 €
+					+e.bill-item
+						+e.bill-item-header: b Total
+						+e.bill-item-price: b 376 €
+				+e.tax-included Tax included
+			+e.shipping
+				+e.shipping-headline Shipping info
+				+e.shipping-items
+					+oHDetShippItem('date', 'date', '11.06.2019')
+					+oHDetShippItem('carrier', 'carrier', 'My carrier')
+					+oHDetShippItem('weight', 'weight', '1.200 kg')
+					+oHDetShippItem('cost', 'shipping cost', '18 €')
+					+oHDetShippItem('number', 'tracking number', '3347832772', 'text-primary')
+		+b.return-form
+			+form-wrap
+				+e.headline Merchandise return
+				+e.descr
+					p If&nbsp;you wish to&nbsp;return one or&nbsp;more products, please mark the corresponding boxes and provide&nbsp;an explanation for the return. When complete, click the button below.
+				+e.inputs-cont
+					+input('', 'textarea', 'Message', 'return-message')
+					+e.btn-cont
+						+e.BUTTON.send-btn(type='submit') request a return
+		+b.order-comment
+			+form-wrap
+				+e.headline ADD A MESSAGE
+				+e.descr
+					p If you would like to add a comment about your order, please write it in the field below.
+				+e.inputs-cont
+					+e.select
+						+e.title Product
+						+b.size-select.product-select
+							+productSelect('prod-select', undefined, 'Please choose', 'custom-select2-margined')
+							//-drop-down-full-blue
+					+input('', 'textarea', 'Message', 'return-message')
+					+e.btn-cont
+						+e.BUTTON.send-btn(type='submit') send
+					//-+b.size-select
+						+SizeSelct()
+
+mixin productSelect(selectName, optionsArr=['1', '2', '3'], placeholder='', keyClass='custom-select2-margined')
+	select(name=selectName data-placeholder=placeholder class=keyClass)
+		option(value="" label='#')
+		- for (let item of optionsArr)
+			option(value=item)=`prod ${item}`
+
+mixin oHDetShippItem(itemMod='',headTxt='headTxt', valTxt='valTxt', valClasses='')
+	+e.shipping-item(class=itemMod)
+		+e.shipping-item-head=headTxt
+		+e.shipping-item-val(class=valClasses)=valTxt
+
+mixin orderItemsPill(imgNum=1, lastItem=false, quantityTxt='2', totalPrice='89 €')
+	+e.oi-pill
+		+e.oi-pill-item.product
+			+e.oi-pill-header Product
+			+e.oi-pill-content
+				+b.img-and-descr-frame
+					+e.A.item-img(href='#')
+						img.lazy(src="" data-src=`img/@2x/shop-cart-${imgNum}.png` alt="")
+					+e.item-desr
+						+e.short-name Grunge John Orchestra
+						+e.A.long-name(href='#') Man`s bomber Grunge John Orchestra Toxic Olive
+						+e.artice Article 1011A780100
+						+e.other-info
+							+e.size 42
+							if lastItem
+								.caution-box__caution.danger Last item in stock
+		+e.oi-pill-item.quantity
+			+e.oi-pill-header Quantity
+			+e.oi-pill-content
+				.quantity-txt=quantityTxt
+		+e.oi-pill-item.price
+			+e.oi-pill-header Unit price
+			+e.oi-pill-content
+				block
+				+b.chars-pills-strip
+					a(href="#") 10€/kg
+					a(href="#") Tax included
+					a(href="#") Something else
+		+e.oi-pill-item.total-price
+			+e.oi-pill-header.text-right Total price
+			+e.oi-pill-content
+				.total-pr-txt=totalPrice
+
+mixin ordHistDetAddress()
+	ul
+		li Nicolay
+		li Neretin
+		li Paustovskogo, 4
+		li 117463
+		li Moscow
+		li Russia
+
+mixin orderStatusItem(date='11.06.2019', statusTxt='statusTxt',statusClasses='')
+	+e.order-status-item
+		+e.os-col.date=date
+		+e.os-col.status(class=statusClasses)=statusTxt
+
+	//-end order history detail
+	//-end order history detail
