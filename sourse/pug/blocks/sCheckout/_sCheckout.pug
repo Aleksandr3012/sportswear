@@ -12,9 +12,21 @@ mixin sCheckout()
 			+b.section-title
 				h1 Checkout
 			.row
+				.col-xl.order-xl-last
+					+dataTable-sm()
+					+b.policy-links
+						+e.A.link(href="#")
+							+e.icon.car
+								+icon('delivery-car')
+							span Delivery policy
+						+e.A.link(href="#")
+							+e.icon.arrows
+								+icon('return-arrows')
+							span Return policy
 				.col-xl-8
 					+e.main
-						+e.item.active
+						//- 1 страница
+						+e.item
 							+e.title
 								.row.justify-content-between.align-items-center
 									.col-sm-auto
@@ -29,12 +41,11 @@ mixin sCheckout()
 											//- +icon('signIn')
 											span Sign in
 							+e.body
-
-								.row
+								.row.align-items-center
 									+roww('Social title')
 										+e.radio
-											+custom-radio('Mr.','Social-title')
-											+custom-radio('Mrs.','Social-title')
+											+in-c('radio','Mr.','Social-title')
+											+in-c('radio','Mrs.','Social-title')
 									+roww('First name')
 										+input('')
 									+roww('Last name')
@@ -45,20 +56,35 @@ mixin sCheckout()
 								+e.create 
 									p Create an account 
 									span And save time on your next order!
-								.row
+								.row.align-items-center
 									+roww('Password')
 										+input('')
 									+roww('Birthdate','Optional')
 										+input('')
 										+e.inputDescr
 									+roww('')
-										+in-c('checkbox','Receive offers from our partners','partners')
-										+in-c('checkbox','','newsletter')
-											+e.SPAN.text Sign up for our newsletter
-											+e.SPAN.text--sm You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.
-										+in-c('checkbox','I agree to the terms and conditions and the privacy policy','privacy-policy')
+										+e.checkbox
+											+in-c('checkbox','Receive offers from our partners','partners')
+											+in-c('checkbox','','newsletter')
+												+e.SPAN.text Sign up for our newsletter
+												+e.SPAN.text--sm You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.
+											+in-c('checkbox','I agree to the terms and conditions and the privacy policy','privacy-policy')
 										+e.btn(type='button') save 
+						//- 2 страница
+						+e.item.inactive
+							+e.title
+								+e.itemItitle 2. Address
+							+e.body
+						//- 3 страница
+						+e.item.inactive
+							+e.title
+								+e.itemItitle 3. Shipping method
+							+e.body
+						//- 4 страница
+						+e.item.inactive
+							+e.title
+								+e.itemItitle 4. Payment
+							+e.body
 
-				.col-xl
-					//- +e.filter
+
 	// end sCheckout

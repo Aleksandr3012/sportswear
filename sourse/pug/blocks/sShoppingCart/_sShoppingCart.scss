@@ -589,6 +589,13 @@
 			color: $white;
 			//letter-spacing: 1.5px;
 		}
+
+
+		&__included {
+			color: rgba(255, 255, 255, 0.5);
+			font-size: $xsmall;
+			margin-top: rem(-17);
+		}
 		//
 		&__{}
 		&__{}

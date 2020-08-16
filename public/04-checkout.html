@@ -1262,9 +1262,59 @@
 						<h1>Checkout</h1>
 					</div>
 					<div class="row">
+						<div class="col-xl order-xl-last">
+							<div class="data-table">
+								<div class="data-table__img-bg"><img src="img/@2x/cart-data-bg.png" alt=""/>
+								</div>
+								<div class="form-wrap">
+									<form>
+										<input type="hidden" name="example-input-field"/>
+										<input class="order" type="hidden" name="order" value="Заявка  с сайта"/>
+										<input class="utm_source" type="hidden" name="utm_source"/>
+										<input class="utm_term" type="hidden" name="utm_term"/>
+										<input class="utm_medium" type="hidden" name="utm_medium"/>
+										<input class="utm_campaign" type="hidden" name="utm_campaign"/>
+										<div class="form-wrap__top-items">
+											<div class="form-wrap__item"><span>Items</span><span>3</span>
+											</div>
+											<div class="form-wrap__item"><span>Weight</span><span>2.1 kg</span>
+											</div>
+											<div class="form-wrap__item"><span>Promocode</span><span>0 €</span>
+											</div>
+											<div class="form-wrap__item"><span>Total discount</span><span>189 €</span>
+											</div>
+											<div class="form-wrap__item"><span>Sheeping</span><span>Free</span>
+											</div>
+										</div>
+										<div class="form-wrap__lower-items">
+											<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" type="text" placeholder="Promocode" name="promocode"/>
+												<div class="form-wrap__promo-circle">
+													<svg class="icon icon-croped-vector ">
+														<use xlink:href="img/svg/sprite.svg#croped-vector"></use>
+													</svg>
+												</div>
+											</div>
+											<!-- +e.input-wrap-->
+											<div class="form-wrap__item total-item"><span>TOTAL</span><span>189 €</span>
+											</div>
+											<div class="form-wrap__included">Tax included • Something else
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="policy-links"><a class="policy-links__link" href="#"><span class="policy-links__icon car">
+								<svg class="icon icon-delivery-car ">
+									<use xlink:href="img/svg/sprite.svg#delivery-car"></use>
+								</svg></span><span>Delivery policy</span></a><a class="policy-links__link" href="#"><span class="policy-links__icon arrows">
+								<svg class="icon icon-return-arrows ">
+									<use xlink:href="img/svg/sprite.svg#return-arrows"></use>
+								</svg></span><span>Return policy</span></a>
+							</div>
+						</div>
 						<div class="col-xl-8">
 							<div class="sCheckout__main">
-								<div class="sCheckout__item active">
+								<div class="sCheckout__item">
 									<div class="sCheckout__title">
 										<div class="row justify-content-between align-items-center">
 											<div class="col-sm-auto">
@@ -1278,18 +1328,16 @@
 										</div>
 									</div>
 									<div class="sCheckout__body">
-										<div class="row">
+										<div class="row align-items-center">
 												<div class="col-sm-3">
 													<p>Social title
 													</p>
 												</div>
 												<div class="col-sm-9">
 													<div class="sCheckout__radio">
-														<label class="custom-radio">
-															<input type="radio" name="Social-title"/><span class="custom-radio__text">Mr.</span>
+														<label class="custom-input"><input class="custom-input__input" type="radio" name="Social-title"/><span class="custom-input__lab"></span><span class="custom-input__text">Mr.</span>
 														</label>
-														<label class="custom-radio">
-															<input type="radio" name="Social-title"/><span class="custom-radio__text">Mrs.</span>
+														<label class="custom-input"><input class="custom-input__input" type="radio" name="Social-title"/><span class="custom-input__lab"></span><span class="custom-input__text">Mrs.</span>
 														</label>
 													</div>
 												</div>
@@ -1324,7 +1372,7 @@
 										<div class="sCheckout__create"> 
 											<p>Create an account </p><span>And save time on your next order!</span>
 										</div>
-										<div class="row">
+										<div class="row align-items-center">
 												<div class="col-sm-3">
 													<p>Password
 													</p>
@@ -1350,21 +1398,46 @@
 													</p>
 												</div>
 												<div class="col-sm-9">
-													<label class="custom-input"><input class="custom-input__input" type="checkbox" name="partners"/><span class="custom-input__lab"></span><span class="custom-input__text">Receive offers from our partners</span>
-													</label>
-													<label class="custom-input"><input class="custom-input__input" type="checkbox" name="newsletter"/><span class="custom-input__lab"></span><span class="custom-input__text">Sign up for our newsletter</span><span class="custom-input__text custom-input__text--sm">You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.</span>
-													</label>
-													<label class="custom-input"><input class="custom-input__input" type="checkbox" name="privacy-policy"/><span class="custom-input__lab"></span><span class="custom-input__text">I agree to the terms and conditions and the privacy policy</span>
-													</label>
+													<div class="sCheckout__checkbox">
+														<label class="custom-input"><input class="custom-input__input" type="checkbox" name="partners"/><span class="custom-input__lab"></span><span class="custom-input__text">Receive offers from our partners</span>
+														</label>
+														<label class="custom-input"><input class="custom-input__input" type="checkbox" name="newsletter"/><span class="custom-input__lab"></span><span class="custom-input__text">Sign up for our newsletter</span><span class="custom-input__text custom-input__text--sm">You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.</span>
+														</label>
+														<label class="custom-input"><input class="custom-input__input" type="checkbox" name="privacy-policy"/><span class="custom-input__lab"></span><span class="custom-input__text">I agree to the terms and conditions and the privacy policy</span>
+														</label>
+													</div>
 													<button class="sCheckout__btn" type="button">save 
 													</button>
 												</div>
 										</div>
 									</div>
 								</div>
+								<div class="sCheckout__item inactive">
+									<div class="sCheckout__title">
+										<div class="sCheckout__itemItitle">2. Address
+										</div>
+									</div>
+									<div class="sCheckout__body">
+									</div>
+								</div>
+								<div class="sCheckout__item inactive">
+									<div class="sCheckout__title">
+										<div class="sCheckout__itemItitle">3. Shipping method
+										</div>
+									</div>
+									<div class="sCheckout__body">
+									</div>
+								</div>
+								<div class="sCheckout__item inactive">
+									<div class="sCheckout__title">
+										<div class="sCheckout__itemItitle">4. Payment
+										</div>
+									</div>
+									<div class="sCheckout__body">
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="col-xl"></div>
 					</div>
 				</div>
 			</section>
