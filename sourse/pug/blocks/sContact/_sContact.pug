@@ -2,8 +2,65 @@ mixin sContact()
 	// start sContact
 	+b.SECTION.sContact.section#sContact&attributes(attributes)
 		.container
+			block
+		+e.container.container
 			+b.section-title.text-center
-				h2 sContact
-				
-			.row
+				h2 Contact us
+			+e.row.row
+				.col-md-4
+					+e.A.link.location(href='#')
+						+e.icon-cont
+							+icon('mark')
+						span Develop shop Poland
+				.col-md-4
+					+e.A.link.mail(href='mailto:piwwwo89@gmail.com')
+						+e.icon-cont
+							+icon('mail2')
+						span piwwwo89@gmail.com
+				.col-md-4
+					+e.A.link.phone(href="tel:+79161760512")
+						+e.icon-cont
+							+icon('phone')
+						span +7 916 176-05-12
+			+form-wrap
+				//-1
+				+contactFormWrapSelect('Subject')
+					+graySelect('prod-select', undefined, 'Customer service', 'gray-select2-js')
+				//-2
+				+input('', 'email', 'Email address')
+				//-3
+				+contactFormWrapSelect('Order reference')
+					+graySelect('prod-select', undefined, 'Select reference', 'gray-select2-js')
+				//-4
+				+e.add-file
+					+e.title Attachment
+					+b.inp-file
+						label
+							+e.INPUT.input(name='file', type='file')
+							+e.SPAN.filename
+							+e.SPAN.btn
+								+icon('inp-file')
+				//-
+				+e.textarea-cont
+					+input('', 'textarea', 'Message')
+				+b.LABEL.checkbox-item
+					input(type="checkbox" name=name value=Txt)&attributes(attributes)
+					span
+						.txt
+							| I agree to the terms and conditions and the&nbsp;
+							a(href="#") privacy policy
+				+e.BUTTON.send-btn(type='submit') send
+
 	// end sContact
+
+mixin contactFormWrapSelect(title)
+	+e.select
+		+e.title=title
+		+b.gray-select
+			block
+
+mixin graySelect(selectName, optionsArr=['1', '2', '3'], placeholder='', keyClass='gray-select2-js')
+	select(name=selectName data-placeholder=placeholder class=keyClass)
+		option(value="" label='#')
+		- for (let item of optionsArr)
+			option(value=item)=`prod ${item}`

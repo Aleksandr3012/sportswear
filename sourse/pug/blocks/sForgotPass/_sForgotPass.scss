@@ -1,0 +1,165 @@
+// start .sForgotPass
+.sForgotPass {
+	position: relative;
+	z-index: 1;
+
+	&__section-bg{
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		top: 100%;
+
+		width: 100%;
+		img{
+			width: auto;
+			height: 600px;
+			@include media-breakpoint-up(sm){
+				height: 700px;
+			}
+			@include media-breakpoint-up(md){
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		&:after{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(180deg, $white 0%, rgba(255, 255, 255, 0) 100%);
+		}
+	}
+
+
+	--sPT: #{45px};
+	--sPB: #{35px};
+	--sTPB: #{20px};
+	@include media-breakpoint-up(sm){
+		--sPT: #{75px};
+		--sPB: #{60px};
+		--sTPB: #{30px};
+	}
+	@include media-breakpoint-up(xl){
+		--sPT: #{100px};
+		--sPB: #{52px};
+		--sTPB: #{28px};
+	}
+
+	&:not(.forgot-pass-after){
+		.sForgotPass__container{
+			@include media-breakpoint-up(sm){
+				max-width: 480px !important;
+			}
+		}
+	}
+	.section-title{
+		h2{
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+		p{
+			font-size: 16px;
+			line-height: (28/16);
+		}
+	}
+	.form-wrap{
+		text-align: center;
+		@include media-breakpoint-up(sm){
+			max-width: 408px;
+			margin: 0 auto;
+		}
+		&__input-wrap{
+			margin-bottom: 32px;
+		}
+		&__input{
+			width: 100%;
+			background: $input-bg-gray;
+			border: 1px solid $secondary;
+			border-radius: $border-radius;
+
+			font-size: 16px;
+			line-height: 2;
+			padding: 8px 24px;
+			height: auto;
+		}
+
+		&__send-btn{
+			@extend .btn;
+			@extend .btn-success;
+
+			@extend .btn;
+			@extend .btn-success;
+
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 2;
+
+			letter-spacing: 1.8px;
+			text-transform: uppercase;
+			color: $white;
+
+			padding: 8px 20px;
+
+			width: 100%;
+			@include media-breakpoint-up(sm){
+				width: 232px;
+			}
+		}
+	}
+
+	//
+	&.forgot-pass-after{
+		.section-title{
+			padding-bottom: 0;
+			p{
+				margin-bottom: 16px;
+				@include media-breakpoint-down(sm){
+					font-size: 14px;
+				}
+			}
+			h2{
+				margin-bottom: 32px;
+				@include media-breakpoint-down(sm){
+					font-size: 18px;
+				}
+			}
+		}
+
+	}
+
+	&__try-again-btn{
+		@extend .btn;
+		@extend .btn-primary;
+		@extend .btn-outline-primary;
+	}
+	&__{}
+	&__{}
+
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-up(xs) {}
+	
+	//
+	@include media-breakpoint-between(md, xl) { }
+	
+	
+	//
+	@include media-breakpoint-only(xs) {}
+	@include media-breakpoint-only(sm) {}
+	@include media-breakpoint-only(md) {}
+	@include media-breakpoint-only(lg) {}
+	@include media-breakpoint-only(xl) {}
+	
+	//
+	@include media-breakpoint-down(xl) {}
+	@include media-breakpoint-down(lg) {}
+	@include media-breakpoint-down(md) {}
+	@include media-breakpoint-down(sm) {}
+	@include media-breakpoint-down(xs) {} 
+
+} // end.sForgotPass

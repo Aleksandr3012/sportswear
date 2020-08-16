@@ -22,8 +22,8 @@ $black: #000 !default;
 
 $grays: () !default;
 
-
-$input-bg-gray: #FAFAFA;
+$light-bg: #E5E5E5;
+$input-bg-gray: #fafafa;
 $blue: #007bff !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
@@ -65,6 +65,7 @@ $theme-colors: map-merge(("primary": $primary,
 
 $body-bg: white !default;
 $body-color: $black !default;
+
 
 // Typography
 //

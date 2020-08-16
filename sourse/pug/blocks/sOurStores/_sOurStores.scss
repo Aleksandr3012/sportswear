@@ -1,0 +1,231 @@
+// start .sOurStores
+.sOurStores {
+
+	--sPT: #{0px};
+
+	--sPB: #{25px};
+	--sTPB: #{0px};
+	@include media-breakpoint-up(md){
+		--sPB: #{60px};
+		--sTPB: #{5px};
+	}
+	@include media-breakpoint-up(xl){
+		--sPB: #{196px};
+		--sTPB: #{15px};
+	}
+
+	.section-title{
+		h2{
+			font-weight: bold;
+			line-height: (48/36);
+		}
+
+		padding-left: 15px;
+		@include media-breakpoint-up(sm){
+			padding-left: 20px;
+		}
+		@include media-breakpoint-up(xxl){
+			padding-left: 27px;
+		}
+	}
+
+	&__row{
+		@include roww(24px);
+	}
+	&__item{
+		background: $white;
+		box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+		overflow: hidden;
+
+		border-radius: 10px;
+		@include media-breakpoint-up(sm){
+			border-radius: 16px;
+		}
+
+		margin-bottom: 24px;
+
+		@include media-breakpoint-up(md){
+			display: flex;
+		}
+	}
+	//img
+	&__img-block{
+		//width: 28.41%;
+		flex-shrink: 0;
+
+		width: 100%;
+		@include media-breakpoint-up(md){
+			width: 240px;
+		}
+		@include media-breakpoint-up(lg){
+			width: 270px;
+		}
+		@include media-breakpoint-up(xl){
+			width: 28.41%;
+		}
+	}
+	&__img-cont{
+		position: relative;
+		height: 0;
+		padding-top: 80%;
+		@include media-breakpoint-up(md){
+			height: 100%;
+			padding-top: 0;
+		}
+
+		img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	//
+	&__descr-bl{
+		flex-grow: 1;
+		display: flex;
+		justify-content: space-between;
+
+		flex-wrap: wrap;
+		padding: 20px 15px 0 15px;
+		@include media-breakpoint-up(sm){
+			flex-wrap: nowrap;
+			padding: 20px 30px 15px 20px;
+		}
+		@include media-breakpoint-up(lg){
+			padding: 24px 51px 18px 26px;
+		}
+	}
+	//contacts
+	&__contacts{
+		margin-right: 10px;
+		margin-bottom: 20px;
+		@include media-breakpoint-up(sm){
+			margin-bottom: 0;
+		}
+	}
+	&__name{
+		font-weight: bold;
+		font-size: 24px;
+		line-height: (32/24);
+
+		margin-bottom: 10px;
+		@include media-breakpoint-up(lg){
+			margin-bottom: 16px;
+		}
+	}
+	&__contact-links{
+
+	}
+	&__contact-link{
+		display: flex;
+		text-decoration: none !important;
+
+		@include mt();
+		color: $black;
+		&:hover{
+			color: $primary;
+		}
+
+		span{
+			padding-top: 2px;
+			font-size: 16px;
+			line-height: 1.75;//28px
+		}
+	}
+	&__icon-cont{
+		width: 32px;
+		height: 32px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		margin-right: 5px;
+		@include media-breakpoint-up(lg){
+			margin-right: 8px;
+		}
+
+		.icon{
+			font-size: 20px;
+			color: $secondary;
+		}
+	}
+
+	//shedule
+	&__shedule{
+		flex-shrink: 0;
+
+		margin-bottom: 20px;
+		@include media-breakpoint-up(sm){
+			margin-bottom: 0;
+		}
+	}
+	&__status{
+		display: inline-block;
+		vertical-align: top;
+		padding: 8px;
+		border-radius: 4px;
+
+		font-size: 14px;
+		line-height: (16/14);
+		color: $white;
+		text-transform: capitalize;
+
+		margin-bottom: 16px;
+	}
+	&__shedule-items{
+
+	}
+	&__shedule-item{
+		margin-bottom: 16px;
+
+		span{
+			display: block;
+			font-size: 14px;
+			line-height: 16px;
+
+			br{
+				display: none;
+				@include media-breakpoint-up(lg){
+					display: block;
+				}
+			}
+		}
+		span:first-child{
+			font-weight: bold;
+		}
+		span:last-child{
+
+		}
+	}
+	&__{}
+	&__{}
+
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-up(xs) {}
+	
+	//
+	@include media-breakpoint-between(md, xl) { }
+	
+	
+	//
+	@include media-breakpoint-only(xs) {}
+	@include media-breakpoint-only(sm) {}
+	@include media-breakpoint-only(md) {}
+	@include media-breakpoint-only(lg) {}
+	@include media-breakpoint-only(xl) {}
+	
+	//
+	@include media-breakpoint-down(xl) {}
+	@include media-breakpoint-down(lg) {}
+	@include media-breakpoint-down(md) {}
+	@include media-breakpoint-down(sm) {}
+	@include media-breakpoint-down(xs) {} 
+
+} // end.sOurStores

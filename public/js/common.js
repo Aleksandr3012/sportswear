@@ -133,7 +133,7 @@ function eventHandler() {
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
 
-	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/order-history-detail-1920.png);"></div>'); // /добавляет подложку для pixel perfect
+	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/order-confirmed.png);"></div>'); // /добавляет подложку для pixel perfect
 	// /закрыть/открыть мобильное меню
 
 	function heightses() {
@@ -438,6 +438,10 @@ function eventHandler() {
 	$('.custom-select2-margined').select2({
 		minimumResultsForSearch: Infinity,
 		dropdownCssClass: "drop-down-margined"
+	});
+	$('.gray-select2-js').select2({
+		minimumResultsForSearch: Infinity,
+		dropdownCssClass: "gray-select-2"
 	}); //02 toggle pills
 
 	$('.prod-nav-header-js').click(function () {
@@ -532,7 +536,7 @@ function eventHandler() {
 				prevEl: $(this).find('.prev-related-js')
 			}
 		});
-	}); //10
+	}); //10 inp type pass
 
 	$('.toggle-pass-inp-js').click(function () {
 		var inp = this.parentElement.querySelector('input');
@@ -545,7 +549,18 @@ function eventHandler() {
 		}
 
 		this.classList.toggle('pass-visiable');
-	}); //end luckyone JS
+	}); //inp type file
+
+	$('.inp-file label').change(function () {
+		var fileName = this.querySelector('input').files[0].name;
+		this.querySelector('.inp-file__filename').innerHTML = fileName;
+	});
+	/*
+	* remake inpts
+	* remake btns
+	*
+	* */
+	//end luckyone JS
 
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 

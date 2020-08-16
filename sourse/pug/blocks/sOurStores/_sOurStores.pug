@@ -1,0 +1,59 @@
+mixin sOurStores()
+	// start sOurStores
+	+b.SECTION.sOurStores.section#sOurStores&attributes(attributes)
+		.container
+			block
+			+b.section-title
+				h2 Our stores
+			+e.row.row
+				+ourStroeItem(1, 'Dade county', 'open', 'bg-success')
+					| 3030 SW 8th St Miami
+					|
+					br
+					| Miami, Florida 33135
+					|
+					br
+					| United States
+				+ourStroeItem(2, 'E fort laudaredale', 'close', 'bg-danger')
+					| 1000 Northeast 4th Ave Fort Lauderdale
+					|
+					br
+					| Miami, Florida 33304
+					|
+					br
+					| United States
+
+	// end sOurStores
+
+mixin ourStroeItem(imgNum=1, shopName='shopName', status='open', statusClesses='')
+	.col-xxl-10
+		+e.item
+			+e.img-block
+				+e.img-cont
+					img(src=`img/@2x/store-${imgNum}.jpg` alt="")
+			+e.descr-bl
+				+e.contacts
+					+e.name=shopName
+					+e.contact-links
+						+e.A.contact-link(href="#")
+							+e.icon-cont
+								+icon('mark')
+							span
+								block
+						+e.A.contact-link(href="mailto:piwwwo89@gmail.com")
+							+e.icon-cont
+								+icon('mail2')
+							span piwwwo89@gmail.com
+						+e.A.contact-link(href="tel:+79161760512")
+							+e.icon-cont
+								+icon('phone')
+							span +7 916 176-05-12
+				+e.shedule
+					+e.status(class=statusClesses)=status
+					+e.shedule-items
+						+e.shedule-item
+							span Mon. — Fri.
+							span 09:00 AM — 07:00 PM
+						+e.shedule-item
+							span Sat. — Sun.
+							span 10:00 AM — 04:00 PM

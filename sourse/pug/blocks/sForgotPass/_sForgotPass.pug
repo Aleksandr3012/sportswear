@@ -1,0 +1,28 @@
+mixin sForgotPass()
+	// start sForgotPass
+	+b.SECTION.sForgotPass.section#sForgotPass&attributes(attributes)
+		+e.container.container
+			block
+		+e.section-bg
+			img(src='img/@2x/blog-bg.jpg' alt="")
+
+	// end sForgotPass
+
+mixin sForgotPassForm()
+	+b.section-title.text-center
+		h2 Forgot your password?
+		p Please enter the email address you used to register. You&nbsp;will receive a&nbsp;temporary link to&nbsp;reset your password.
+	+form-wrap
+		+input('Email', 'email')
+		+e.BUTTON.send-btn(type='submit') send reset link
+
+mixin sForgotPassAfter()
+	+b.section-title.text-center
+		p
+			| If this email address has been registered in our shop,
+			|
+			br.d-none.d-sm-block
+			|
+			| you will receive a link to reset your password at
+		h2 nicolomelodini@gmail.com
+	+e.A.try-again-btn(href="#") try again

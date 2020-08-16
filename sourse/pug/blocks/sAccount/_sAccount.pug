@@ -284,35 +284,8 @@ mixin OrderHistoryDetailContent()
 					+e.address-col.col-lg-6
 						+e.address-header Invoice address My Address
 						+ordHistDetAddress()
-			+e.order-items
-				+e.order-items-title Order items
-				+e.order-items-header.d-none.d-lg-flex
-					+e.oi-header-item.product Product
-					+e.oi-header-item.quantity Quantity
-					+e.oi-header-item.price Unit price
-					+e.oi-header-item.total-price Total price
-				+orderItemsPill(1, true, '2', '188 €')
-					+b.discount-price-bl
-						+e.percents -20%
-						+e.price
-							+e.new-price 89 €
-							+e.old-price 189 €
-				+orderItemsPill(2, false, '1')
-					+e.common-price 89 €
-				+orderItemsPill(3, false, '1')
-					+e.common-price 89 €
-			+e.bill
-				+e.bill-items
-					+e.bill-item
-						+e.bill-item-header Subtotal
-						+e.bill-item-price 376 €
-					+e.bill-item
-						+e.bill-item-header Shipping and handling
-						+e.bill-item-price 18 €
-					+e.bill-item
-						+e.bill-item-header: b Total
-						+e.bill-item-price: b 376 €
-				+e.tax-included Tax included
+			+orderItems()
+			+bill()
 			+e.shipping
 				+e.shipping-headline Shipping info
 				+e.shipping-items
@@ -346,6 +319,39 @@ mixin OrderHistoryDetailContent()
 						+e.BUTTON.send-btn(type='submit') send
 					//-+b.size-select
 						+SizeSelct()
+
+mixin bill()
+	+b.bill
+		+e.bill-items
+			+e.bill-item
+				+e.bill-item-header Subtotal
+				+e.bill-item-price 376 €
+			+e.bill-item
+				+e.bill-item-header Shipping and handling
+				+e.bill-item-price 18 €
+			+e.bill-item
+				+e.bill-item-header: b Total
+				+e.bill-item-price: b 376 €
+		+e.tax-included Tax included
+
+mixin orderItems()
+	+b.order-items
+		+e.title Order items
+		+e.header.d-none.d-lg-flex
+			+e.oi-header-item.product Product
+			+e.oi-header-item.quantity Quantity
+			+e.oi-header-item.price Unit price
+			+e.oi-header-item.total-price Total price
+		+orderItemsPill(1, true, '2', '188 €')
+			+b.discount-price-bl
+				+e.percents -20%
+				+e.price
+					+e.new-price 89 €
+					+e.old-price 189 €
+		+orderItemsPill(2, false, '1')
+			+e.common-price 89 €
+		+orderItemsPill(3, false, '1')
+			+e.common-price 89 €
 
 mixin productSelect(selectName, optionsArr=['1', '2', '3'], placeholder='', keyClass='custom-select2-margined')
 	select(name=selectName data-placeholder=placeholder class=keyClass)
@@ -407,3 +413,110 @@ mixin orderStatusItem(date='11.06.2019', statusTxt='statusTxt',statusClasses='')
 
 	//-end order history detail
 	//-end order history detail
+
+mixin sAccountVouhers()
+	// start sAccount
+	+b.SECTION.sAccount.section#sAccount&attributes(attributes)
+		//-.sAccount--order-history
+		.container
+			block
+			+sAccountTopLine('Vouchers')
+			+e.row.row
+				.col-md-3.col-xl-2
+					+e.aside-menu
+						ul
+							li: a(href="#") Information
+							li: a(href="#") Adresses
+							li: a(href="#")
+								| Order history
+								br.d-none.d-lg-block
+								| and details
+							li: a(href="#") Credit clips
+							li: a.current(href="#") Vouchers
+							li: a(href="#") Merchandise
+							li: a(href="#") GPRD — personal data
+				.col-md-9.col-xl-10
+					+vouchersContent
+
+mixin vouchersContent()
+	+b.vouchers
+		+e.header
+			+e.header-item.code Code
+			+e.header-item.descr Description
+			+e.header-item.quantity Quantity
+			+e.header-item.price Value
+			+e.header-item.min Minimum
+			+e.header-item.val Value
+			+e.header-item.exp-date Expiration date
+		+voucherItem()
+		+voucherItem()
+
+mixin voucherItem()
+	+e.item
+		+e.item-col.code
+			+e.item-header Code
+			+e.item-content V1C5O7
+		+e.item-col.descr
+			+e.item-header Description
+			+e.item-content V1C5O7
+		+e.item-col.quantity
+			+e.item-header Quantity
+			+e.item-content 1
+		+e.item-col.price
+			+e.item-header Value
+			+e.item-content
+				span 11 890 €
+				.tax Tax included
+		+e.item-col.min
+			+e.item-header Minimum
+			+e.item-content None
+		+e.item-col.val
+			+e.item-header Value
+			+e.item-content Yes
+		+e.item-col.exp-date
+			+e.item-header Expiration date
+			+e.item-content 12.01.2020
+
+	//-end voucher
+	//-end voucher
+mixin sAccountPersonalData()
+	// start sAccount
+	+b.SECTION.sAccount.section#sAccount&attributes(attributes)
+		//-.sAccount--order-history
+		.container
+			block
+			+sAccountTopLine('GDPR - Personal data')
+			+e.row.row
+				.col-md-3.col-xl-2
+					+e.aside-menu
+						ul
+							li: a(href="#") Information
+							li: a(href="#") Adresses
+							li: a(href="#")
+								| Order history
+								br.d-none.d-lg-block
+								| and details
+							li: a(href="#") Credit clips
+							li: a(href="#") Vouchers
+							li: a(href="#") Merchandise
+							li: a.current(href="#") GPRD — personal data
+				.col-md-9.col-xxl-8
+					+personalDataContent()
+
+mixin personalDataContent()
+	+b.personal-data
+		+e.item
+			+e.header
+				+e.headline Access to my data
+				+e.txt
+					p At&nbsp;any time, you have the right to&nbsp;retrieve the data you have provided to&nbsp;our site. Click on&nbsp;&laquo;Get my&nbsp;data&raquo; to&nbsp;automatically download a&nbsp;copy of&nbsp;your personal data on&nbsp;a&nbsp;pdf or&nbsp;csv file..
+			+e.btns
+				+e.A.btn(href="#") get my data to PDF
+				+e.A.btn(href="#") get my data to csv
+		+e.item
+			+e.header
+				+e.headline Rectification & Erasure requests
+				+e.txt
+					p You have the right to&nbsp;modify all the personal information found in&nbsp;the &laquo;My&nbsp;Account&raquo; page. For any other request you might have regarding the rectification and/or erasure of&nbsp;your personal data, please contact&nbsp;us through our contact page. We&nbsp;will review your request and reply as&nbsp;soon as&nbsp;possible..
+	//-end personal data
+	//-end personal data

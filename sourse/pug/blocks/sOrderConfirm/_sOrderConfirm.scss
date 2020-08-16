@@ -1,0 +1,133 @@
+// start .sOrderConfirm
+.sOrderConfirm {
+	position: relative;
+	left: -2px;
+
+
+	--sPT: #{0px};
+	--sPB: #{25px};
+	@include media-breakpoint-up(md){
+		--sPT: #{15px};
+		--sPB: #{50px};
+	}
+	@include media-breakpoint-up(xl){
+		--sPT: #{31px};
+		--sPB: #{95px};
+	}
+
+	&__row{
+		@include roww(24px);
+	}
+	&__main-box{
+		background-color: $white;
+		box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+		overflow: hidden;
+
+		border-radius: 10px;
+		@include media-breakpoint-up(sm){
+			border-radius: 16px;
+		}
+	}
+	&__content{
+		padding: 20px 10px;
+		@include media-breakpoint-up(sm){
+			padding: 25px 32px;
+		}
+	}
+	&__header{
+		background-color: $success;
+		color: $white;
+		font-weight: bold;
+		line-height: 1.35;
+		margin-bottom: 0;
+
+		font-size: 18px;
+		padding: 12px 24px;
+		text-align: center;
+		@include media-breakpoint-up(sm){
+			text-align: left;
+			font-size: 24px;
+			padding: 16px 32px;
+		}
+	}
+	&__info{
+		font-size: 16px;
+		line-height: (28/16);
+
+		margin-bottom: 20px;
+		@include media-breakpoint-up(sm){
+			margin-bottom: 40px;
+		}
+		a{
+			text-decoration: none !important;
+		}
+	}
+
+	//
+	.bill{
+		@include media-breakpoint-up(sm){
+			margin-bottom: 41px;
+		}
+	}
+	//
+	.img-and-descr-frame{
+		@include media-breakpoint-up(sm){
+			display: flex !important;
+		}
+		&__item-img{
+			@include media-breakpoint-up(sm){
+				margin-right: 12px !important;
+			}
+			@include media-breakpoint-up(xl){
+				margin-right: 24px !important;
+			}
+		}
+	}
+
+
+	&__footer{
+
+	}
+	&__foot-title{
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 2;
+		margin-bottom: 18px;
+	}
+	&__foot-items{
+
+	}
+	&__foot-item{
+		font-size: 16px;
+		line-height: 2;
+	}
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-up(xs) {}
+	
+	//
+	@include media-breakpoint-between(md, xl) { }
+	
+	
+	//
+	@include media-breakpoint-only(xs) {}
+	@include media-breakpoint-only(sm) {}
+	@include media-breakpoint-only(md) {}
+	@include media-breakpoint-only(lg) {}
+	@include media-breakpoint-only(xl) {}
+	
+	//
+	@include media-breakpoint-down(xl) {}
+	@include media-breakpoint-down(lg) {}
+	@include media-breakpoint-down(md) {}
+	@include media-breakpoint-down(sm) {}
+	@include media-breakpoint-down(xs) {} 
+
+} // end.sOrderConfirm

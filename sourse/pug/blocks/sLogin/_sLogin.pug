@@ -1,0 +1,32 @@
+mixin sLogin()
+	// start sLogin
+	+b.SECTION.sLogin.section#sLogin&attributes(attributes)
+		.container
+			+b.section-title.text-center
+				h2 Log in to your account
+			+e.section-bg
+				+e.img-cont
+					img(src="img/@2x/blog-bg.jpg" alt="")
+			+b.tabs
+				+e.caption
+					+e.btn.active Log in
+					+e.btn Registration
+				+e.wrap
+					+e.content.active
+						+form-wrap
+							+e.inputs-block.margin-0
+								+input('Email', 'email')
+								+input('Password', 'password', undefined, 'pass')
+							.text-center
+								+e.A.forgot-pass(href="#") Forgot your password?
+								+e.BUTTON.log-btn(type='submit') log in
+					+e.content
+						+form-wrap
+							+e.inputs-block
+								+input('Email', 'email')
+								+input('Password', 'password', undefined, 'pass')
+								+input('Confirm password', 'password', undefined, 'pass-confirm')
+							.text-center
+								+e.BUTTON.log-btn(type='submit') log in
+
+	// end sLogin

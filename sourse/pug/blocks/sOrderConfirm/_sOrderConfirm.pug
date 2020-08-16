@@ -1,0 +1,25 @@
+mixin sOrderConfirm()
+	// start sOrderConfirm
+	+b.SECTION.sOrderConfirm.section#sOrderConfirm&attributes(attributes)
+		.container
+			+e.row.row
+				.col-xl-10.offset-xl-1.col-xxl-8.offset-xxl-2
+					+e.main-box
+						+e.H2.header Your order is confirmed
+						+e.content
+							+e.info
+								| An email has been sent to the
+								|
+								a(href="#") nicolomelodini@gmail.com
+								|
+								| address.
+							+orderItems()
+							+bill()
+							+e.footer
+								+e.foot-title Order details
+								+e.foot-items
+									+e.foot-item Order reference: YCBDOKGJA
+									+e.foot-item Payment method: Bank transfer
+									+e.foot-item Shipping method: Develop shop
+									+e.foot-item Pick up in-store
+	// end sOrderConfirm
