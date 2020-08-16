@@ -95,6 +95,24 @@ mixin dataTable()
 				+dataTableItem('TOTAL', '189 €', 'total-item')
 				+e.BUTTON.checkout-btn(type='submit') proceed to checkout
 
+mixin dataTable-sm()
+	+b.data-table
+		+e.img-bg
+			img(src='img/@2x/cart-data-bg.png' alt='')
+		+form-wrap()
+			+e.top-items
+				+dataTableItem('Items', '3')
+				+dataTableItem('Weight', '2.1 kg')
+				+dataTableItem('Promocode', '0 €')
+				+dataTableItem('Total discount', '189 €')
+				+dataTableItem('Sheeping', 'Free')
+			+e.lower-items
+				+input('Promocode', 'text', '', 'promocode')
+					+e.promo-circle
+						+icon('croped-vector')
+				+dataTableItem('TOTAL', '189 €', 'total-item')
+				+e.included Tax included • Something else
+				//- +e.BUTTON.checkout-btn(type='submit') proceed to checkout
 
 mixin dataTableItem(name, val, ItemClasses='')
 	+e.item(class=ItemClasses)

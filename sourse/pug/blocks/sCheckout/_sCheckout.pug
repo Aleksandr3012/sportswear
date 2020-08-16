@@ -1,0 +1,90 @@
+mixin sCheckout()
+	// start sCheckout
+	+b.SECTION.sCheckout.section#sCheckout&attributes(attributes)
+		.container
+			mixin roww(t,sm)
+				.col-sm-3
+					p= t
+						if sm
+							span= sm
+				.col-sm-9
+					block
+			+b.section-title
+				h1 Checkout
+			.row
+				.col-xl.order-xl-last
+					+dataTable-sm()
+					+b.policy-links
+						+e.A.link(href="#")
+							+e.icon.car
+								+icon('delivery-car')
+							span Delivery policy
+						+e.A.link(href="#")
+							+e.icon.arrows
+								+icon('return-arrows')
+							span Return policy
+				.col-xl-8
+					+e.main
+						//- 1 страница
+						+e.item
+							+e.title
+								.row.justify-content-between.align-items-center
+									.col-sm-auto
+										+e.itemItitle 1. Personal information
+									.col-auto.d-flex
+										+e.gues
+											img(src="img/glasses.svg", alt="")
+											//- +icon('glasses')
+											span Order as a guest
+										+e.signIn(href="#")
+											img(src="img/signIn.svg", alt="")
+											//- +icon('signIn')
+											span Sign in
+							+e.body
+								.row.align-items-center
+									+roww('Social title')
+										+e.radio
+											+in-c('radio','Mr.','Social-title')
+											+in-c('radio','Mrs.','Social-title')
+									+roww('First name')
+										+input('')
+									+roww('Last name')
+										+input('')
+									+roww('Email')
+										+input('','email')
+
+								+e.create 
+									p Create an account 
+									span And save time on your next order!
+								.row.align-items-center
+									+roww('Password')
+										+input('')
+									+roww('Birthdate','Optional')
+										+input('')
+										+e.inputDescr
+									+roww('')
+										+e.checkbox
+											+in-c('checkbox','Receive offers from our partners','partners')
+											+in-c('checkbox','','newsletter')
+												+e.SPAN.text Sign up for our newsletter
+												+e.SPAN.text--sm You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.
+											+in-c('checkbox','I agree to the terms and conditions and the privacy policy','privacy-policy')
+										+e.btn(type='button') save 
+						//- 2 страница
+						+e.item.inactive
+							+e.title
+								+e.itemItitle 2. Address
+							+e.body
+						//- 3 страница
+						+e.item.inactive
+							+e.title
+								+e.itemItitle 3. Shipping method
+							+e.body
+						//- 4 страница
+						+e.item.inactive
+							+e.title
+								+e.itemItitle 4. Payment
+							+e.body
+
+
+	// end sCheckout
