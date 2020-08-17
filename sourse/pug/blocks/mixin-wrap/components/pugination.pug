@@ -34,17 +34,15 @@ mixin pugin()
 						block
 			+li()
 				span.prev.page-numbers( )
-					img(src="img/svg/prev.svg", alt="")
-			+li()
-				span.prev.page-numbers( )
-					img(src="img/svg/prev-double.svg", alt="")
+					img(src="img/svg/chevron-left-pugin.svg", alt="")
 			+li()
 				span.page-numbers.current  1
-			- for (var x = 1; x < 5; x++)
+			- for (var x = 2; x < 4; x++)
 				+li(x)
 			+li()
-				a.next.page-numbers(href='#')
-					img(src="img/svg/next.svg", alt="")
+				span.page-numbers.three-dot  ...
+			+li()
+				a.page-numbers(href='#') 13
 			+li()
 				a.next.page-numbers(href='#')
-					img(src="img/svg/next-double.svg", alt="")
+					img(src="img/svg/chevron-right-pugin.svg", alt="")

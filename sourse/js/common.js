@@ -128,7 +128,7 @@ function eventHandler() {
 
 	// JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/checkout-3.png);"></div>')
+	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/catalog-1920.png);"></div>')
 	// /добавляет подложку для pixel perfect
 
 	// /закрыть/открыть мобильное меню
@@ -626,6 +626,80 @@ function eventHandler() {
 	$('.inp-file label').change(function () {
 		let fileName = this.querySelector('input').files[0].name;
 		this.querySelector('.inp-file__filename').innerHTML = fileName;
+	});
+	//catalog filters
+
+	//desctop filter boxes toggle
+	$('.filter-header-js').click(function () {
+		document.body.removeEventListener('click', filterMissClick);
+		let thisHeader = this;
+
+		//close all except this
+		let allHeaders = document.querySelectorAll('.filter-header-js');
+		for (let header of allHeaders){
+
+			if (thisHeader !== header){
+				$(header).removeClass('active');
+				$(header).parent().find('.filter-content-js').slideUp(function () {
+					$(this).removeClass('active');
+				});
+			}
+		}
+
+		//toggle this
+		$(this).toggleClass('active');
+		$(this.parentElement).find('.filter-content-js').slideToggle(function () {
+			$(this).toggleClass('active');
+		});
+
+		event.stopPropagation();
+		document.body.addEventListener('click', filterMissClick);
+	})
+
+	function filterMissClick() {
+		if (event.target.closest('.filter-content-js')) return
+		document.body.removeEventListener('click', filterMissClick);
+
+		//close all
+		$('.filter-header-js').removeClass('active');
+		$('.filter-header-js').parent().find('.filter-content-js').slideUp(function () {
+			$(this).removeClass('active');
+		});
+	}
+
+	//mob
+	$('.more-options-js').click(function () {
+		let txt = this.querySelector('.txt');
+
+		if (txt.innerHTML.indexOf('More') >= 0){
+			txt.innerHTML = 'Hide options';
+		}
+		else{
+			txt.innerHTML = 'More options';
+		}
+
+		$('.filters__item:not(.sort-by-item)').slideToggle(function () {
+			$(this).toggleClass('active');
+		});
+	});
+
+	//recently slider
+
+	let recentlySlider = new Swiper('.recently-slider-js', {
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+		loop: true,
+
+		//
+		lazy: {
+			loadPrevNext: true,
+			loadPrevNextAmount: 4,
+		},
+		//nav
+		navigation: {
+			nextEl: $(this).find('.recently-next'),
+			prevEl: $(this).find('.recently-prev'),
+		},
 	});
 
 	//end luckyone JS

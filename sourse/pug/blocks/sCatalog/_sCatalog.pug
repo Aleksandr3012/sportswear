@@ -1,4 +1,4 @@
-mixin catalogItem(img,newPrice,oldPrice,category,text,wide)
+mixin catalogItem(img,newPrice,oldPrice,category,text,wide, slideComponent=false)
 	+b.catalogItem&attributes(attributes)
 		.row.justify-content-between
 			.col-auto
@@ -6,7 +6,10 @@ mixin catalogItem(img,newPrice,oldPrice,category,text,wide)
 			.col-auto
 				+controls()
 		+e.imgWrap(href="#")
-			img.res-i.lazy(src="" data-src=`img/@2x/catalog-${img}.jpg`, alt="")
+			if slideComponent
+				img.res-i.swiper-lazy(src="" data-src=`img/@2x/catalog-${img}.jpg`, alt="")
+			else
+				img.res-i.lazy(src="" data-src=`img/@2x/catalog-${img}.jpg`, alt="")
 		+e.sale -20%
 		+e.price
 			+e.newPrice= newPrice

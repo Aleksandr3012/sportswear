@@ -1,0 +1,158 @@
+mixin sCatalogPage()
+	// start sCatalogPage
+	+b.SECTION.sCatalogPage.section#sCatalogPage&attributes(attributes)
+		+e.container.container
+			block
+			+b.section-title
+				h2 Clothes
+			+e.row.row
+				+e.menu-col.col-xl-3
+					+CatleftMenu()
+				+e.content-col.col-xl-9
+					+e.sort-txt Sort by
+					+catalogFilters()
+					+e.found-txt Found 3854 items
+					+e.found-row.row
+						.col-md-6.col-lg-4
+							+catalogItem('8','89 €','189 €','Garmont','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue')
+						.col-md-6.col-lg-4
+							+catalogItem('9','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive')
+						.col-md-6.col-lg-4.d-none.d-md-block
+							+catalogItem('10','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive')
+						.col-md-6.col-lg-4.d-none.d-md-block
+							+catalogItem('5','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive')
+						.col-md-6.col-lg-4.d-none.d-lg-block
+							+catalogItem('3','89 €','189 €','Grunge John Orchestra','Man`s bomber Grunge John Orchestra Toxic Olive')
+						.col-md-6.col-lg-4.d-none.d-lg-block
+							+catalogItem('2','89 €','189 €','Grunge John Orchestra','Man`s bomber Grunge John Orchestra Toxic Olive')
+					+pugin()
+					+b.recently-viewed
+						+e.headline You recently viewed
+						+e.slider
+							.swiper-container.recently-slider-js
+								.swiper-wrapper
+									.swiper-slide
+										+catalogItem('8','89 €','189 €','Garmont','Man`s running shoes ASICS GEL-Nimbus 22 White/Electric Blue', false, true)
+									.swiper-slide
+										+catalogItem('9','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive', false, true)
+									.swiper-slide
+										+catalogItem('10','89 €','189 €','The North Face','Man`s bomber Grunge John Orchestra Toxic Olive', false, true)
+								+e.prev-next
+									.recently-prev.d-none.d-xl-flex
+										+icon('chevron-left')
+									.recently-next.d-none.d-xl-flex
+										+icon('chevron-right')
+	// end sCatalogPage
+
+mixin catalogFilters()
+	+b.filters
+		+sortItem('Popular', 'sort-by-item radio-box-js')
+			+e.radio-items
+				+radioSortItem('Popular','sortRadio')(checked)
+				+radioSortItem('Best selling','sortRadio')
+				+radioSortItem('Recommended','sortRadio')
+				+radioSortItem('Price low to high','sortRadio')
+				+radioSortItem('Price high to low','sortRadio')
+			+e.A.apply-btn(href="#") apply
+		+sortItem('Brand', 'checkbox-box-js')
+			+e.radio-items
+				+checkBoxSortItem('Brand1', 'brand1')
+				+checkBoxSortItem('Brand2', 'brand2')
+				+checkBoxSortItem('Brand3', 'brand3')
+				+checkBoxSortItem('Brand4', 'brand4')
+			+e.A.apply-btn(href="#") apply
+		+sortItem('Size', 'checkbox-box-js')
+			+e.radio-items
+				+checkBoxSortItem('50', 'size1')
+				+checkBoxSortItem('49', 'size2')
+				+checkBoxSortItem('48', 'size3')
+				+checkBoxSortItem('47', 'size4')
+			+e.A.apply-btn(href="#") apply
+		+sortItem('Color', 'checkbox-box-js')
+			+e.radio-items
+				+checkBoxSortItem('blue', 'color1')(style='color: #287EFF')
+				+checkBoxSortItem('red', 'color2')(style='color: #FF4949')
+				+checkBoxSortItem('yellow', 'color3')(style='color: #F8CC43')
+				+checkBoxSortItem('teal', 'color4')(style='color: #1ECBCB')
+				+checkBoxSortItem('black', 'color5')(style='color: #000000')
+				+checkBoxSortItem('orange', 'color6')(style='color: #F35321')
+			+e.A.apply-btn(href="#") apply
+		+sortItem('Height', 'checkbox-box-js')
+			+e.radio-items
+				+checkBoxSortItem('50 cm', 'height1')
+				+checkBoxSortItem('60 cm', 'height2')
+				+checkBoxSortItem('70 cm', 'height3')
+				+checkBoxSortItem('80 cm', 'height4')
+				+checkBoxSortItem('90 cm', 'height5')
+				+checkBoxSortItem('100 cm', 'height6')
+			+e.A.apply-btn(href="#") apply
+		+e.mob-more
+			+e.more-options.more-options-js.d-sm-none
+				+icon('dot3')
+				.txt More options
+			+e.A.crear-btn(href='#') Clear Filter
+
+mixin sortItem(headerTxt, itemClasses)
+	+e.item(class=itemClasses)
+		+e.header.filter-header-js
+			+e.header-name.filter-name-js=headerTxt
+			+icon('chevron-down')
+		+e.content.filter-content-js
+			block
+
+mixin radioSortItem(txt, name, labelClass)
+	+e.LABEL.radio-item(class=labelClass)
+		input(type='radio' name=name)&attributes(attributes)
+		.radio-mark.radio-mark-frame
+		.txt=txt
+
+
+	//-???? delete
+mixin checkBoxSortItem(txt, name, labelClass)
+	+e.LABEL.radio-item(class=labelClass)
+		input(type='checkbox' name=name)
+		.radio-mark.radio-mark-frame&attributes(attributes)
+		.txt=txt
+
+mixin CatleftMenu()
+	+b.left-menu.d-none.d-xl-block
+		+e.block
+			+leftMenuItem('Sweaters & Hoodies','1145')(class="header-item")
+			+leftMenuItem('Sweaters & Pullovers', '12')
+			+leftMenuItem('Sweatshirts', '34')
+			+leftMenuItem('Cardigans', '22')
+			+leftMenuItem('Cashmere sweaters', '45')
+			+leftMenuItem('Poncho', '1')
+			+leftMenuItem('Sweaters with round neck', '13')
+			+leftMenuItem('Sweaters with zip', '23')
+			+leftMenuItem('Sweaters with short zip', '73')
+			+leftMenuItem('Turtlenecks', '44')
+			+leftMenuItem('Pullover', '9')
+			+leftMenuItem('Hoodie', '14')
+		+e.block
+			+leftMenuItem('Underwear', '1145')(class="header-item")
+			+leftMenuItem('Underpants', '12')
+			+leftMenuItem('Boxers', '34')
+			+leftMenuItem('Tops & T-shirts', '22')
+			+leftMenuItem('Socks', '45')
+		+e.block
+			+leftMenuItem('Coats and outerwear', '1145')(class="header-item")
+			+leftMenuItem('Down jackets', '12')
+			+leftMenuItem('Vests', '34')
+			+leftMenuItem('Fleece jackets', '22')
+			+leftMenuItem('Raincoats and raincoats', '45')
+			+leftMenuItem('Sport jackets', '1')
+			+leftMenuItem('Casual Jackets', '13')
+			+leftMenuItem('Jeans jackets', '23')
+			+leftMenuItem('Biker jackets and leather jackets', '73')
+			+leftMenuItem('Ski jackets', '44')
+			+leftMenuItem('Military jackets', '9')
+			+leftMenuItem('Coat', '14')
+			+leftMenuItem('Faux fur coat', '12')
+			+leftMenuItem('Anoraki', '8')
+			//-+leftMenuItem('', '')
+
+mixin leftMenuItem(name, val)
+	+e.A.item(href="#")&attributes(attributes)
+		+e.name=name
+		+e.value=val
