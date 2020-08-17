@@ -75,9 +75,8 @@
 			margin-bottom: 32px;
 		}
 		&__input{
+			@extend .gray-input-frame;
 			width: 100%;
-			background: $input-bg-gray;
-			border: 1px solid $secondary;
 			border-radius: $border-radius;
 
 			font-size: 16px;
@@ -89,24 +88,7 @@
 		&__send-btn{
 			@extend .btn;
 			@extend .btn-success;
-
-			@extend .btn;
-			@extend .btn-success;
-
-			font-weight: 500;
-			font-size: 16px;
-			line-height: 2;
-
-			letter-spacing: 1.8px;
-			text-transform: uppercase;
-			color: $white;
-
-			padding: 8px 20px;
-
-			width: 100%;
-			@include media-breakpoint-up(sm){
-				width: 232px;
-			}
+			@extend .btn-success-frame2;
 		}
 	}
 

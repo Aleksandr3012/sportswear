@@ -22,6 +22,7 @@ mixin sShoppingCart()
 							+e.common-price 89 €
 				.col-xl-3
 					+dataTable()
+						+dataTableItem('Items', '3')
 					+b.policy-links.d-none.d-xl-block
 						+e.A.link(href="#")
 							+e.icon.car
@@ -77,13 +78,14 @@ mixin shopCartItem(imgNum, lastItem=false, itemOnDiscount=flase)
 							.seconds 17
 							+e.small sec
 
-mixin dataTable()
+mixin dataTable(hasBtn=true)
 	+b.data-table
 		+e.img-bg
 			img(src='img/@2x/cart-data-bg.png' alt='')
 		+form-wrap()
 			+e.top-items
-				+dataTableItem('Items', '3')
+				//-+dataTableItem('Items', '3')
+				block
 				+dataTableItem('Weight', '2.1 kg')
 				+dataTableItem('Promocode', '0 €')
 				+dataTableItem('Total discount', '189 €')
@@ -93,7 +95,8 @@ mixin dataTable()
 					+e.promo-circle
 						+icon('croped-vector')
 				+dataTableItem('TOTAL', '189 €', 'total-item')
-				+e.BUTTON.checkout-btn(type='submit') proceed to checkout
+				if hasBtn
+					+e.BUTTON.checkout-btn(type='submit') proceed to checkout
 
 mixin dataTable-sm()
 	+b.data-table

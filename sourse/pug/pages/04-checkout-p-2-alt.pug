@@ -19,18 +19,19 @@ include ../blocks/sAccount/_sAccount.pug
 include ../blocks/sOurStores/_sOurStores.pug
 include ../blocks/sLogin/_sLogin.pug
 include ../blocks/sForgotPass/_sForgotPass.pug
+include ../blocks/sOrderConfirm/_sOrderConfirm.pug
+include ../blocks/sCheckoutP/_sCheckoutP.pug
 
 block variables
-	- let  mainPage= '05-fp-form'
+	- let  mainPage= 'prod-card-page'
 block title
-	- let  title= '05-forgot-pass'
+	- let  title= '04-checkout-p-2-alt'
 	title= title
 block pagecontent 
 	//- +mob-mnu()
 	header.header
 		+topLine()
 		+top-nav()
-	+sForgotPass
-		+sForgotPassForm()
-	//+footer()
+	+sCheckoutP()
+		+checkoutPage2Alt()
 	

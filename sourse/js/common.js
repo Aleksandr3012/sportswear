@@ -128,13 +128,8 @@ function eventHandler() {
 
 	// JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
-	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/order-confirmed.png);"></div>')
+	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/checkout-3.png);"></div>')
 	// /добавляет подложку для pixel perfect
-
-
-
-
-	
 
 	// /закрыть/открыть мобильное меню
 
@@ -586,7 +581,6 @@ function eventHandler() {
 
 	//sticky
 	let sticky = new Sticky('.sticky-js');
-	console.log(sticky);
 
 	//related sliders
 	$('.sRelatedProducts__slider').each(function () {
@@ -633,12 +627,6 @@ function eventHandler() {
 		let fileName = this.querySelector('input').files[0].name;
 		this.querySelector('.inp-file__filename').innerHTML = fileName;
 	});
-
-	/*
-	* remake inpts
-	* remake btns
-	*
-	* */
 
 	//end luckyone JS
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;

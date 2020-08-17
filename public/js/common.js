@@ -133,7 +133,7 @@ function eventHandler() {
 	JSCCommon.inputMask(); // JSCCommon.CustomInputFile();
 	// добавляет подложку для pixel perfect
 
-	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/order-confirmed.png);"></div>'); // /добавляет подложку для pixel perfect
+	$(".main-wrapper").after('<div class="pixel-perfect" style="background-image: url(screen/checkout-3.png);"></div>'); // /добавляет подложку для pixel perfect
 	// /закрыть/открыть мобильное меню
 
 	function heightses() {
@@ -512,8 +512,7 @@ function eventHandler() {
 	} //sticky
 
 
-	var sticky = new Sticky('.sticky-js');
-	console.log(sticky); //related sliders
+	var sticky = new Sticky('.sticky-js'); //related sliders
 
 	$('.sRelatedProducts__slider').each(function () {
 		var relatedSlider = new Swiper($(this).find('.related-slider-js'), {
@@ -554,13 +553,7 @@ function eventHandler() {
 	$('.inp-file label').change(function () {
 		var fileName = this.querySelector('input').files[0].name;
 		this.querySelector('.inp-file__filename').innerHTML = fileName;
-	});
-	/*
-	* remake inpts
-	* remake btns
-	*
-	* */
-	//end luckyone JS
+	}); //end luckyone JS
 
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 

@@ -45,7 +45,7 @@ mixin sAccountInfoContent()
 					+input('', 'email', undefined)
 				+accountInfoItem('Password')
 					+e.input-wrap
-						+e.INPUT.input.form-control(type='password' name='password' value='pass1234')
+						+e.INPUT.input.form-control(type='password' name='password' value='')
 						+e.show-hide-btn.toggle-pass-inp-js
 							+icon('pass-eye')
 							+icon('pass-eye-closed')
@@ -64,7 +64,13 @@ mixin sAccountInfoContent()
 					+accountInfoLowerItem('Receive offers from our partners')
 					+accountInfoLowerItem('Sign up for our newsletter', 'has-descr')
 						p You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.
-					+accountInfoLowerItem('I agree to the terms and conditions and the privacy policy')
+					//-+accountInfoLowerItem('I agree to the terms and conditions and the privacy policy')
+					+b.LABEL.checkbox-item
+						input(type="checkbox" name="policy-chb" value="policy-chb" checked)
+						span
+							.txt
+								| I agree to the terms and conditions and the&nbsp;
+								a(href="#") privacy policy
 				+e.BUTTON.send-btn send
 
 mixin accountInfoItem(txt='Social title', contentClasses='', itemClasses='')

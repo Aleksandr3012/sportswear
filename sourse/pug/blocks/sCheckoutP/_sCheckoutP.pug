@@ -1,9 +1,371 @@
 mixin sCheckoutP()
 	// start sCheckoutP
-	+b.SECTION.sCheckoutP.section#sCheckoutP&attributes(attributes)
+	+b.sCheckoutP.section#sCheckoutP&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 sCheckoutP
-				
-			.row
+			+b.section-title
+				h2 Checkout
+			+e.row.row
+				.col-xl-9
+					block
+					//
+				.col-xl-3
+					+dataTable(false)
+						+e.item.items-list
+							span Items
+							span
+								.num 3
+								+icon('chevron-down')
+					+b.policy-links.d-none.d-xl-block
+						+e.A.link(href="#")
+							+e.icon.car
+								+icon('delivery-car')
+							span Delivery policy
+						+e.A.link(href="#")
+							+e.icon.arrows
+								+icon('return-arrows')
+							span Return policy
+					//-cart-data-bg
 	// end sCheckoutP
+
+mixin checkoutPage4()
+	+e.box
+		+e.item
+			+e.header.ch-header-js.done
+				+e.item-title 1. Personal information
+				+e.A.edit-btn(href='#')
+					+icon('edit-icon')
+			+e.content
+				//taken from sAccount
+				+chechoutContent1()
+		+e.item
+			+e.header.ch-header-js.done
+				+e.item-title 2. Address
+				+e.A.edit-btn(href='#')
+					+icon('edit-icon')
+			+e.content.ch-content-js
+				+chechoutContent2()
+		+e.item
+			+e.header.ch-header-js.done
+				+e.item-title 3. Shipping method
+				+e.A.edit-btn(href='#')
+					+icon('edit-icon')
+			+e.content.ch-content-js
+				+chechoutContent3()
+		+e.item
+			+e.header.ch-header-js.active
+				+e.item-title 4. Payment
+			+e.content.ch-content-js.active
+				+chechoutContent4()
+
+mixin chechoutContent4()
+	+b.checkout-payment
+		+e.radio-items
+			+checkoutPaymentRadio('Pay by Check')(checked)
+				p Please send us your check including the following details:
+				+e.data
+					+e.data-pill
+						+e.data-pill-key Amount
+						+e.data-pill-val
+							.txt .79 €
+							.tax Tax included
+					+e.data-pill
+						+e.data-pill-key Payee
+						+e.data-pill-val
+							.txt Payee
+					+e.data-pill
+						+e.data-pill-key Send your check to this address
+						+e.data-pill-val
+							.txt Send your check to this address
+			+checkoutPaymentRadio('Pay by bank wire')
+				p Please transfer the invoice amount to&nbsp;our bank account. You will receive our order confirmation by&nbsp;email containing bank details and order number. Goods will be&nbsp;reserved 7&nbsp;days for you and we&rsquo;ll process the order immediately after receiving the payment.
+		+b.LABEL.checkbox-item
+			input(type="checkbox" name="terms" value="terms" checked)
+			span
+				.txt
+					| I agree to the
+					|
+					a(href="#") terms of service
+					|
+					| and will adhere to them unconditionally.
+		+e.A.btn(href="#") continue
+
+mixin checkoutPaymentRadio(headlineTxt='headlineTxt')
+	+e.item
+		+e.LABEL.label
+			input(type='radio' name='payment-radio')&attributes(attributes)
+			.radio-mark.radio-mark-frame
+			+e.content
+				+e.headline=headlineTxt
+				+e.descr
+					block
+
+	//end 4
+	//end 4
+mixin checkoutPage3()
+	+e.box
+		+e.item
+			+e.header.ch-header-js.done
+				+e.item-title 1. Personal information
+				+e.A.edit-btn(href='#')
+					+icon('edit-icon')
+			+e.content
+				//taken from sAccount
+				+chechoutContent1()
+		+e.item
+			+e.header.ch-header-js.done
+				+e.item-title 2. Address
+				+e.A.edit-btn(href='#')
+					+icon('edit-icon')
+			+e.content.ch-content-js
+				+chechoutContent2()
+		+e.item
+			+e.header.ch-header-js.active
+				+e.item-title 3. Shipping method
+			+e.content.ch-content-js.active
+				+chechoutContent3()
+		+e.item
+			+e.header.ch-header-js.muted
+				+e.item-title 4. Payment
+			+e.content.ch-content-js
+				+chechoutContent4()
+
+mixin chechoutContent3()
+	+b.checkout-shipping
+		+e.radio-box
+			+checkOutRadioItem('Develop shop', undefined, 'Pick up in-store')(checked)
+				+e.price-txt Free
+			+checkOutRadioItem('FedEx', 1, 'Delivery next day!')
+				+e.price-txt 89 €
+				+e.tax Tax included
+			+checkOutRadioItem('DPD', 2, 'Delivery next day!')
+				+e.price-txt 79 €
+				+e.tax Tax included
+		+form-wrap
+			+e.pre-form If you would like to add a comment about your order, please write it in the field below.
+			+input('', 'textarea', 'Message', 'message')
+			+e.btn-cont
+				+e.btn(type='submit') continue
+
+
+mixin checkOutRadioItem(itemName,imgName,timeTxt,Radioname='checkoutItem')
+	+e.LABEL.radio-item
+		input(type="radio" name=Radioname)&attributes(attributes)
+		.radio-mark
+		+e.item-name
+			+e.item-name-txt=itemName
+			if imgName
+				+e.service-logo
+					img(src=`img/@2x/service-logo-${imgName}.png` alt="")
+		+e.time-txt=timeTxt
+		+e.price
+			block
+	//end 3
+	//end 3
+mixin checkoutPage2Alt()
+	+e.box
+		+e.item
+			+e.header.ch-header-js.done
+				+e.item-title 1. Personal information
+				+e.A.edit-btn(href='#')
+					+icon('edit-icon')
+			+e.content
+				//taken from sAccount
+				+chechoutContent1()
+		+e.item
+			+e.header.ch-header-js.active
+				+e.item-title 2. Address
+			+e.content.ch-content-js.active
+				+chechoutContent2Alt()
+		+e.item
+			+e.header.ch-header-js.muted
+				+e.item-title 3. Shipping method
+			+e.content.ch-content-js
+				+chechoutContent3()
+		+e.item
+			+e.header.ch-header-js.muted
+				+e.item-title 4. Payment
+			+e.content.ch-content-js
+				+chechoutContent4()
+
+mixin chechoutContent2Alt()
+	+b.account-address.checkout-acc
+		.checkout-acc__cont
+			.checkout-acc__headline Shipping address
+			+e.row.row
+				+checkoutAddressItem('Address #1')(checked)
+				+checkoutAddressItem('Address #2')
+				.col-lg-6
+					+e.A.item(href='#' class="create-item")
+						span.link-txt + Create new address
+			.checkout-acc__headline Shipping address
+			+e.row.row
+				+checkoutAddressItem('Address #1', 'muted-label')
+				.col-lg-6
+					+e.A.item(href='#' class="create-item")
+						span.link-txt + Create new address
+		a.checkout-acc__btn(href="#") continue
+
+
+mixin checkoutAddressItem(itemNum='1', labelClasess='')
+	.col-lg-6
+		.checkout-acc__item-cont
+			label.checkout-acc__label(class=labelClasess)
+				input(type="radio" name="address")&attributes(attributes)
+				.radio-mark
+			+e.item
+				+e.header
+					+e.number=itemNum
+					+e.controll-btns
+						+e.A.btn(href="#")
+							+icon('edit-icon')
+						+e.A.btn(href="#")
+							+icon('vaste')
+				+e.data
+					+e.data-item
+						span First name
+						span Nicolay
+					+e.data-item
+						span Last name
+						span Neretin
+					+e.data-item
+						span Address
+						span Paustovskogo, 4
+					+e.data-item
+						span Zip/Postal Code
+						span 117463
+					+e.data-item
+						span City
+						span Moscow
+					+e.data-item
+						span Country
+						span Russia
+	//-end 2 alt
+	//-end 2 alt
+
+mixin checkoutPage2()
+	+e.box
+		+e.item
+			+e.header.ch-header-js.done
+				+e.item-title 1. Personal information
+				+e.A.edit-btn(href='#')
+					+icon('edit-icon')
+			+e.content
+				//taken from sAccount
+				+chechoutContent1()
+		+e.item
+			+e.header.ch-header-js.active
+				+e.item-title 2. Address
+			+e.content.ch-content-js.active
+				+chechoutContent2()
+		+e.item
+			+e.header.ch-header-js.muted
+				+e.item-title 3. Shipping method
+			+e.content.ch-content-js
+				+chechoutContent3()
+		+e.item
+			+e.header.ch-header-js.muted
+				+e.item-title 4. Payment
+			+e.content.ch-content-js
+				+chechoutContent4()
+
+mixin chechoutContent2()
+	+b.account-info
+		+form-wrap()
+			+e.top-items
+				+accountInfoItem('First name')
+					+input('', 'text', undefined, 'name')(value='Nicolay')
+				+accountInfoItem('Last name')
+					+input('', 'text', undefined, 'surname')(value='Neretin')
+				+accountInfoItem('Company')
+					+input('', 'text', undefined, 'company')
+				+accountInfoItem('VAT number')
+					+input('', 'text', undefined, 'vat-num')
+				+accountInfoItem('Address')
+					+input('', 'text', undefined, 'address')(value='Paustovskogo, 4')
+				+accountInfoItem('Address addition')
+					+input('', 'text', undefined, 'ad-address')
+				+accountInfoItem('Zip/Postal Code')
+					+input('', 'text', undefined, 'post-code')(value='117463')
+				+accountInfoItem('City')
+					+input('', 'text', undefined, 'city')(value='Russia')
+				+accountInfoItem('Country')
+					+input('', 'text', undefined, 'country')(value='Russia')
+				+accountInfoItem('Phone')
+					+input('', 'tell')(value='+7 919 176-05-12')
+			+e.lower-items
+				+e.checkbox-items
+					+accountInfoLowerItem('Use this address for invoice too')(checked)
+				+e.BUTTON.send-btn continue
+	//-end 2
+	//-end 2
+mixin checkoutPage1()
+	+e.box
+		+e.item
+			+e.header.ch-header-js.active
+				+e.item-title 1. Personal information
+				+e.header-btns
+					+e.header-btn(href="#")
+						+icon('sunglasses')
+						span Order as a guest
+					+e.header-btn.semi-visiable(href="#")
+						+icon('log-in')
+						span Sign in
+			+e.content.active
+				//taken from sAccount
+				+chechoutContent1()
+		+e.item
+			+e.header.ch-header-js.muted
+				+e.item-title 2. Address
+			+e.content.ch-content-js
+				+chechoutContent2()
+		+e.item
+			+e.header.ch-header-js.muted
+				+e.item-title 3. Shipping method
+			+e.content.ch-content-js
+				+chechoutContent3()
+		+e.item
+			+e.header.ch-header-js.muted
+				+e.item-title 4. Payment
+			+e.content.ch-content-js
+				+chechoutContent4()
+
+mixin chechoutContent1()
+	+b.account-info
+		+form-wrap()
+			+e.top-items
+				+accountInfoItem('Social title', 'radio-content')
+					+radioBtn('Mr.', 'sex')(checked)
+					+radioBtn('Mrs.', 'sex')
+				+accountInfoItem('First name')
+					+input('', 'text', undefined, 'name')
+				+accountInfoItem('Last name')
+					+input('', 'text', undefined, 'surname')
+				+accountInfoItem('Email', undefined, 'email-item')
+					+input('', 'email', undefined)
+				+b.create-ac
+					+e.headline Create an account
+					+e.txt
+						p And save time on your next order!
+				+accountInfoItem('Password')
+					+e.input-wrap
+						+e.INPUT.input.form-control(type='password' name='password' value='pass1234')
+						+e.show-hide-btn.toggle-pass-inp-js
+							+icon('pass-eye')
+							+icon('pass-eye-closed')
+				+accountInfoItem('Birthday', '', 'has-description-txt')
+					+input('', 'text', undefined, 'bithday')
+						+e.description-txt (E.g.: 05/31/1970)
+						+e.optional-txt Optional
+			+e.lower-items
+				+e.checkbox-items
+					+accountInfoLowerItem('Receive offers from our partners')
+					+accountInfoLowerItem('Sign up for our newsletter', 'has-descr')
+						p You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice.
+					//-+accountInfoLowerItem('I agree to the terms and conditions and the privacy policy')
+					+b.LABEL.checkbox-item
+						input(type="checkbox" name="policy-chb" value="policy-chb" checked)
+						span
+							.txt
+								| I agree to the terms and conditions and the&nbsp;
+								a(href="#") privacy policy
+				+e.BUTTON.send-btn send

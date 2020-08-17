@@ -122,8 +122,6 @@
 			}
 
 			textarea{
-				border: 1px solid $secondary;
-				background-color: $input-bg-gray;
 
 				height: 160px;
 				border-radius: 8px;
@@ -138,13 +136,14 @@
 				padding: 7px 24px;
 
 				color: $black;
-				border: 1px solid $secondary;
-				background-color: $input-bg-gray;
 				height: auto;
 
 				font-size: 16px;
 				line-height: 2;
 			}
+		}
+		&__input{
+			@extend  .gray-input-frame;
 		}
 		//
 		&__textarea-cont{
@@ -199,24 +198,11 @@
 		&__send-btn{
 			@extend .btn;
 			@extend .btn-success;
+			@extend .btn-success-frame2;
 
 			@include media-breakpoint-up(md){
 				margin-left: 180px;
 			}
-
-			min-width: 100%;
-			@include media-breakpoint-up(sm){
-				min-width: 232px;
-			}
-
-			letter-spacing: 1.8px;
-			text-transform: uppercase;
-			color: $white;
-			font-weight: 500;
-			font-size: 16px;
-			line-height: 2;
-
-			padding: 8px 20px;
 		}
 		&__{}
 	}

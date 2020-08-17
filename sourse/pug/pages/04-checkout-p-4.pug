@@ -1,6 +1,5 @@
 extends layout/main.pug
 
-
 include ../blocks/sContent/_sContent.pug
 include ../blocks/sContact/_sContact.pug 
 include ../blocks/sSportCategory/_sSportCategory.pug 
@@ -11,27 +10,28 @@ include ../blocks/sLogos/_sLogos.pug
 include ../blocks/sCategories/_sCategories.pug 
 include ../blocks/sSeasons/_sSeasons.pug 
 include ../blocks/sCatalog/_sCatalog.pug
-include ../blocks/sCheckout/_sCheckout.pug
-include ../blocks/sShoppingCart/_sShoppingCart.pug
 
 include ../blocks/sProdCard/_sProdCard.pug
 include ../blocks/sRelatedProducts/_sRelatedProducts.pug
-
+include ../blocks/sShoppingCart/_sShoppingCart.pug
+include ../blocks/sAccountMenu/_sAccountMenu.pug
+include ../blocks/sAccount/_sAccount.pug
+include ../blocks/sOurStores/_sOurStores.pug
+include ../blocks/sLogin/_sLogin.pug
+include ../blocks/sForgotPass/_sForgotPass.pug
+include ../blocks/sOrderConfirm/_sOrderConfirm.pug
+include ../blocks/sCheckoutP/_sCheckoutP.pug
 
 block variables
 	- let  mainPage= 'prod-card-page'
 block title
-	- let  title= 'Checkout'
+	- let  title= '04-checkout-p-4'
 	title= title
 block pagecontent 
 	//- +mob-mnu()
 	header.header
-		+topLine()  
+		+topLine()
 		+top-nav()
-	+sCheckout
-	//- +sProdCard()
-	//- 	+breadcrumb('Main','Catalog','Asics sportwear icon clash')
-	//- +sRelatedProducts()
-	//- +sWeAreDifferent()
-	//- +footer()
+	+sCheckoutP()
+		+checkoutPage4()
 	

@@ -20,11 +20,12 @@ include ../blocks/sOurStores/_sOurStores.pug
 include ../blocks/sLogin/_sLogin.pug
 include ../blocks/sForgotPass/_sForgotPass.pug
 include ../blocks/sOrderConfirm/_sOrderConfirm.pug
+include ../blocks/sCheckoutP/_sCheckoutP.pug
 
 block variables
 	- let  mainPage= 'prod-card-page'
 block title
-	- let  title= '04-chechout-p'
+	- let  title= '04-checkout-p'
 	title= title
 block pagecontent 
 	//- +mob-mnu()
@@ -32,5 +33,5 @@ block pagecontent
 		+topLine()
 		+top-nav()
 	+sCheckoutP()
-	//+footer()
+		+checkoutPage1()
 	
