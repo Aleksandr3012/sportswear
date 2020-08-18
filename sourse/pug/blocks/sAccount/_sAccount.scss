@@ -538,14 +538,9 @@
 		gap: 4px;
 	}
 	&__btn{
-		//@extend .btn;
-		//border: none !important;
-		//box-shadow: none !important;
-		//outline: none !important;
-
+		cursor: pointer;
 		width: 32px;
 		height: 32px;
-		//padding: 0;
 
 		.icon{
 			@include mt();
