@@ -452,31 +452,33 @@ function eventHandler() {
 	}); //02 +- btns
 	//
 
-	var ProdAmountInp = document.querySelector('.prod-amount-inp-js');
-	$('.form-wrap__add-control-btn, .add-inp-box__add-control-btn').click(function () {
-		if (!ProdAmountInp) return;
-
-		if (this.classList.contains('minus-btn')) {
+	/*let ProdAmountInp = document.querySelector('.prod-amount-inp-js');
+	$('.form-wrap__add-control-btn, .add-inp-box__add-control-btn').click(function (){
+		if (!ProdAmountInp) return
+			if (this.classList.contains('minus-btn')){
 			if (Number(ProdAmountInp.value) <= 1) return;
 			ProdAmountInp.value = Number(ProdAmountInp.value) - 1;
-		} else {
+		}
+		else{
 			if (Number(ProdAmountInp.value) >= 999) return;
 			ProdAmountInp.value = Number(ProdAmountInp.value) + 1;
 		}
-	}); //blue strip
-
-	var ProdAmountInpFixed = document.querySelector('.prod-amount-inp-js-fixed');
-	$('.form-wrap__add-control-btn-fixed').click(function () {
-		if (!ProdAmountInpFixed) return;
-
-		if (this.classList.contains('minus-btn')) {
+	});
+	
+	//blue strip
+	let ProdAmountInpFixed = document.querySelector('.prod-amount-inp-js-fixed');
+	$('.form-wrap__add-control-btn-fixed').click(function (){
+		if (!ProdAmountInpFixed) return
+			if (this.classList.contains('minus-btn')){
 			if (Number(ProdAmountInpFixed.value) <= 1) return;
 			ProdAmountInpFixed.value = Number(ProdAmountInpFixed.value) - 1;
-		} else {
+		}
+		else{
 			if (Number(ProdAmountInpFixed.value) >= 999) return;
 			ProdAmountInpFixed.value = Number(ProdAmountInpFixed.value) + 1;
 		}
-	}); //to use
+	});*/
+	//to use
 	//1 add mixin to page
 	//2 add class '.red-hook-js' to element,  scroll over/above of which will show/hide red str
 
@@ -630,7 +632,29 @@ function eventHandler() {
 			nextEl: $(this).find('.recently-next'),
 			prevEl: $(this).find('.recently-prev')
 		}
-	}); //end luckyone JS
+	}); //chekout js
+	//.ch-header-js
+
+	$('.ch-header-js').click(function () {
+		var notMutedHeaders = document.querySelectorAll('.ch-header-js:not(.muted)');
+		console.log(notMutedHeaders);
+
+		if (this.classList.contains('done')) {
+			this.classList.remove('done');
+			this.classList.add('active');
+			$(this.parentElement).find('.ch-content-js').slideDown(function () {
+				$(this).removeClass('active');
+			});
+		} else if (notMutedHeaders.length > 0 && notMutedHeaders[notMutedHeaders.length - 1] !== this) {
+			this.classList.remove('active');
+			this.classList.add('done');
+			$(this.parentElement).find('.ch-content-js').slideUp(function () {
+				$(this).removeClass('active');
+			});
+		} //console.log(this.classList);
+
+	}); //.ch-content-js
+	//end luckyone JS
 
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 

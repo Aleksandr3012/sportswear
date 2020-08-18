@@ -73,6 +73,7 @@
 			padding: 15px 32px;
 		}
 
+		cursor: pointer;
 		&.active{
 			color: $white;
 			background-color: $primary;
@@ -91,7 +92,7 @@
 			}
 		}
 		&.muted{
-			//pointer-events: none;
+			pointer-events: none;
 			color: $secondary;
 			background-color: $white;
 			border-top: 1px solid $light-bg;

@@ -400,8 +400,10 @@
 			height: auto;
 		}
 		&__promo-circle{
-			width: 40px;
-			height: 40px;
+			border: none !important;
+			box-shadow: none !important;
+			outline: none !important;
+
 			border-radius: 50%;
 			position: absolute;
 			top: 50%;
@@ -411,6 +413,8 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			width: 40px;
+			height: 40px;
 
 			@include mt();
 			background-color: $success;
@@ -454,7 +458,7 @@
 			font-weight: 500;
 			font-size: 16px;
 			line-height: 2;
-			padding: 8px 15px;
+			padding: 8px;
 			color: $white;
 			//letter-spacing: 1.5px;
 		}
