@@ -10,11 +10,14 @@ mixin sCheckoutP()
 					//
 				.col-xl-3
 					+dataTable(false)
-						+e.item.items-list
+						+e.item.items-list.dd-item.data-table-dd-item-js
 							span Items
 							span
 								.num 3
 								+icon('chevron-down')
+						+e.products-dr-down.products-dr-down-js
+							+dataTableDdItem(1)
+							+dataTableDdItem(2)
 					+b.policy-links.d-none.d-xl-block
 						+e.A.link(href="#")
 							+e.icon.car
@@ -26,6 +29,18 @@ mixin sCheckoutP()
 							span Return policy
 					//-cart-data-bg
 	// end sCheckoutP
+mixin dataTableDdItem(imgNum)
+	+e.dd-item
+		+e.dd-top
+			+e.dd-img
+				img(src=`img/@2x/shop-cart-${imgNum}.png` alt="")
+			+e.dd-descr
+				+e.short-name Grunge John Orchestra
+				+e.A.long-name(href='#') Man`s bomber Grunge John Orchestra Toxic Olive
+				+e.artice Article 1011A780100
+		+e.dd-bot
+			+e.dd-amout ×3
+			+e.dd-price 189 €
 
 mixin checkoutPage4()
 	+e.box

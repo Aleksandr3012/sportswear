@@ -730,6 +730,13 @@ function eventHandler() {
 
 	//.ch-content-js
 
+	//products-dr-down-js => 04-checkout-p
+	$('.data-table-dd-item-js').click(function () {
+		$(this).toggleClass('active');
+		$('.products-dr-down-js').slideToggle(function () {
+			$(this).toggleClass('active');
+		})
+	});
 
 	//end luckyone JS
 	var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;

@@ -273,6 +273,13 @@
 
 
 		.items-list{
+			cursor: pointer;
+			&.active{
+				.icon{
+					transform: rotateX(180deg);
+				}
+			}
+
 			span:last-child {
 				display: flex;
 				align-items: center;
@@ -281,12 +288,85 @@
 
 				}
 				.icon{
+					@include mt();
 					margin-left: 3px;
 					font-size: 12px;
 					color: transparent;
 					stroke: $white;
 				}
 			}
+		}
+
+		//
+		.form-wrap{
+			&__products-dr-down{
+				display: none;
+				&.active{
+					display: block;
+				}
+
+				padding: 16px 0;
+			}
+
+			//dd-item
+			&__dd-item{
+				margin-bottom: 16px;
+			}
+			&__dd-top{
+				display: flex;
+				align-items: stretch;
+				justify-content: space-between;
+			}
+			&__dd-img{
+				flex-shrink: 0;
+				width: 64px;
+				height: 64px;
+				border-radius: 8px;
+				overflow: hidden;
+				background-color: $white;
+				margin-right: 8px;
+
+				display: flex;
+				img{
+					max-width: 100%;
+					max-height: 100%;
+					width: auto;
+					height: auto;
+					margin: auto;
+				}
+			}
+			&__dd-descr{
+				color: rgba($white, .5);
+			}
+			&__short-name{
+				font-size: 12px;
+				line-height: (16/12);
+			}
+			&__long-name{
+				font-size: 12px;
+				line-height: (16/12);
+				color: $white;
+				text-decoration: none;
+			}
+			&__artice{
+				font-size: 10px;
+				line-height: 1.6;
+			}
+			&__dd-bot{
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				color: $white;
+			}
+			&__dd-amout{
+				width: 64px;
+				text-align: center;
+			}
+			&__dd-price{
+				font-size: 16px;
+				line-height: 2;
+			}
+
 		}
 	}
 
