@@ -10,7 +10,7 @@ mixin footer()
 							+e.enter(type="button")
 								img.lazy(src="#" data-src="img/svg/enter.svg" alt="")
 							+input('Email adress','email')
-				.col-auto.d-flex
+				.col-sm-auto.d-flex
 					+e.menu
 						+e.title catalog
 						ul
@@ -25,14 +25,14 @@ mixin footer()
 							li: a(href="#") Exchange and Return
 							li: a(href="#") Discount system
 							li: a(href="#") Offer
-				.col
+				.col-auto.col-sm
 					+e.contacts
 						+e.title contacts
 						+e.tel(href="tel:+441202946444") + 44 1202 946444
 						+e.soc Our social networks
 						+soc()
 			.row
-				.col-sm-auto.order-sm-last
+				.col-md-auto.order-md-last
 					+e.footMenu
 						ul
 							li: a(href="#") Terms & Conditions

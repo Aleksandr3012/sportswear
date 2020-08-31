@@ -63,7 +63,7 @@ mixin sProdCard()
 								a(href="#") Tax included
 								a(href="#") Something else
 							+e.other-items
-								+otherItem(1, true)
+								+otherItem(1, true)(class='active')
 								+otherItem(2, true)
 								+otherItem(3)
 								+otherItem(4)
@@ -238,7 +238,7 @@ mixin countrSizeSelct(selectName, optionsArr=['CM', 'UK', 'US'], placeholder='',
 
 
 mixin otherItem(imgNum, hasDiscount=false)
-	+e.A.other-item(href='#')
+	+e.A.other-item(href='#')&attributes(attributes)
 		+e.other-item-content
 			img.lazy(src='#' data-src=`img/@2x/02-other-item-${imgNum}.jpg` alt='')
 			if hasDiscount

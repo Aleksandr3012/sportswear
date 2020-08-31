@@ -92,7 +92,7 @@ mixin dataTable(hasBtn=true)
 				+dataTableItem('Sheeping', 'Free')
 			+e.lower-items
 				+input('Promocode', 'text', '', 'promocode')
-					+e.promo-circle
+					+e.BUTTON.promo-circle(type='submit')
 						+icon('croped-vector')
 				+dataTableItem('TOTAL', '189 €', 'total-item')
 				if hasBtn
@@ -115,7 +115,6 @@ mixin dataTable-sm()
 						+icon('croped-vector')
 				+dataTableItem('TOTAL', '189 €', 'total-item')
 				+e.included Tax included • Something else
-				//- +e.BUTTON.checkout-btn(type='submit') proceed to checkout
 
 mixin dataTableItem(name, val, ItemClasses='')
 	+e.item(class=ItemClasses)

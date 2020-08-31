@@ -10,11 +10,14 @@ mixin sCheckoutP()
 					//
 				.col-xl-3
 					+dataTable(false)
-						+e.item.items-list
+						+e.item.items-list.dd-item.data-table-dd-item-js
 							span Items
 							span
 								.num 3
 								+icon('chevron-down')
+						+e.products-dr-down.products-dr-down-js
+							+dataTableDdItem(1)
+							+dataTableDdItem(2)
 					+b.policy-links.d-none.d-xl-block
 						+e.A.link(href="#")
 							+e.icon.car
@@ -26,6 +29,18 @@ mixin sCheckoutP()
 							span Return policy
 					//-cart-data-bg
 	// end sCheckoutP
+mixin dataTableDdItem(imgNum)
+	+e.dd-item
+		+e.dd-top
+			+e.dd-img
+				img(src=`img/@2x/shop-cart-${imgNum}.png` alt="")
+			+e.dd-descr
+				+e.short-name Grunge John Orchestra
+				+e.A.long-name(href='#') Man`s bomber Grunge John Orchestra Toxic Olive
+				+e.artice Article 1011A780100
+		+e.dd-bot
+			+e.dd-amout ×3
+			+e.dd-price 189 €
 
 mixin checkoutPage4()
 	+e.box
@@ -34,7 +49,7 @@ mixin checkoutPage4()
 				+e.item-title 1. Personal information
 				+e.A.edit-btn(href='#')
 					+icon('edit-icon')
-			+e.content
+			+e.content.ch-content-js
 				//taken from sAccount
 				+chechoutContent1()
 		+e.item
@@ -108,7 +123,7 @@ mixin checkoutPage3()
 				+e.item-title 1. Personal information
 				+e.A.edit-btn(href='#')
 					+icon('edit-icon')
-			+e.content
+			+e.content.ch-content-js
 				//taken from sAccount
 				+chechoutContent1()
 		+e.item
@@ -168,7 +183,7 @@ mixin checkoutPage2Alt()
 				+e.item-title 1. Personal information
 				+e.A.edit-btn(href='#')
 					+icon('edit-icon')
-			+e.content
+			+e.content.ch-content-js
 				//taken from sAccount
 				+chechoutContent1()
 		+e.item
@@ -249,7 +264,7 @@ mixin checkoutPage2()
 				+e.item-title 1. Personal information
 				+e.A.edit-btn(href='#')
 					+icon('edit-icon')
-			+e.content
+			+e.content.ch-content-js
 				//taken from sAccount
 				+chechoutContent1()
 		+e.item
@@ -310,7 +325,7 @@ mixin checkoutPage1()
 					+e.header-btn.semi-visiable(href="#")
 						+icon('log-in')
 						span Sign in
-			+e.content.active
+			+e.content.ch-content-js.active
 				//taken from sAccount
 				+chechoutContent1()
 		+e.item

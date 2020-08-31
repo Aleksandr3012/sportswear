@@ -513,7 +513,7 @@ function eventHandler() {
 
 	//02 +- btns
 	//
-	let ProdAmountInp = document.querySelector('.prod-amount-inp-js');
+	/*let ProdAmountInp = document.querySelector('.prod-amount-inp-js');
 	$('.form-wrap__add-control-btn, .add-inp-box__add-control-btn').click(function (){
 		if (!ProdAmountInp) return
 
@@ -541,7 +541,7 @@ function eventHandler() {
 			if (Number(ProdAmountInpFixed.value) >= 999) return;
 			ProdAmountInpFixed.value = Number(ProdAmountInpFixed.value) + 1;
 		}
-	});
+	});*/
 
 	//to use
 	//1 add mixin to page
@@ -700,6 +700,42 @@ function eventHandler() {
 			nextEl: $(this).find('.recently-next'),
 			prevEl: $(this).find('.recently-prev'),
 		},
+	});
+	//chekout js
+	//.ch-header-js
+	$('.ch-header-js').click(function () {
+		let notMutedHeaders = document.querySelectorAll('.ch-header-js:not(.muted)');
+		console.log(notMutedHeaders);
+
+		if (this.classList.contains('done')){
+			this.classList.remove('done');
+			this.classList.add('active');
+
+			$(this.parentElement).find('.ch-content-js').slideDown(function () {
+				$(this).removeClass('active');
+			});
+		}
+		else if(notMutedHeaders.length > 0  && notMutedHeaders[notMutedHeaders.length - 1] !== this){
+			this.classList.remove('active');
+			this.classList.add('done');
+
+			$(this.parentElement).find('.ch-content-js').slideUp(function () {
+				$(this).removeClass('active');
+			});
+		}
+
+
+		//console.log(this.classList);
+	})
+
+	//.ch-content-js
+
+	//products-dr-down-js => 04-checkout-p
+	$('.data-table-dd-item-js').click(function () {
+		$(this).toggleClass('active');
+		$('.products-dr-down-js').slideToggle(function () {
+			$(this).toggleClass('active');
+		})
 	});
 
 	//end luckyone JS
