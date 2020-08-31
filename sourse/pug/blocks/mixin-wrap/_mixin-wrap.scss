@@ -96,14 +96,14 @@
 		@include mt;
 		fill: transparent;
 		stroke: $secondary;
-		font-size: rem(19);
+		font-size: rem(32);
 	}
 
 	&__item {
 		cursor: pointer;
 		display: inline;
 		&:not(:last-child) {
-			margin-right: rem(13);
+			margin-right: rem(3);
 		}
 
 		&:hover .icon{

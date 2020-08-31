@@ -110,7 +110,14 @@
 			@include a-cent(y);
 			right: 0;
 			border: none;
-			background-color: transparent;
+			// background-color: transparent;
+			@extend .btn;
+			@extend .btn-success;
+			padding: 0;
+			width: rem(50);
+			height: rem(50);
+			border-radius: 50%;
+			margin-right: rem(6);
 			@include media-breakpoint-up(md) {
 				display: none;
 			}

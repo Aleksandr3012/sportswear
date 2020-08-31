@@ -41,6 +41,9 @@ ul{
 	text-transform: uppercase;
 	font-size: rem(14);
 	font-weight: bold;
+	&.text-danger{
+		color: $danger !important;
+	}
 }
 &__btns-group{
 	display: flex;
@@ -58,11 +61,28 @@ ul{
 		stroke: currentColor;
 		font-size: rem(32);
 	}
+	&:hover{
+		.bg{
+			@include mt;
+		}
+		.icon{
+			@include mt;
+			&:not(.icon-svg){
+
+				fill: #CDE1FF;
+			}
+			.bg{
+
+				fill: #CDE1FF;
+			}
+ 
+		}
+	}
 }
 &__col{
 	text-align: center;
 	@include media-breakpoint-up(xxl) { 
-	width: rem(300);
+	width: rem(240);
 	}
 }
  &__logo{

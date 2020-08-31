@@ -78,7 +78,7 @@
 		@extend .btn-sm;
 		@extend .btn-block;
 		@extend .btn-success;
-		width: rem(247);
+		max-width: rem(247);
 		margin-bottom: rem(20);
 	}
 
@@ -318,6 +318,7 @@
 
 		.controls .icon {
 			stroke: $white;
+			
 
 			&:hover {
 				stroke: $primary;

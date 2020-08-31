@@ -217,7 +217,7 @@
 
 			.icon{
 				@include mt();
-				font-size: 20px;
+				font-size: rem(32);
 				color: transparent;
 				stroke: $secondary;
 			}
