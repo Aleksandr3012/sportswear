@@ -62,6 +62,12 @@ mixin sProdCard()
 								a(href="#") 10€/kg
 								a(href="#") Tax included
 								a(href="#") Something else
+								
+							+b.chars-pills-strip.d-none.d-sm-block
+								span 10€/kg
+								span Tax included
+								span Something else
+
 							+e.other-items
 								+otherItem(1, true)(class='active')
 								+otherItem(2, true)
@@ -69,12 +75,22 @@ mixin sProdCard()
 								+otherItem(4)
 								+otherItem(5)
 							+e.color-likns.d-none.d-lg-flex
-								a(href="#" style="color: #287EFF; background-color: #287EFF;")
-								a(href="#" style="color: #FF4949; background-color: #FF4949;")
-								a(href="#" style="color: #F8CC43; background-color: #F8CC43;")
-								a(href="#" style="color: #1ECBCB; background-color: #1ECBCB;")
-								a(href="#" style="color: #000000; background-color: #000000;")
-								a(href="#" style="color: #F35321; background-color: #F35321;")
+								mixin radio()
+									label.color-radio
+										input(name="color" type="radio")
+										block
+								+radio
+									span( style="color: #287EFF; background-color: #287EFF;")
+								+radio
+									span( style="color: #FF4949; background-color: #FF4949;")
+								+radio
+									span( style="color: #F8CC43; background-color: #F8CC43;")
+								+radio
+									span( style="color: #1ECBCB; background-color: #1ECBCB;")
+								+radio
+									span( style="color: #000000; background-color: #000000;")
+								+radio
+									span( style="color: #F35321; background-color: #F35321;")
 							+e.size-bar
 								+e.size-bar-top
 									+b.size-type-select
@@ -94,7 +110,7 @@ mixin sProdCard()
 										+form-wrap()
 											+e.add-inp-box
 												+e.add-control-btn.minus-btn -
-												+input('', 'number', undefined, 'prodAmount')(value='999' class="prod-amount-inp-js" min="1" max="999")
+												+input(class="prod-amount-inp-js", value='999', min="1", max="999")
 												+e.add-control-btn.plus-btn +
 											+e.A.add-btn.fixed-hook-js(href="#") add to cart
 									+b.caution-box
@@ -163,16 +179,16 @@ mixin sProdCard()
 								| 444
 					+e.overview-bl
 						+e.overview-headline Overview
-						+e.A.overview-link(href="https://www.youtube.com/watch?v=en6gms6e54Q&list=PLIU76b8Cjem5B3sufBJ_KFTpKkMEvaTQR" data-fancybox="video")
+						+e.A.overview-link(data-fancybox="video" href="https://www.youtube.com/watch?v=en6gms6e54Q&list=PLIU76b8Cjem5B3sufBJ_KFTpKkMEvaTQR")
 							+e.overview-img
-								img.lazy(src='#' data-src="img/@2x/02-overview.jpg" alt="")
+								img.lazy(data-src="img/@2x/02-overview.jpg" src='#' alt="")
 							+e.play-btn-cont
 								+e.play-btn
 	// end sProdCard
 mixin BlueStrip()
 	+b.bottom-fixed-strip.d-xl-none
 		+e.img-cont
-			img.lazy(src="#" data-src='img/@2x/02-slider-1.jpg' alt="")
+			img.lazy(data-src='img/@2x/02-slider-1.jpg' src="#" alt="")
 		+e.price-bl
 			+e.discount -20%
 			+e.price
@@ -181,7 +197,7 @@ mixin BlueStrip()
 		+form-wrap()
 			+e.add-inp-box.d-none.d-md-flex
 				+e.add-control-btn-fixed.minus-btn -
-				+input('', 'number', undefined, 'prodAmount')(value='999' class="prod-amount-inp-js-fixed" min="1" max="999")
+				+input(class="prod-amount-inp-js-fixed", value='999', min="1", max="999")
 				+e.add-control-btn-fixed.plus-btn +
 			+e.A.add-btn(href="#") buy
 		+e.icons-bl.d-none.d-md-flex
@@ -223,14 +239,14 @@ mixin togglePillSolidItem(headlineTxt, keyClass)
 			block
 
 mixin SizeSelct(selectName, optionsArr=['1', '2', '3'], placeholder='', keyClass='custom-select2-margined')
-	select(name=selectName data-placeholder=placeholder class=keyClass)
+	select(class=keyClass name=selectName data-placeholder=placeholder)
 		option(value="" label='#')
 		option(value="90×60×90 cm" selected) 90×60×90 cm
 		- for (let item of optionsArr)
 			option(value=item)=`90×60×90 cm ${item}`
 
 mixin countrSizeSelct(selectName, optionsArr=['CM', 'UK', 'US'], placeholder='', keyClass='custom-select2')
-	select(name=selectName data-placeholder=placeholder class=keyClass)
+	select(class=keyClass name=selectName data-placeholder=placeholder)
 		option(value="" label='#')
 		option(value="EUR" selected) EUR
 		- for (let item of optionsArr)
@@ -240,15 +256,15 @@ mixin countrSizeSelct(selectName, optionsArr=['CM', 'UK', 'US'], placeholder='',
 mixin otherItem(imgNum, hasDiscount=false)
 	+e.A.other-item(href='#')&attributes(attributes)
 		+e.other-item-content
-			img.lazy(src='#' data-src=`img/@2x/02-other-item-${imgNum}.jpg` alt='')
+			img.lazy(data-src=`img/@2x/02-other-item-${imgNum}.jpg` src='#' alt='')
 			if hasDiscount
 				.discount - 20%
 
 mixin prodCardSlide(imgNum)
 	.swiper-slide.prod-card-slide
-		+e.A.slide-link(href=`img/@2x/02-slider-${imgNum}.jpg` data-fancybox="prodCardGroup")
+		+e.A.slide-link(data-fancybox="prodCardGroup" href=`img/@2x/02-slider-${imgNum}.jpg`)
 			+e.img-cont
-				img.swiper-lazy(src="#" data-src=`img/@2x/02-slider-${imgNum}.jpg` alt="")
+				img.swiper-lazy(data-src=`img/@2x/02-slider-${imgNum}.jpg` src="#" alt="")
 
 mixin prodCardThumb(imgNum)
 	.swiper-slide

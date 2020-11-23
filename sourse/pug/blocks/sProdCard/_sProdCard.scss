@@ -495,14 +495,24 @@
 		@include media-breakpoint-up(xl){
 			margin-bottom: rem(23px);
 		}
+		.color-radio{
 
-		a{
+			margin-right: 12px;
+			input{
+				@extend .invisible;
+			}
+			input:checked ~ span{
+				&::before{
+					opacity: 1;
+				}
+			}
+		}
+		span{
 			width: 24px;
 			height: 24px;
 			border-radius: 6px;
 			position: relative;
-
-			margin-right: 12px;
+			display: block;
 			&:last-child{
 				margin-right: 0;
 			}
@@ -1527,15 +1537,12 @@
 	@include media-breakpoint-up(xl){
 		margin-bottom: rem(23px);
 	}
+	span,
 	a{
 		text-decoration: none !important;
 		line-height: 1.35;
 		color: $secondary;
 		@include mt();
-		&:hover{
-			color: $primary;
-		}
-
 		&:after{
 			content: '•';
 			display: inline-flex;
@@ -1543,14 +1550,21 @@
 			align-items: center;
 			line-height: 2;
 			padding: 0 5px;
-
+	
 		}
 		&:last-child:after{
 			content: none;
 		}
-
+	
 		font-size: rem(12px);
 	}
+
+	}
+	a{
+		&:hover{
+			color: $primary;
+		}
+
 }
 
 //policy
