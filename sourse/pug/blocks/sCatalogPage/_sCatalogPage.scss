@@ -625,18 +625,68 @@
 	}
 
 	//from to
-	.irs-from, .irs-to, .irs-single{
-		//display: none!important;
+	//.irs-from, .irs-to, .irs-single{
+	//	//display: none!important;
+	//
+	//	background-color: $primary;
+	//	&:before{
+	//		border-top-color: $primary;
+	//	}
+	//}
 
-		background-color: $primary;
+	.irs-single{
+		display: none!important;
+	}
+
+	.irs-from,
+	.irs-to{
+		visibility: visible!important;
+
+		top: 0px;
+		font-size: 14px;
+		line-height: 32px;
+
+		background: transparent;
+
+		color: rgba($body-color, .65);
+		padding: 0!important;
 		&:before{
-			border-top-color: $primary;
+			position: static!important;
+			left: unset!important;
+			top: unset!important;
+			border: none!important;
+
+			display: inline;
+			vertical-align: baseline;
+			margin-right: 8px;
+
+			font-size: 12px;
+			line-height: 32px;
+			color: #C4C4C4;
+		}
+		&:after{
+			content: none;
+		}
+	}
+
+	.irs-from {
+		left: 0 !important;
+		&:before{
+			content: 'from';
+		}
+	}
+	.irs-to{
+		transform: translateX(-100%);
+		left: 100%!important;
+		&:before{
+			content: 'to';
 		}
 	}
 
 	//min, max
 	.irs-min,
 	.irs-max{
+		display: none!important;
 		//visibility: visible!important;
 
 		top: 0px;
