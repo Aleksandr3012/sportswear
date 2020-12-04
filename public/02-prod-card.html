@@ -19,6 +19,8 @@
 		<meta property="og:image:height" content="504">
 		<!-- Custom Browsers Color-->
 		<meta name="theme-color" content="#3361d8">
+		<!--range slider-->
+		<link rel="stylesheet" href="libs/ion-rangeslider/css/ion.rangeSlider.min.css"/>
 		<link rel="stylesheet" href="libs/select2/css/select2.min.css"/>
 		<link rel="stylesheet" href="libs/swiper/css/swiper.min.css"/>
 		<link rel="stylesheet" href="libs/@fancyapps/fancybox/jquery.fancybox.min.css"/>
@@ -1462,47 +1464,88 @@
 										</div>
 									</div>
 									<div class="toggle-pills-box">
-										<div class="toggle-pills-box__item-cont">
-											<div class="toggle-pills-box__header prod-nav-header-js active"><span>Product castomization</span>
+										<div class="custom-form">
+											<div class="custom-form__header cust-head-js"><span>Product castomization</span>
 												<svg class="icon icon-chevron-down ">
 													<use xlink:href="img/svg/sprite.svg#chevron-down"></use>
 												</svg>
 											</div>
-											<div class="toggle-pills-box__content prod-nav-content-js active">
-												<div class="toggle-pills-box__add-strip">
-													<div class="form-wrap">
-														<form>
-															<input type="hidden" name="example-input-field"/>
-															<input class="order" type="hidden" name="order" value="Заявка  с сайта"/>
-															<input class="utm_source" type="hidden" name="utm_source"/>
-															<input class="utm_term" type="hidden" name="utm_term"/>
-															<input class="utm_medium" type="hidden" name="utm_medium"/>
-															<input class="utm_campaign" type="hidden" name="utm_campaign"/>
-															<div class="form-wrap__add-inp-box">
-																<div class="form-wrap__add-control-btn minus-btn">-
-																</div>
-																<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control prod-amount-inp-js" type="text" name="text" value="999" min="1" max="999"/>
-																</div>
-																<!-- +e.input-wrap-->
-																<div class="form-wrap__add-control-btn plus-btn">+
-																</div>
-															</div><a class="form-wrap__add-btn fixed-hook-js" href="#">add to cart</a>
-														</form>
-													</div>
+											<div class="custom-form__content cust-content-js active">
+												<div class="form-wrap">
+													<form>
+														<input type="hidden" name="example-input-field"/>
+														<input class="order" type="hidden" name="order" value="Заявка  с сайта"/>
+														<input class="utm_source" type="hidden" name="utm_source"/>
+														<input class="utm_term" type="hidden" name="utm_term"/>
+														<input class="utm_medium" type="hidden" name="utm_medium"/>
+														<input class="utm_campaign" type="hidden" name="utm_campaign"/>
+														<div class="form-wrap__sm-title">Don't forget to save your customization to be able to add to cart
+														</div>
+														<div class="form-wrap__add-file">
+															<div class="form-wrap__title">file Header
+															</div>
+															<div class="inp-file">
+																<label><input class="inp-file__input" name="file" type="file"/><span class="inp-file__filename"></span><span class="inp-file__btn">
+																	<svg class="icon icon-inp-file ">
+																		<use xlink:href="img/svg/sprite.svg#inp-file"></use>
+																	</svg></span>
+																</label>
+															</div>
+															<div class="form-wrap__info-txt">.png .jpg .gif
+															</div>
+														</div>
+														<div class="form-wrap__input-wrap">
+															<div class="form-wrap__title">text Header
+															</div><input class="form-wrap__input form-control" type="text"/>
+															<div class="form-wrap__info-txt">250 char. max
+															</div>
+														</div>
+														<div class="form-wrap__input-wrap">
+															<div class="form-wrap__title">text
+															</div><input class="form-wrap__input form-control" type="text"/>
+															<div class="form-wrap__info-txt">250 char. max
+															</div>
+														</div>
+														<div class="form-wrap__btn-cont">
+															<button class="form-wrap__save-btn" type="submit">save
+															</button>
+														</div>
+													</form>
 												</div>
-												<div class="caution-box">
-													<div class="caution-box__caution danger">Last item in stock
-													</div>
-													<div class="caution-box__caution warning">Product available with different options
-													</div>
-												</div>
-												<div class="toggle-pills-box__get-video-call">
-													<div class="toggle-pills-box__get-video-content">
-														<svg class="icon icon-video-consult ">
-															<use xlink:href="img/svg/sprite.svg#video-consult"></use>
-														</svg><span>Get a video consultation</span>
-													</div>
-												</div>
+											</div>
+										</div>
+										<div class="toggle-pills-box__add-strip">
+											<div class="form-wrap">
+												<form>
+													<input type="hidden" name="example-input-field"/>
+													<input class="order" type="hidden" name="order" value="Заявка  с сайта"/>
+													<input class="utm_source" type="hidden" name="utm_source"/>
+													<input class="utm_term" type="hidden" name="utm_term"/>
+													<input class="utm_medium" type="hidden" name="utm_medium"/>
+													<input class="utm_campaign" type="hidden" name="utm_campaign"/>
+													<div class="form-wrap__add-inp-box">
+														<div class="form-wrap__add-control-btn minus-btn">-
+														</div>
+														<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control prod-amount-inp-js" type="text" name="text" value="999" min="1" max="999"/>
+														</div>
+														<!-- +e.input-wrap-->
+														<div class="form-wrap__add-control-btn plus-btn">+
+														</div>
+													</div><a class="form-wrap__add-btn fixed-hook-js" href="#">add to cart</a>
+												</form>
+											</div>
+										</div>
+										<div class="caution-box">
+											<div class="caution-box__caution danger">Last item in stock
+											</div>
+											<div class="caution-box__caution warning">Product available with different options
+											</div>
+										</div>
+										<div class="toggle-pills-box__get-video-call">
+											<div class="toggle-pills-box__get-video-content">
+												<svg class="icon icon-video-consult ">
+													<use xlink:href="img/svg/sprite.svg#video-consult"></use>
+												</svg><span>Get a video consultation</span>
 											</div>
 										</div>
 										<div class="toggle-pills-box__solid-item-cont">
@@ -2167,6 +2210,8 @@
 		<script src="libs/swiper/js/swiper.min.js"></script>
 		<!-- /slider libs-->
 		<script src="libs/select2/js/select2.full.min.js"></script>
+		<!--range slider-->
+		<script src="libs/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
 		<script src="libs/inputmask/jquery.inputmask.min.js"></script>
 		<script src="libs/sticky-js/sticky.min.js"></script>
 		<script src="js/common.js"></script>

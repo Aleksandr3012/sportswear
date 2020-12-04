@@ -904,81 +904,6 @@
 //toggle pills box
 .toggle-pills-box{
 
-	&__item-cont{
-
-	}
-	//1st
-	&__header{
-		cursor: pointer;
-		margin-bottom: rem(16);
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: rem(14px) rem(20px) rem(14px) rem(24px);
-
-		@include mt();
-		background-color: $white;
-		box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
-		border-radius: rem(16px);
-
-		//
-		span{
-			font-weight: bold;
-			font-size: rem(16px);
-			line-height: 1.75;
-			color: $primary;
-			@include mt();
-		}
-		.icon{
-			font-size: 14px;
-			color: transparent;
-			stroke: $primary;
-			@include mt();
-		}
-
-		//
-		&.active{
-			box-shadow: 0px 8px 16px rgba(40, 126, 255, 0.25);
-			background-color: $primary;
-
-			span{
-				color: $white;
-			}
-			.icon{
-				stroke: $white;
-			}
-		}
-
-		&:hover{
-			background-color: darken($primary, 10);
-			span{
-				color: $white !important;
-			}
-			.icon{
-				stroke: $white !important;
-			}
-		}
-	}
-
-	//content
-	&__content{
-		display: none;
-		padding-bottom: rem(32);
-
-		padding-top: rem(8);
-		@include media-breakpoint-up(sm){
-			padding-top: rem(19);
-		}
-		@include media-breakpoint-up(xl){
-			padding-top: rem(16);
-		}
-
-		&.active{
-			display: block;
-		}
-	}
-
-
 	&__add-strip{
 		padding-bottom: rem(16);
 		.form-wrap{
@@ -1072,6 +997,8 @@
 	//
 
 	&__get-video-call{
+		margin-bottom: 32px!important;
+
 		position: relative;
 		width: 100%;
 		padding-top: 58.5%;
@@ -1654,5 +1581,127 @@
 			}
 		}
 
+	}
+}
+
+
+//custom form
+
+//1st
+
+.custom-form{
+	background: #287EFF;
+	color: $white;
+	/* Preview shadow */
+
+	box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+	border-radius: 16px;
+	margin-bottom: 32px;
+
+	//content
+	&__header{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		padding: 14px 24px;
+
+		span{
+			font-weight: bold;
+			font-size: 16px;
+			line-height: 28px;
+		}
+		.icon{
+			@include mt();
+			font-size: 14px;
+			color: transparent;
+			stroke: $white;
+		}
+
+		&.active{
+			.icon{
+				transform: rotateX(180deg);
+			}
+		}
+	}
+	&__content{
+		display: none;
+		&.active{
+			display: block;
+		}
+
+		padding: 0 24px 32px 24px;
+
+		.form-wrap{
+			&__sm-title{
+				font-size: 12px;
+				margin-bottom: 16px;
+				line-height: 1.5;
+
+				color: rgba(255, 255, 255, 0.7);
+			}
+			&__info-txt{
+				position: absolute;
+				top: 100%;
+				right: 12px;
+
+				font-size: 10px;
+				line-height: 1.6;
+
+				color: rgba(255, 255, 255, 0.7);
+			}
+
+			//add file
+			&__add-file{
+				margin-bottom: 16px;
+				position: relative;
+			}
+			&__title{
+				text-indent: 12px;
+				font-weight: bold;
+				font-size: 10px;
+				line-height: 1.6;
+				margin-bottom: 4px;
+
+				letter-spacing: 1px;
+				text-transform: uppercase;
+			}
+
+			.inp-file{
+				label{
+					border-radius: 8px;
+					height: auto!important;
+					padding: 7px 20px 7px 12px;
+				}
+
+				&__filename{
+					color: $body-color;
+				}
+			}
+			//common inputs
+			&__input-wrap{
+				position: relative;
+				margin-bottom: 16px;
+			}
+			&__input{
+				height: 40px;
+			}
+
+
+			//btn
+			&__btn-cont{
+				text-align: right;
+				padding-top: 12px;
+			}
+			&__save-btn{
+				@extend .btn;
+				@extend .btn-success;
+				@extend .btn-success-frame;
+				display: inline-block;
+
+				padding: 8px 12px;
+				min-width: 192px;
+			}
+		}
 	}
 }

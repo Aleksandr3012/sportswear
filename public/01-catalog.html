@@ -19,6 +19,8 @@
 		<meta property="og:image:height" content="504">
 		<!-- Custom Browsers Color-->
 		<meta name="theme-color" content="#3361d8">
+		<!--range slider-->
+		<link rel="stylesheet" href="libs/ion-rangeslider/css/ion.rangeSlider.min.css"/>
 		<link rel="stylesheet" href="libs/select2/css/select2.min.css"/>
 		<link rel="stylesheet" href="libs/swiper/css/swiper.min.css"/>
 		<link rel="stylesheet" href="libs/@fancyapps/fancybox/jquery.fancybox.min.css"/>
@@ -1275,12 +1277,118 @@
 					</div>
 					<div class="sCatalogPage__row row">
 						<div class="sCatalogPage__menu-col col-xl-3">
-							<div class="left-menu d-none d-xl-block">
-								<div class="left-menu__block"><a class="left-menu__item header-item" href="#"><span class="left-menu__name">Sweaters &amp; Hoodies</span><span class="left-menu__value">1145</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Sweaters &amp; Pullovers</span><span class="left-menu__value">12</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Sweatshirts</span><span class="left-menu__value">34</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Cardigans</span><span class="left-menu__value">22</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Cashmere sweaters</span><span class="left-menu__value">45</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Poncho</span><span class="left-menu__value">1</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Sweaters with round neck</span><span class="left-menu__value">13</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Sweaters with zip</span><span class="left-menu__value">23</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Sweaters with short zip</span><span class="left-menu__value">73</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Turtlenecks</span><span class="left-menu__value">44</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Pullover</span><span class="left-menu__value">9</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Hoodie</span><span class="left-menu__value">14</span></a>
+							<div class="left-menu">
+								<div class="left-menu__block d-none d-xl-block"><a class="left-menu__item header-item" href="#"><span class="left-menu__name">Sweaters &amp; Hoodies</span><span class="left-menu__value">1145</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Sweaters &amp; Pullovers</span><span class="left-menu__value">12</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Sweatshirts</span><span class="left-menu__value">34</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Cardigans</span><span class="left-menu__value">22</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Cashmere sweaters</span><span class="left-menu__value">45</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Poncho</span><span class="left-menu__value">1</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Sweaters with round neck</span><span class="left-menu__value">13</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Sweaters with zip</span><span class="left-menu__value">23</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Sweaters with short zip</span><span class="left-menu__value">73</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Turtlenecks</span><span class="left-menu__value">44</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Pullover</span><span class="left-menu__value">9</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Hoodie</span><span class="left-menu__value">14</span></a>
 								</div>
-								<div class="left-menu__block"><a class="left-menu__item header-item" href="#"><span class="left-menu__name">Underwear</span><span class="left-menu__value">1145</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Underpants</span><span class="left-menu__value">12</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Boxers</span><span class="left-menu__value">34</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Tops &amp; T-shirts</span><span class="left-menu__value">22</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Socks</span><span class="left-menu__value">45</span></a>
+								<div class="left-menu__block d-none d-xl-block"><a class="left-menu__item header-item" href="#"><span class="left-menu__name">Underwear</span><span class="left-menu__value">1145</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Underpants</span><span class="left-menu__value">12</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Boxers</span><span class="left-menu__value">34</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Tops &amp; T-shirts</span><span class="left-menu__value">22</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Socks</span><span class="left-menu__value">45</span></a>
 								</div>
-								<div class="left-menu__block"><a class="left-menu__item header-item" href="#"><span class="left-menu__name">Coats and outerwear</span><span class="left-menu__value">1145</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Down jackets</span><span class="left-menu__value">12</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Vests</span><span class="left-menu__value">34</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Fleece jackets</span><span class="left-menu__value">22</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Raincoats and raincoats</span><span class="left-menu__value">45</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Sport jackets</span><span class="left-menu__value">1</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Casual Jackets</span><span class="left-menu__value">13</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Jeans jackets</span><span class="left-menu__value">23</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Biker jackets and leather jackets</span><span class="left-menu__value">73</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Ski jackets</span><span class="left-menu__value">44</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Military jackets</span><span class="left-menu__value">9</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Coat</span><span class="left-menu__value">14</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Faux fur coat</span><span class="left-menu__value">12</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Anoraki</span><span class="left-menu__value">8</span></a>
+								<div class="left-menu__block d-none d-xl-block"><a class="left-menu__item header-item" href="#"><span class="left-menu__name">Coats and outerwear</span><span class="left-menu__value">1145</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Down jackets</span><span class="left-menu__value">12</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Vests</span><span class="left-menu__value">34</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Fleece jackets</span><span class="left-menu__value">22</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Raincoats and raincoats</span><span class="left-menu__value">45</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Sport jackets</span><span class="left-menu__value">1</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Casual Jackets</span><span class="left-menu__value">13</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Jeans jackets</span><span class="left-menu__value">23</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Biker jackets and leather jackets</span><span class="left-menu__value">73</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Ski jackets</span><span class="left-menu__value">44</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Military jackets</span><span class="left-menu__value">9</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Coat</span><span class="left-menu__value">14</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Faux fur coat</span><span class="left-menu__value">12</span></a><a class="left-menu__item" href="#"><span class="left-menu__name">Anoraki</span><span class="left-menu__value">8</span></a>
+								</div>
+								<div class="sb-filters sb-filters--js">
+									<div class="sb-filters__mob-header d-xl-none">
+										<div class="fiter-btn fiter-btn--black active"><span>Filter</span>
+											<svg class="icon icon-fliter-mark ">
+												<use xlink:href="img/svg/sprite.svg#fliter-mark"></use>
+											</svg>
+										</div>
+										<div class="sb-filters__close-btn sb-toggle-js">
+											<svg class="icon icon-close ">
+												<use xlink:href="img/svg/sprite.svg#close"></use>
+											</svg>
+										</div>
+									</div>
+									<div class="sb-filters__title d-none d-xl-block">Filter by
+									</div>
+									<div class="sb-filters__item">
+										<div class="sb-filters__header sd-filt-head-js active">
+											<div class="sb-filters__name">Categories
+											</div>
+										</div>
+										<div class="sb-filters__content sd-filt-content-js active">
+											<label class="radio-item muted">
+												<input type="checkbox" name="cat1"/>
+												<div class="radio-mark radio-mark-frame"></div>
+												<div class="txt">Sweaters &amp; Pullovers</div>
+											</label>
+											<label class="radio-item">
+												<input type="checkbox" name="cat2"/>
+												<div class="radio-mark radio-mark-frame"></div>
+												<div class="txt">Sweatshirts</div>
+											</label>
+											<label class="radio-item">
+												<input type="checkbox" name="cat3"/>
+												<div class="radio-mark radio-mark-frame"></div>
+												<div class="txt">Cardigans</div>
+											</label>
+										</div>
+									</div>
+									<div class="sb-filters__item">
+										<div class="sb-filters__header sd-filt-head-js">
+											<div class="sb-filters__name">Brand
+											</div>
+										</div>
+										<div class="sb-filters__content sd-filt-content-js">
+											<label class="radio-item">
+												<input type="checkbox" name="brand1"/>
+												<div class="radio-mark radio-mark-frame"></div>
+												<div class="txt">Brand1</div>
+											</label>
+											<label class="radio-item">
+												<input type="checkbox" name="brand2"/>
+												<div class="radio-mark radio-mark-frame"></div>
+												<div class="txt">Brand2</div>
+											</label>
+											<label class="radio-item">
+												<input type="checkbox" name="brand3"/>
+												<div class="radio-mark radio-mark-frame"></div>
+												<div class="txt">Brand3</div>
+											</label>
+											<label class="radio-item">
+												<input type="checkbox" name="brand4"/>
+												<div class="radio-mark radio-mark-frame"></div>
+												<div class="txt">Brand4</div>
+											</label>
+										</div>
+									</div>
+									<div class="sb-filters__item">
+										<div class="sb-filters__header sd-filt-head-js">
+											<div class="sb-filters__name">Size
+											</div>
+										</div>
+										<div class="sb-filters__content sd-filt-content-js">
+											<label class="radio-item">
+												<input type="checkbox" name="brand1"/>
+												<div class="radio-mark radio-mark-frame"></div>
+												<div class="txt">Brand1</div>
+											</label>
+											<label class="radio-item">
+												<input type="checkbox" name="brand2"/>
+												<div class="radio-mark radio-mark-frame"></div>
+												<div class="txt">Brand2</div>
+											</label>
+											<label class="radio-item">
+												<input type="checkbox" name="brand3"/>
+												<div class="radio-mark radio-mark-frame"></div>
+												<div class="txt">Brand3</div>
+											</label>
+											<label class="radio-item">
+												<input type="checkbox" name="brand4"/>
+												<div class="radio-mark radio-mark-frame"></div>
+												<div class="txt">Brand4</div>
+											</label>
+										</div>
+									</div>
+									<div class="sb-filters__item">
+										<div class="sb-filters__header sd-filt-head-js active">
+											<div class="sb-filters__name">Price
+											</div>
+										</div>
+										<div class="sb-filters__content sd-filt-content-js active">
+											<div class="range-wrap price_slider_amount">
+												<input class="range-slider slider-js" type="text" data-min="100" data-max="400"/>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -1298,27 +1406,27 @@
 									</div>
 									<div class="filters__content filter-content-js">
 										<div class="filters__radio-items">
-											<label class="filters__radio-item">
+											<label class="radio-item">
 												<input type="radio" name="sortRadio" checked="checked"/>
 												<div class="radio-mark radio-mark-frame"></div>
 												<div class="txt">Popular</div>
 											</label>
-											<label class="filters__radio-item">
+											<label class="radio-item">
 												<input type="radio" name="sortRadio"/>
 												<div class="radio-mark radio-mark-frame"></div>
 												<div class="txt">Best selling</div>
 											</label>
-											<label class="filters__radio-item">
+											<label class="radio-item">
 												<input type="radio" name="sortRadio"/>
 												<div class="radio-mark radio-mark-frame"></div>
 												<div class="txt">Recommended</div>
 											</label>
-											<label class="filters__radio-item">
+											<label class="radio-item">
 												<input type="radio" name="sortRadio"/>
 												<div class="radio-mark radio-mark-frame"></div>
 												<div class="txt">Price low to high</div>
 											</label>
-											<label class="filters__radio-item">
+											<label class="radio-item">
 												<input type="radio" name="sortRadio"/>
 												<div class="radio-mark radio-mark-frame"></div>
 												<div class="txt">Price high to low</div>
@@ -1326,165 +1434,10 @@
 										</div><a class="filters__apply-btn" href="#">apply</a>
 									</div>
 								</div>
-								<div class="filters__item checkbox-box-js">
-									<div class="filters__header filter-header-js">
-										<div class="filters__header-name filter-name-js">Brand
-										</div>
-										<svg class="icon icon-chevron-down ">
-											<use xlink:href="img/svg/sprite.svg#chevron-down"></use>
-										</svg>
-									</div>
-									<div class="filters__content filter-content-js">
-										<div class="filters__radio-items">
-											<label class="filters__radio-item">
-												<input type="checkbox" name="brand1"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">Brand1</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="brand2"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">Brand2</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="brand3"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">Brand3</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="brand4"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">Brand4</div>
-											</label>
-										</div><a class="filters__apply-btn" href="#">apply</a>
-									</div>
-								</div>
-								<div class="filters__item checkbox-box-js">
-									<div class="filters__header filter-header-js">
-										<div class="filters__header-name filter-name-js">Size
-										</div>
-										<svg class="icon icon-chevron-down ">
-											<use xlink:href="img/svg/sprite.svg#chevron-down"></use>
-										</svg>
-									</div>
-									<div class="filters__content filter-content-js">
-										<div class="filters__radio-items">
-											<label class="filters__radio-item">
-												<input type="checkbox" name="size1"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">50</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="size2"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">49</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="size3"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">48</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="size4"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">47</div>
-											</label>
-										</div><a class="filters__apply-btn" href="#">apply</a>
-									</div>
-								</div>
-								<div class="filters__item checkbox-box-js">
-									<div class="filters__header filter-header-js">
-										<div class="filters__header-name filter-name-js">Color
-										</div>
-										<svg class="icon icon-chevron-down ">
-											<use xlink:href="img/svg/sprite.svg#chevron-down"></use>
-										</svg>
-									</div>
-									<div class="filters__content filter-content-js">
-										<div class="filters__radio-items">
-											<label class="filters__radio-item">
-												<input type="checkbox" name="color1"/>
-												<div class="radio-mark radio-mark-frame" style="color: #287EFF;"></div>
-												<div class="txt">blue</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="color2"/>
-												<div class="radio-mark radio-mark-frame" style="color: #FF4949;"></div>
-												<div class="txt">red</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="color3"/>
-												<div class="radio-mark radio-mark-frame" style="color: #F8CC43;"></div>
-												<div class="txt">yellow</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="color4"/>
-												<div class="radio-mark radio-mark-frame" style="color: #1ECBCB;"></div>
-												<div class="txt">teal</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="color5"/>
-												<div class="radio-mark radio-mark-frame" style="color: #000000;"></div>
-												<div class="txt">black</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="color6"/>
-												<div class="radio-mark radio-mark-frame" style="color: #F35321;"></div>
-												<div class="txt">orange</div>
-											</label>
-										</div><a class="filters__apply-btn" href="#">apply</a>
-									</div>
-								</div>
-								<div class="filters__item checkbox-box-js">
-									<div class="filters__header filter-header-js">
-										<div class="filters__header-name filter-name-js">Height
-										</div>
-										<svg class="icon icon-chevron-down ">
-											<use xlink:href="img/svg/sprite.svg#chevron-down"></use>
-										</svg>
-									</div>
-									<div class="filters__content filter-content-js">
-										<div class="filters__radio-items">
-											<label class="filters__radio-item">
-												<input type="checkbox" name="height1"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">50 cm</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="height2"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">60 cm</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="height3"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">70 cm</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="height4"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">80 cm</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="height5"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">90 cm</div>
-											</label>
-											<label class="filters__radio-item">
-												<input type="checkbox" name="height6"/>
-												<div class="radio-mark radio-mark-frame"></div>
-												<div class="txt">100 cm</div>
-											</label>
-										</div><a class="filters__apply-btn" href="#">apply</a>
-									</div>
-								</div>
-								<div class="filters__mob-more">
-									<div class="filters__more-options more-options-js d-sm-none">
-										<svg class="icon icon-dot3 ">
-											<use xlink:href="img/svg/sprite.svg#dot3"></use>
-										</svg>
-										<div class="txt">More options</div>
-									</div><a class="filters__crear-btn" href="#">Clear Filter</a>
+								<div class="fiter-btn fiter-btn--black sb-toggle-js d-xl-none"><span>Filter</span>
+									<svg class="icon icon-fliter-mark ">
+										<use xlink:href="img/svg/sprite.svg#fliter-mark"></use>
+									</svg>
 								</div>
 							</div>
 							<div class="sCatalogPage__found-txt">Found 3854 items
@@ -2171,6 +2124,8 @@
 		<script src="libs/swiper/js/swiper.min.js"></script>
 		<!-- /slider libs-->
 		<script src="libs/select2/js/select2.full.min.js"></script>
+		<!--range slider-->
+		<script src="libs/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
 		<script src="libs/inputmask/jquery.inputmask.min.js"></script>
 		<script src="libs/sticky-js/sticky.min.js"></script>
 		<script src="js/common.js"></script>

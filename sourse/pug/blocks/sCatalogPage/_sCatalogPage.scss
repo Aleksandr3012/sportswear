@@ -149,13 +149,16 @@
 
 //.filters
 .filters{
+	//@include media-breakpoint-up(sm){
+	//	display: flex;
+	//	align-items: center;
+	//	flex-wrap: wrap;
+	//	gap: 16px;
+	//}
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 
-	@include media-breakpoint-up(sm){
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
-		gap: 16px;
-	}
 
 	//item
 	&__item{
@@ -258,55 +261,6 @@
 	//items
 	&__radio-items{
 		margin-bottom: 12px;
-	}
-	&__radio-item{
-		@include mt();
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		margin-bottom: 0;
-
-		input{
-			display: none;
-		}
-		input:checked + .radio-mark:after{
-			opacity: 1 !important;
-		}
-		input:checked + .radio-mark + .txt{
-			opacity: 1 !important;
-		}
-
-		&:hover{
-			.radio-mark:after{
-				opacity: .5;
-			}
-			.txt{
-				opacity: .5;
-			}
-		}
-
-		//.radio-mark
-		.radio-mark{
-			margin: 0;
-			color: $primary;
-		}
-		.radio-mark:before{
-			border-radius: 4px;
-			border-color: currentColor;
-		}
-		.radio-mark:after{
-			border-radius: 3px;
-			background-color: currentColor;
-		}
-		//txt
-		.txt{
-			@include mt();
-			white-space: nowrap;
-			color: $primary;
-			font-size: 14px;
-			line-height: 2.3;
-		}
-
 	}
 	&__apply-btn{
 		@extend .btn;
@@ -430,4 +384,326 @@
 	&__{}
 	&__{}
 	&__{}
+}
+
+//radio-item
+.radio-item{
+	@include mt();
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	margin-bottom: 0;
+
+	input{
+		display: none;
+	}
+	input:checked + .radio-mark:after{
+		opacity: 1 !important;
+	}
+	input:checked + .radio-mark + .txt{
+		opacity: 1 !important;
+	}
+
+	&:hover{
+		.radio-mark:after{
+			opacity: .5;
+		}
+		.txt{
+			opacity: .5;
+		}
+	}
+
+	//.radio-mark
+	.radio-mark{
+		margin: 0;
+		color: $primary;
+	}
+	.radio-mark:before{
+		border-radius: 4px;
+		border-color: currentColor;
+	}
+	.radio-mark:after{
+		border-radius: 3px;
+		background-color: currentColor;
+	}
+	//txt
+	.txt{
+		@include mt();
+		white-space: nowrap;
+		color: $primary;
+		font-size: 14px;
+		line-height: 2.3;
+	}
+
+	&.muted{
+		pointer-events: none;
+		filter: grayscale(1);
+		opacity: .5;
+	}
+}
+
+//.sb-filters
+.sb-filters{
+	@include media-breakpoint-down(lg){
+		@include mt();
+		position: fixed;
+		z-index: 1000000;
+		top: 0;
+
+		//
+		left: -120vw;
+		&.active{
+			left: 0;
+		}
+
+		width: 100vw;
+		height: 100vh;
+		background: $white;
+		overflow: auto;
+
+		padding: 28px 32px;
+	}
+
+	&__mob-header{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		margin-bottom: 28px;
+	}
+
+	&__close-btn{
+		padding: 8px;
+		cursor: pointer;
+
+		.icon{
+			font-size: 16px;
+			stroke: $primary;
+			stroke-width: 1.4px;
+			color: transparent;
+		}
+
+		@include mt();
+		&:hover{
+			transform: scale(1.1);
+		}
+	}
+
+	&__title{
+		font-size: 14px;
+		line-height: 32px;
+		margin-bottom: 8px;
+	}
+
+	//item
+	&__item{
+		margin-bottom: rem(8);
+	}
+	&__header{
+		cursor: pointer;
+		@include mt();
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		&:after{
+			@include mt();
+			content: '';
+			display: inline-block;
+			height: 32px;
+			width: 32px;
+
+			background-image: url(../img/svg/blue-chevron-down.svg);
+			background-repeat: no-repeat;
+			background-size: 14px;
+			background-position: center;
+		}
+
+		&.active{
+			margin-bottom: 9px;
+			&:after{
+				transform: rotateX(180deg);
+			}
+		}
+	}
+	&__name{
+		font-size: 14px;
+		line-height: 32px;
+
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+	&__content{
+		display: none;
+		&.active{
+			display: block;
+		}
+	}
+	.radio-item{
+		margin-bottom: 8px;
+	}
+	//-
+	&__{}
+	&__{}
+	&__{}
+	&__{}
+}
+
+//range
+.range-wrap{
+	--rangePadd-x: 12px;
+	padding: 0 var(--rangePadd-x);
+
+	//
+	.irs-handle{
+		width: 16px;
+		height: 16px;
+
+		top: 36px;
+		//top: 24px;
+
+		cursor: pointer;
+		box-shadow: none;
+		border: none;
+		border-radius: 50%;
+		transition: background-color .3s ease-in-out;
+
+		background-color: $primary;
+		&:hover{
+			background-color: darken($primary, 8);
+		}
+		&:focus{
+			background-color: darken($primary, 12);
+		}
+
+		i{
+			display: none!important;
+		}
+	}
+	//
+	.irs-line{
+		overflow: visible;
+		top: 32px;
+		//top: 20px;
+
+		background: $white;
+		border-top: 1px solid $primary;
+		border-bottom: 1px solid $primary;
+		border-radius: 0;
+		box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+		//border-radius: 20px;
+		height: 24px;
+
+		&:before,
+		&:after{
+			content: '';
+			position: absolute;
+			border-top: 1px solid $primary;
+			border-bottom: 1px solid $primary;
+			background: $white;
+			height: 24px;
+			width: var(--rangePadd-x);
+			top: -1px;
+		}
+		&:before{
+			border-left: 1px solid $primary;
+			left: calc(var(--rangePadd-x) * -1);
+			border-radius: 20px 0 0 20px;
+		}
+		&:after{
+			border-right: 1px solid $primary;
+			right: calc(var(--rangePadd-x) * -1);
+			border-radius: 0 20px 20px 0;
+		}
+	}
+	.irs-bar{
+		top: 36px;
+		//top: 24px;
+
+		height: 16px;
+		background: rgba(40, 126, 255, 0.25);
+	}
+
+	//from to
+	.irs-from, .irs-to{
+		display: none!important;
+	}
+
+	//min, max
+	.irs-min,
+	.irs-max{
+		visibility: visible!important;
+
+		top: 0px;
+		font-size: 14px;
+		line-height: 32px;
+
+		background: transparent;
+
+		color: rgba($body-color, .65);
+		padding: 0!important;
+
+		&:before{
+			display: inline;
+			vertical-align: baseline;
+			margin-right: 8px;
+
+			font-size: 12px;
+			line-height: 32px;
+			color: #C4C4C4;
+		}
+	}
+	.irs-min{
+		margin-left: calc(var(--rangePadd-x) * -1);
+
+		&:before{
+			content: 'from';
+		}
+	}
+	.irs-max{
+		&:before{
+			content: 'to';
+		}
+
+		margin-right: calc(var(--rangePadd-x) * -1);
+	}
+
+	//var(--rangePadd-x)
+}
+
+.fiter-btn{
+	cursor: pointer;
+	span{
+		color: $primary;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 32px;
+		margin-right: 8px;
+	}
+
+	&--black{
+		span{
+			color: $black;
+		}
+	}
+
+
+	.icon{
+		@include mt();
+		font-size: 24px;
+		stroke: $primary;
+		stroke-width: 1px;
+		color: $white;
+	}
+	&:hover{
+		.icon{
+			color: $light-primary;
+		}
+	}
+	&.active{
+		.icon{
+			color: $primary;
+		}
+	}
+
 }

@@ -54,21 +54,25 @@ mixin catalogFilters()
 				+radioSortItem('Price low to high','sortRadio')
 				+radioSortItem('Price high to low','sortRadio')
 			+e.A.apply-btn(href="#") apply
-		+sortItem('Brand', 'checkbox-box-js')
+		+b.fiter-btn--black.sb-toggle-js.d-xl-none
+			span Filter
+			+icon('fliter-mark')
+
+		//-+sortItem('Brand', 'checkbox-box-js')
 			+e.radio-items
 				+checkBoxSortItem('Brand1', 'brand1')
 				+checkBoxSortItem('Brand2', 'brand2')
 				+checkBoxSortItem('Brand3', 'brand3')
 				+checkBoxSortItem('Brand4', 'brand4')
 			+e.A.apply-btn(href="#") apply
-		+sortItem('Size', 'checkbox-box-js')
+		//-+sortItem('Size', 'checkbox-box-js')
 			+e.radio-items
 				+checkBoxSortItem('50', 'size1')
 				+checkBoxSortItem('49', 'size2')
 				+checkBoxSortItem('48', 'size3')
 				+checkBoxSortItem('47', 'size4')
 			+e.A.apply-btn(href="#") apply
-		+sortItem('Color', 'checkbox-box-js')
+		//-+sortItem('Color', 'checkbox-box-js')
 			+e.radio-items
 				+checkBoxSortItem('blue', 'color1')(style='color: #287EFF')
 				+checkBoxSortItem('red', 'color2')(style='color: #FF4949')
@@ -77,7 +81,7 @@ mixin catalogFilters()
 				+checkBoxSortItem('black', 'color5')(style='color: #000000')
 				+checkBoxSortItem('orange', 'color6')(style='color: #F35321')
 			+e.A.apply-btn(href="#") apply
-		+sortItem('Height', 'checkbox-box-js')
+		//-+sortItem('Height', 'checkbox-box-js')
 			+e.radio-items
 				+checkBoxSortItem('50 cm', 'height1')
 				+checkBoxSortItem('60 cm', 'height2')
@@ -86,7 +90,7 @@ mixin catalogFilters()
 				+checkBoxSortItem('90 cm', 'height5')
 				+checkBoxSortItem('100 cm', 'height6')
 			+e.A.apply-btn(href="#") apply
-		+e.mob-more
+		//-+e.mob-more
 			+e.more-options.more-options-js.d-sm-none
 				+icon('dot3')
 				.txt More options
@@ -101,7 +105,7 @@ mixin sortItem(headerTxt, itemClasses)
 			block
 
 mixin radioSortItem(txt, name, labelClass)
-	+e.LABEL.radio-item(class=labelClass)
+	+b.LABEL.radio-item(class=labelClass)
 		input(type='radio' name=name)&attributes(attributes)
 		.radio-mark.radio-mark-frame
 		.txt=txt
@@ -109,14 +113,14 @@ mixin radioSortItem(txt, name, labelClass)
 
 	//-???? delete
 mixin checkBoxSortItem(txt, name, labelClass)
-	+e.LABEL.radio-item(class=labelClass)
+	+b.LABEL.radio-item(class=labelClass)
 		input(type='checkbox' name=name)
 		.radio-mark.radio-mark-frame&attributes(attributes)
 		.txt=txt
 
 mixin CatleftMenu()
-	+b.left-menu.d-none.d-xl-block
-		+e.block
+	+b.left-menu
+		+e.block.d-none.d-xl-block
 			+leftMenuItem('Sweaters & Hoodies','1145')(class="header-item")
 			+leftMenuItem('Sweaters & Pullovers', '12')
 			+leftMenuItem('Sweatshirts', '34')
@@ -129,13 +133,13 @@ mixin CatleftMenu()
 			+leftMenuItem('Turtlenecks', '44')
 			+leftMenuItem('Pullover', '9')
 			+leftMenuItem('Hoodie', '14')
-		+e.block
+		+e.block.d-none.d-xl-block
 			+leftMenuItem('Underwear', '1145')(class="header-item")
 			+leftMenuItem('Underpants', '12')
 			+leftMenuItem('Boxers', '34')
 			+leftMenuItem('Tops & T-shirts', '22')
 			+leftMenuItem('Socks', '45')
-		+e.block
+		+e.block.d-none.d-xl-block
 			+leftMenuItem('Coats and outerwear', '1145')(class="header-item")
 			+leftMenuItem('Down jackets', '12')
 			+leftMenuItem('Vests', '34')
@@ -150,9 +154,44 @@ mixin CatleftMenu()
 			+leftMenuItem('Coat', '14')
 			+leftMenuItem('Faux fur coat', '12')
 			+leftMenuItem('Anoraki', '8')
+		+sidebarFilter()
 			//-+leftMenuItem('', '')
 
 mixin leftMenuItem(name, val)
 	+e.A.item(href="#")&attributes(attributes)
 		+e.name=name
 		+e.value=val
+
+
+	//-sidebar filter
+mixin sidebarFilter()
+	+b.sb-filters--js
+		+e.mob-header.d-xl-none
+			+b.fiter-btn--black.active
+				span Filter
+				+icon('fliter-mark')
+			+e.close-btn.sb-toggle-js
+				+icon('close')
+		+e.title.d-none.d-xl-block Filter by
+		+sidebarFilterItem('Categories', 'active')
+			+checkBoxSortItem('Sweaters & Pullovers', 'cat1', 'muted')
+			+checkBoxSortItem('Sweatshirts', 'cat2')
+			+checkBoxSortItem('Cardigans', 'cat3')
+		+sidebarFilterItem('Brand')
+			- for (var i = 1; i <= 4; i++)
+				+checkBoxSortItem(`Brand${i}`, `brand${i}`)
+		+sidebarFilterItem('Size')
+			- for (var i = 1; i <= 4; i++)
+				+checkBoxSortItem(`Brand${i}`, `brand${i}`)
+		+sidebarFilterItem('Price', 'active')
+			+range(100, 400)
+mixin sidebarFilterItem(name, acticeClass='')
+	+e.item
+		+e.header.sd-filt-head-js(class=acticeClass)
+			+e.name=name
+		+e.content.sd-filt-content-js(class=acticeClass)
+			block
+
+mixin range(c1, c2)
+	+b.range-wrap.price_slider_amount&attributes(attributes)
+		input.range-slider.slider-js(type='text'  data-min=c1  data-max=c2)

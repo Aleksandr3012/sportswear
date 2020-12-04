@@ -504,13 +504,8 @@ function eventHandler() {
 	});
 
 	//02 toggle pills
-	$('.prod-nav-header-js').click(function () {
-		$(this).toggleClass('active');
-		$(this.parentElement).find('.prod-nav-content-js').slideToggle(function () {
-			$(this).toggleClass('active');
-		});
-	});
 
+	//junk
 	//02 +- btns
 	//
 	/*let ProdAmountInp = document.querySelector('.prod-amount-inp-js');
@@ -736,6 +731,48 @@ function eventHandler() {
 		$('.products-dr-down-js').slideToggle(function () {
 			$(this).toggleClass('active');
 		})
+	});
+
+	//04.12.2020
+
+	//sidebar filters js
+	$('.sd-filt-head-js').click(function (){
+		$(this).toggleClass('active');
+		$(this.parentElement).find('.sd-filt-content-js').slideToggle(function (){
+			$(this).toggleClass('active');
+		});
+	});
+
+	//price rangeSlider
+	$(".range-wrap").each(function (){
+		let _this = $(this);
+		var $range= _this.find(".slider-js");
+
+		$range.ionRangeSlider({
+			type: "double",
+			//grid: true,
+			//min: 100,
+			//max: 389,
+			from: 200,
+			to: 800,
+			postfix: '€',
+			// hide_min_max: true,
+			// hide_from_to: true,
+		});
+	});
+
+	//sidebar mob js
+	$('.sb-toggle-js').click(function (){
+		$('.sb-filters--js').toggleClass('active');
+		$('body').toggleClass('fixed2');
+	});
+
+	//02 custom form
+	$('.cust-head-js').click(function () {
+		$(this).toggleClass('active');
+		$(this.parentElement).find('.cust-content-js').slideToggle(function () {
+			$(this).toggleClass('active');
+		});
 	});
 
 	//end luckyone JS

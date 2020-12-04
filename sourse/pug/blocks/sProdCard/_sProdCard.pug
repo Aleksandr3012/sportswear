@@ -105,21 +105,21 @@ mixin sProdCard()
 								+b.size-select
 									+SizeSelct()
 							+b.toggle-pills-box
-								+togglePillItem('Product castomization','active')
-									+e.add-strip
-										+form-wrap()
-											+e.add-inp-box
-												+e.add-control-btn.minus-btn -
-												+input(class="prod-amount-inp-js", value='999', min="1", max="999")
-												+e.add-control-btn.plus-btn +
-											+e.A.add-btn.fixed-hook-js(href="#") add to cart
-									+b.caution-box
-										+e.caution.danger Last item in stock
-										+e.caution.warning Product available with different options
-									+e.get-video-call
-										+e.get-video-content
-											+icon('video-consult')
-											span Get a video consultation
+								+togglePillItem('Product castomization')
+								+e.add-strip
+									+form-wrap()
+										+e.add-inp-box
+											+e.add-control-btn.minus-btn -
+											+input(class="prod-amount-inp-js", value='999', min="1", max="999")
+											+e.add-control-btn.plus-btn +
+										+e.A.add-btn.fixed-hook-js(href="#") add to cart
+								+b.caution-box
+									+e.caution.danger Last item in stock
+									+e.caution.warning Product available with different options
+								+e.get-video-call
+									+e.get-video-content
+										+icon('video-consult')
+										span Get a video consultation
 								+togglePillSolidItem('Availability')
 									+solidContentSubItem('#1ECBCB')
 										| In stock
@@ -222,13 +222,37 @@ mixin solidContentSubItem(statusColor='red', shopTxt='Shop №1', address='Voron
 		+e.solid-status(style=`color: ${statusColor};`)
 			block
 
-mixin togglePillItem(headlineTxt, keyClass)
-	+e.item-cont
-		+e.header.prod-nav-header-js(class=keyClass)
+mixin togglePillItem(headlineTxt)
+	+b.custom-form
+		+e.header.cust-head-js
 			span=headlineTxt
 			+icon('chevron-down')
-		+e.content.prod-nav-content-js(class=keyClass)
-			block
+		+e.content.cust-content-js
+			+form-wrap
+				+e.sm-title Don't forget to save your customization to be able to add to cart
+				//-1
+				+e.add-file
+					+e.title file Header
+					+b.inp-file
+						label
+							+e.INPUT.input(name='file', type='file')
+							+e.SPAN.filename
+							+e.SPAN.btn
+								+icon('inp-file')
+					+e.info-txt .png .jpg .gif
+				//-
+				+e.input-wrap
+					+e.title text Header
+					+e.INPUT.input.form-control(type="text")
+					+e.info-txt 250 char. max
+				//-
+				+e.input-wrap
+					+e.title text
+					+e.INPUT.input.form-control(type="text")
+					+e.info-txt 250 char. max
+				+e.btn-cont
+					+e.save-btn(type="submit") save
+			//-block
 
 mixin togglePillSolidItem(headlineTxt, keyClass)
 	+e.solid-item-cont

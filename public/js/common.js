@@ -443,20 +443,14 @@ function eventHandler() {
 		minimumResultsForSearch: Infinity,
 		dropdownCssClass: "gray-select-2"
 	}); //02 toggle pills
-
-	$('.prod-nav-header-js').click(function () {
-		$(this).toggleClass('active');
-		$(this.parentElement).find('.prod-nav-content-js').slideToggle(function () {
-			$(this).toggleClass('active');
-		});
-	}); //02 +- btns
+	//junk
+	//02 +- btns
 	//
 
 	/*let ProdAmountInp = document.querySelector('.prod-amount-inp-js');
 	$('.form-wrap__add-control-btn, .add-inp-box__add-control-btn').click(function (){
 		if (!ProdAmountInp) return
-	
-		if (this.classList.contains('minus-btn')){
+			if (this.classList.contains('minus-btn')){
 			if (Number(ProdAmountInp.value) <= 1) return;
 			ProdAmountInp.value = Number(ProdAmountInp.value) - 1;
 		}
@@ -466,13 +460,11 @@ function eventHandler() {
 		}
 	});
 	
-	
 	//blue strip
 	let ProdAmountInpFixed = document.querySelector('.prod-amount-inp-js-fixed');
 	$('.form-wrap__add-control-btn-fixed').click(function (){
 		if (!ProdAmountInpFixed) return
-	
-		if (this.classList.contains('minus-btn')){
+			if (this.classList.contains('minus-btn')){
 			if (Number(ProdAmountInpFixed.value) <= 1) return;
 			ProdAmountInpFixed.value = Number(ProdAmountInpFixed.value) - 1;
 		}
@@ -662,6 +654,44 @@ function eventHandler() {
 	$('.data-table-dd-item-js').click(function () {
 		$(this).toggleClass('active');
 		$('.products-dr-down-js').slideToggle(function () {
+			$(this).toggleClass('active');
+		});
+	}); //04.12.2020
+	//sidebar filters js
+
+	$('.sd-filt-head-js').click(function () {
+		$(this).toggleClass('active');
+		$(this.parentElement).find('.sd-filt-content-js').slideToggle(function () {
+			$(this).toggleClass('active');
+		});
+	}); //price rangeSlider
+
+	$(".range-wrap").each(function () {
+		var _this = $(this);
+
+		var $range = _this.find(".slider-js");
+
+		$range.ionRangeSlider({
+			type: "double",
+			//grid: true,
+			//min: 100,
+			//max: 389,
+			from: 200,
+			to: 800,
+			postfix: '€' // hide_min_max: true,
+			// hide_from_to: true,
+
+		});
+	}); //sidebar mob js
+
+	$('.sb-toggle-js').click(function () {
+		$('.sb-filters--js').toggleClass('active');
+		$('body').toggleClass('fixed2');
+	}); //02 custom form
+
+	$('.cust-head-js').click(function () {
+		$(this).toggleClass('active');
+		$(this.parentElement).find('.cust-content-js').slideToggle(function () {
 			$(this).toggleClass('active');
 		});
 	}); //end luckyone JS
