@@ -625,14 +625,19 @@
 	}
 
 	//from to
-	.irs-from, .irs-to{
-		display: none!important;
+	.irs-from, .irs-to, .irs-single{
+		//display: none!important;
+
+		background-color: $primary;
+		&:before{
+			border-top-color: $primary;
+		}
 	}
 
 	//min, max
 	.irs-min,
 	.irs-max{
-		visibility: visible!important;
+		//visibility: visible!important;
 
 		top: 0px;
 		font-size: 14px;
